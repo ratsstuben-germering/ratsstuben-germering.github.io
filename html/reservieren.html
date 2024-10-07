@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../favicons/favicon-16x16.png">
+
+    <title>Reservation</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/reservieren.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-light">
+    <div class="spaisekarte-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto ">
+        <div class="inner">
+            <h3 class="masthead-brand" style="color:rgba(51, 51, 51, .5);">Ratsstuben <small><small><p>aus Germering</p></small></small></h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link" href="../index.html">Titelseite</a>
+            <a class="nav-link " href="spaisekarte.html">Speisekarte</a>
+            <a class="nav-link active" href="reservieren.html">Reservieren</a>
+          </nav>
+        </div>
+       </header>
+    </div>
+    <div class="container">
+      <div class="py-5 text-center">
+        <!-- <img class="d-block mx-auto mb-4" src="" alt="" width="72" height="72"> -->
+        <!-- <h2>Reservierung</h2> -->
+        <p class="lead">Hier haben Sie die Möglichkeit eine Reservierung* vorzunehmen. Das gibt Ihnen Sicherheit und wir können uns auf Sie freuen.</p>
+      </div>
+
+      <div class="row">
+        
+        <div class="col-md-12 order-md-1">
+          <!-- <h4 class="mb-3">*****</h4> -->
+          
+          
+          
+          <form method="POST" action="https://formsubmit.co/1josip.stojanovic@gmail.com" >
+            
+            <input type="hidden" name="_next" value="../html/hvalaZaRegistraciju.html">
+          
+
+            <div class="mb-3">
+              <label for="address">Vollständiger Name</label>
+              <input type="text" name="name" class="form-control" id="ZadnjiIzaZadnjegDodanog" placeholder="Ihr Name" required>
+              <div class="invalid-feedback">
+                Please enter your full name
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="address">Telefon</label>
+              <input type="tel"  name="telefon" class="form-control" id="zadnjeDodani" placeholder="+49 **** **** ***" required>
+              <div class="invalid-feedback">
+                Please enter working and available phone number
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="email">Email <span class="text-muted">(Optional)</span></label>
+              <input type="email" name="email" class="form-control" id="email" placeholder="ihre@email-adresse.com">
+              <div class="invalid-feedback">
+                Please enter a valid email address for
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="firstName">Datum</label>
+                <input type="date" name="date" class="form-control" id="firstName" placeholder="" value="" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="lastName">Zeit</label>
+                <input type="time" name="time" class="form-control" id="lastName" placeholder="" value="" required>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="email">Personenanzahl * <span class="text-muted"></span></label>
+              <input type="number" name="n_guests" class="form-control" id="xd" placeholder="">
+              <div class="invalid-feedback">
+                Please enter a valid email address for shipping updates.
+              </div>
+            </div>
+
+            <hr class="mb-4">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" name="outside-area" class="custom-control-input" id="4">
+              <label class="custom-control-label" for="4"> Reservierung für Außenbereich </label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" name="Kinderstuhl" class="custom-control-input" id="3">
+              <label class="custom-control-label" for="3"> Kinderstuhl </label>
+            </div>  
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" name="Roolstuhl" class="custom-control-input" id="2">
+              <label class="custom-control-label" for="2"> Roolstuhl </label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" name="Hund" class="custom-control-input" id="1">
+              <label class="custom-control-label" for="1"> Hund </label>
+            </div>
+
+            <hr class="mb-4">
+
+            <div class="mb-3">
+              <label for="email">Weitere Informationen </label>
+              <input type="text" name="extra" class="form-control" id="12" placeholder="Ihre Notiz kommt hierher">
+              <div class="invalid-feedback">
+                Please enter a valid email address for shipping updates.
+              </div>
+            </div>
+
+
+            <hr class="mb-4">
+           
+          
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Eine Reservierung machen</button>
+          </form>
+        </div>
+      </div>
+
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy;  Ratsstuben Germering</p>
+        <!-- <ul class="list-inline">
+          <li class="list-inline-item"><a href="index.html">Titelseite</a></li>
+          <li class="list-inline-item"><a href="spaisekarte.html">Speisekarte</a></li>
+          
+        </ul> -->
+      </footer>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <script src="../../../../assets/js/vendor/holder.min.js"></script>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
+  </body>
+</html>
