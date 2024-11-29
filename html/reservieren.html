@@ -43,14 +43,14 @@
           
           
           
-          <form method="POST" action="https://formsubmit.co/2e98ff131532436378ff00032aac7c83" >
+          <form method="POST" action="php/makeReservation.php" >
             
             <input type="hidden" name="_next" value="Die_Reservierung_ist_bestatigt.html">
           
 
             <div class="mb-3">
               <label for="address">Vollständiger Name</label>
-              <input type="text" name="name" class="form-control" id="ZadnjiIzaZadnjegDodanog" placeholder="Ihr Name" required>
+              <input type="text" name="name" class="form-control" id="name" placeholder="Ihr Name" required>
               <div class="invalid-feedback">
                 Please enter your full name
               </div>
@@ -58,7 +58,7 @@
 
             <div class="mb-3">
               <label for="address">Telefon</label>
-              <input type="tel"  name="telefon" class="form-control" id="zadnjeDodani" placeholder="+49 **** **** ***" required>
+              <input type="tel"  name="telefon" class="form-control" id="telefon" placeholder="+49 **** **** ***" required>
               <div class="invalid-feedback">
                 Please enter working and available phone number
               </div>
@@ -75,37 +75,37 @@
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="firstName">Datum</label>
-                <input type="date" name="date" class="form-control" id="firstName" placeholder="" value="" required>
+                <input type="date" name="date" class="form-control" id="date" placeholder="" value="" required>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="lastName">Zeit</label>
-                <input type="time" name="time" class="form-control" id="lastName" placeholder="" value="" required>
+                <input type="time" name="time" class="form-control" id="time" placeholder="" value="" required>
               </div>
             </div>
 
             <div class="mb-3">
               <label for="email">Personenanzahl * <span class="text-muted"></span></label>
-              <input type="number" name="n_guests" class="form-control" id="xd" placeholder="">
+              <input type="number" name="n_guests" class="form-control" id="n_guests" placeholder="">
               <div class="invalid-feedback">
-                Please enter a valid email address for shipping updates.
+                Please enter a valid email address.
               </div>
             </div>
 
             <hr class="mb-4">
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" name="outside-area" class="custom-control-input" id="4">
+              <input type="checkbox" name="outside-area" class="custom-control-input" id="outside-area4">
               <label class="custom-control-label" for="4"> Reservierung für Außenbereich </label>
             </div>
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" name="Kinderstuhl" class="custom-control-input" id="3">
+              <input type="checkbox" name="Kinderstuhl" class="custom-control-input" id="Kinderstuhl">
               <label class="custom-control-label" for="3"> Kinderstuhl </label>
             </div>  
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" name="Roolstuhl" class="custom-control-input" id="2">
+              <input type="checkbox" name="Roolstuhl" class="custom-control-input" id="Roolstuhl2">
               <label class="custom-control-label" for="2"> Roolstuhl </label>
             </div>
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" name="Hund" class="custom-control-input" id="1">
+              <input type="checkbox" name="Hund" class="custom-control-input" id="Hund">
               <label class="custom-control-label" for="1"> Hund </label>
             </div>
 
@@ -113,9 +113,9 @@
 
             <div class="mb-3">
               <label for="email">Weitere Informationen </label>
-              <input type="text" name="extra" class="form-control" id="12" placeholder="Ihre Notiz kommt hierher">
+              <input type="text" name="extra" class="form-control" id="extra" placeholder="Ihre Notiz kommt hierher">
               <div class="invalid-feedback">
-                Please enter a valid email address for shipping updates.
+                Please enter a valid informations.
               </div>
             </div>
 
