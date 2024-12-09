@@ -39,9 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Send email
     if (mail($to, $subject, $message, $headers)) {
         // Redirect to confirmation page
-        echo "Die_Reservierung_ist_bestatigt";
-        //header('Location: ../Die_Reservierung_ist_bestatigt.html');
-        //exit;
+        header('Location: ../Die_Reservierung_ist_bestatigt.html');
+        exit;
     } else {
         echo "There was an error sending your reservation request. Please try again.";
     }
