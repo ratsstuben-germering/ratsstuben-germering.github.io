@@ -1,0 +1,9 @@
+{
+    "type": "New",
+    "reservation": {
+      "name": "John Doe",
+      "date": "2024-12-17",
+      "time": "18:30"
+    }
+  }
+  
