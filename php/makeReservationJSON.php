@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ];
 
     // File to store the reservations
-    $file = 'new_reservations.json';
+    $file = '/new_reservations.json';
 
     // Check if the file exists, read the content, and decode the JSON
     if (file_exists($file)) {
