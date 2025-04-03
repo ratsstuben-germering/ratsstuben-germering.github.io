@@ -13,12 +13,12 @@ rm -rf /srv/www/ratsstuben-germering.de/*
 
 git clone https://github.com/ratsstuben-germering/ratsstuben-germering.github.io /srv/www/ratsstuben-germering.de/
 
+mv /srv/www/ratsstuben-germering.de/.deployment_scripts/deployWebApp.sh /root/
 
-# 	Ucini da se makereservationJSON.php izvrsi ispravno	
-# 	Potrebno naknadno istraziti koje su minimalne permisije za izvrsavanje
+chown -R www-data:www-data /srv/www/ratsstuben-germering.de/
 
-chmod 664 /var/www/html/approved_reservations.json /var/www/html/rejected_reservations.json /var/www/html/new_reservations.json
-chown www-data:www-data /var/www/html/approved_reservations.json /var/www/html/rejected_reservations.json /var/www/html/new_reservations.json
+chown www-data:www-data /root/GojinUnuk/send_msg_argv.py
 
 systemctl start nginx
+
 echo "Deployed new ratsstuben-germering.de web files"  
