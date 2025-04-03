@@ -37,7 +37,7 @@
 
     $jsonData = json_encode($data);
     $escapedData = escapeshellarg($jsonData);
-    $command = "/root/GojinUnuk/send_msg_argv.py {$escapedData} 2>&1";
+    $command = "/srv/www/ratsstuben-germering.de/GojinUnuk/send_msg_argv.py {$escapedData} 2>&1";
     $output = shell_exec($command);
     if (trim($output) === '') {
         echo "Command ran successfully (no output)";
