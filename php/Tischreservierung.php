@@ -1,7 +1,7 @@
 <?php
     $api_key = getenv('TELEGRAM_BOT_TOKEN');
     $chat_id = getenv('CHAT_ID');
-    echo "{$api_key}OVO{$chat_id}";
+    
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     session_start();
     $_SESSION['reservation'] = [
@@ -38,20 +38,21 @@
     //     unset($_SESSION['reservation']);
     // }
 
-    // $jsonData = json_encode($data);
-    // $escapedData = escapeshellarg($jsonData);
-    // $command = "/srv/www/ratsstuben-germering.de/GojinUnuk/send_msg_argv.py {$escapedData} {$api_key} {$chat_id} 2>&1";
-    // $output = shell_exec($command);
-    // if (trim($output) === '') {
-    //     echo "Command ran successfully (no output)";
-    // } else {
-    //     echo "Command produced output/error:";
-    //     echo "<pre>" . htmlspecialchars($output) . "</pre>";
-    // }
+    $jsonData = json_encode($data);
+    $escapedData = escapeshellarg($jsonData);
+    $command = "/srv/www/ratsstuben-germering.de/GojinUnuk/send_msg_argv.py {$escapedData} {$api_key} {$chat_id} 2>&1";
+    $output = shell_exec($command);
+    if (trim($output) === '') {
+        header('Location: ./Die_Reservierung_ist_bestatigt.php');
+        exit;
+    } else {
+        echo "1<br>Es ist ein Fehler aufgetreten.<br>Bitte reservieren Sie telefonisch:<br> <a href='tel:+4989847989'>+49 89 847989</a>";
+        unset($_SESSION['reservation']);
+    }
 
 }
 else {
-    echo "0-Es ist ein Fehler aufgetreten.<br>Bitte reservieren Sie telefonisch:<br> <a href='tel:+4989847989'>+49 89 847989</a>";
+    echo "0<br>Es ist ein Fehler aufgetreten.<br>Bitte reservieren Sie telefonisch:<br> <a href='tel:+4989847989'>+49 89 847989</a>";
 }
 
 ?>
