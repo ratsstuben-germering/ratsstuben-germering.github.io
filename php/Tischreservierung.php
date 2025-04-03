@@ -1,5 +1,5 @@
 <?php
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     session_start();
     $_SESSION['reservation'] = [
         'nastanak_rezervacije' => date('H-i d-m-Y'),
