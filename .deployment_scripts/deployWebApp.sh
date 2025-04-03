@@ -9,7 +9,7 @@
 
 systemctl stop nginx
 	
-rm -rf /srv/www/ratsstuben-germering.de/* 
+rm -rf /srv/www/ratsstuben-germering.de 
 
 git clone https://github.com/ratsstuben-germering/ratsstuben-germering.github.io /srv/www/ratsstuben-germering.de/
 
