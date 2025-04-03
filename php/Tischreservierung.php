@@ -1,6 +1,7 @@
 <?php
     $api_key = getenv('TELEGRAM_BOT_TOKEN');
     $chat_id = getenv('CHAT_ID');
+    
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     session_start();
     $_SESSION['reservation'] = [
