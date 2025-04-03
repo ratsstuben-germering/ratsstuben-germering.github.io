@@ -15,9 +15,9 @@ mkdir /srv/www/ratsstuben-germering.de
 git clone https://github.com/ratsstuben-germering/ratsstuben-germering.github.io /srv/www/ratsstuben-germering.de/
 
 cp /srv/www/ratsstuben-germering.de/.deployment_scripts/deployWebApp.sh /root/Scripts/deployWebApp.sh
+cp -r /root/GojinUnuk /srv/www/ratsstuben-germering.de/GojinUnuk
 
 chown -R www-data:www-data /srv/www/ratsstuben-germering.de/
-
 chown www-data:www-data /root/GojinUnuk/send_msg_argv.py
 
 systemctl start nginx
