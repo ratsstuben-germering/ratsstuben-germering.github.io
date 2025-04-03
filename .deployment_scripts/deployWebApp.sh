@@ -9,9 +9,9 @@
 
 systemctl stop nginx
 	
-rm -rf /var/www/html 
+rm -rf /srv/www/ratsstuben-germering.de/* 
 
-git clone https://github.com/ratsstuben-germering/ratsstuben-germering.github.io /var/www/html/
+git clone https://github.com/ratsstuben-germering/ratsstuben-germering.github.io /srv/www/ratsstuben-germering.de/
 
 
 # 	Ucini da se makereservationJSON.php izvrsi ispravno	
@@ -20,4 +20,5 @@ git clone https://github.com/ratsstuben-germering/ratsstuben-germering.github.io
 chmod 664 /var/www/html/approved_reservations.json /var/www/html/rejected_reservations.json /var/www/html/new_reservations.json
 chown www-data:www-data /var/www/html/approved_reservations.json /var/www/html/rejected_reservations.json /var/www/html/new_reservations.json
 
-systemctl start nginx 
+systemctl start nginx
+echo "Deployed new ratsstuben-germering.de web files"  
