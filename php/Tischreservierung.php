@@ -5,7 +5,7 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     session_start();
     $_SESSION['reservation'] = [
-        'nastanak_rezervacije' => date('H-i d-m-Y'),
+        'zanemari!' => date('H:i d-m-Y'),
         'ime_prezime' => htmlspecialchars($_POST['name'] ?? ''),
         'telefon' => htmlspecialchars($_POST['telefon'] ?? ''),
         'email' => filter_var($_POST['email'], FILTER_SANITIZE_EMAIL) ?? '',
