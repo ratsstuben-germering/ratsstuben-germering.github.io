@@ -21,7 +21,7 @@ if (isset($_SESSION['reservation'])) {
     
     unset($_SESSION['reservation']);
 } else {
-    echo "Err3<br>Es ist ein Fehler aufgetreten.<br>Bitte reservieren Sie telefonisch:<br> <a href='tel:+4989847989'>+49 89 847989</a>";
+    echo "Err3<br>Es ist ein Fehler aufgetreten.<br>Dieser tritt auf, wenn der Benutzer direkt <br>auf diese Seite navigiert(Startseite überspringt) oder wenn die Seitenach dem Absenden<br> und Anzeigen der Reservierung aktualisiert wird.<br>Dies hat jedoch keinen Einfluss<br>auf die bereits getätigte Reservierung.<br>Telefonische Reservierungen sind Dienstag bis Sonntag<br>von 11:30 bis 22:00 Uhr möglich.<br> <a href='tel:+4989847989'>+49 89 847989</a><br><br><a href='/index.html'>Zurück zur Startseite.</a>";
     unset($_SESSION['reservation']);
 }
 ?>
