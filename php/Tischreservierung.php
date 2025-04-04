@@ -52,7 +52,7 @@
 
 }
 else {
-    echo "Err0<br>Es ist ein Fehler aufgetreten.<br>Bitte reservieren Sie telefonisch:<br> <a href='tel:+4989847989'>+49 89 847989</a>";
+    echo "Err0<br>Es ist ein Fehler aufgetreten.<br> Dieser kann auftreten,<br> wenn die Seite nach dem Absenden und <br>Anzeigen der Reservierung aktualisiert wird. <br>Die Reservierung wird dadurch nicht beeinträchtigt.<br> Telefonische Reservierungen sind <br>Dienstag bis Sonntag von 11:30 bis 22:00 Uhr möglich:<br> <a href='tel:+4989847989'>+49 89 847989</a>";
 }
 
 ?>
