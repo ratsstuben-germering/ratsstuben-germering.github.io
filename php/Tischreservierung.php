@@ -7,11 +7,11 @@
     $_SESSION['reservation'] = [
         'zanemari!' => date('H:i d-m-Y'),
         'ime_prezime' => htmlspecialchars($_POST['name'] ?? ''),
-        'telefon' => htmlspecialchars($_POST['telefon'] ?? ''),
-        'email' => filter_var($_POST['email'], FILTER_SANITIZE_EMAIL) ?? '',
         'datum' => htmlspecialchars($_POST['date'] ?? ''),
         'vrijeme' => htmlspecialchars($_POST['time'] ?? ''),
         'broj_gostiju' => (int) ($_POST['n_guests'] ?? 0),
+        'telefon' => htmlspecialchars($_POST['telefon'] ?? ''),
+        'email' => filter_var($_POST['email'], FILTER_SANITIZE_EMAIL) ?? '',
         'napolju' => isset($_POST['outside-area']),
         'Kinderstuhl' => isset($_POST['Kinderstuhl']),
         'Roolstuhl' => isset($_POST['Roolstuhl']),
@@ -46,13 +46,13 @@
         header('Location: ./Die_Reservierung_ist_bestatigt.php');
         exit;
     } else {
-        echo "1<br>Es ist ein Fehler aufgetreten.<br>Bitte reservieren Sie telefonisch:<br> <a href='tel:+4989847989'>+49 89 847989</a>";
+        echo "Err1<br>Es ist ein Fehler aufgetreten.<br>Bitte reservieren Sie telefonisch:<br> <a href='tel:+4989847989'>+49 89 847989</a>";
         unset($_SESSION['reservation']);
     }
 
 }
 else {
-    echo "0<br>Es ist ein Fehler aufgetreten.<br>Bitte reservieren Sie telefonisch:<br> <a href='tel:+4989847989'>+49 89 847989</a>";
+    echo "Err0<br>Es ist ein Fehler aufgetreten.<br>Bitte reservieren Sie telefonisch:<br> <a href='tel:+4989847989'>+49 89 847989</a>";
 }
 
 ?>
