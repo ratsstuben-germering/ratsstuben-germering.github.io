@@ -3,6 +3,7 @@ session_start();
 
 if (isset($_SESSION['reservation'])) {
     $reservation = $_SESSION['reservation'];
+    echo"<h3>Reservierung wurde erfasst und <br>an das Restaurant gesendet.</h3><br><br>";
     echo "<p>Im Falle einer Stornierung der Reservierung werden Sie kontaktiert.<br> Bitte hinterlassen Sie korrekte Informationen.</p>";
     echo "<h2>Reservierungsbestätigung</h2>";
     echo "<p><strong>Vorname und Nachname:</strong> " . $reservation['ime_prezime'] . "</p>";
