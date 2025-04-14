@@ -24,12 +24,10 @@
         $chat_id = getenv('CHAT_ID');
 
         $jsonData = json_encode($data);
-        $escapedData = escapeshellarg($jsonData);
-        #$command = "/srv/www/ratsstuben-germering.de/GojinUnuk/send_msg_argv.py {$escapedData} {$api_key} {$chat_id} 2>&1";
-        #$output = shell_exec($command);
+        #$escapedData = escapeshellarg($jsonData);
         
         $process = proc_open(
-            '/srv/www/ratsstuben-germering.de/GojinUnuk/send_msg_argv.py {$api_key} {$chat_id}',
+            "/srv/www/ratsstuben-germering.de/GojinUnuk/send_msg_argv.py {$api_key} {$chat_id}",
             [
                 0 => ['pipe', 'r'], // stdin
                 1 => ['pipe', 'w'], // stdout
@@ -40,7 +38,7 @@
         
         if (is_resource($process)) {
             if (isset($pipes[0])) {
-                fwrite($pipes[0], $escapedData);
+                fwrite($pipes[0], $jsonData);
                 fclose($pipes[0]);
             }
             $output = isset($pipes[1]) ? stream_get_contents($pipes[1]) : '';
