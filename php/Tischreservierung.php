@@ -60,8 +60,8 @@
         } else {
             echo $output; 
             echo $error;
-            #echo "Err1<br>Es ist ein Fehler aufgetreten.<br>Bitte reservieren Sie telefonisch:<br> <a href='tel:+4989847989'>+49 89 847989</a>";
-            #unset($_SESSION['reservation']);
+            echo "Err1<br>Es ist ein Fehler aufgetreten.<br>Bitte reservieren Sie telefonisch:<br> <a href='tel:+4989847989'>+49 89 847989</a>";
+            unset($_SESSION['reservation']);
         }
     }
 else {
