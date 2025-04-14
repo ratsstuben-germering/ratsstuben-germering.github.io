@@ -20,8 +20,8 @@
         
         $data[] = $reservation;
 
-        #$api_key = getenv('TELEGRAM_BOT_TOKEN');
-        #$chat_id = getenv('CHAT_ID');
+        $api_key = getenv('TELEGRAM_BOT_TOKEN');
+        $chat_id = getenv('CHAT_ID');
 
         $jsonData = json_encode($data);
         $escapedData = escapeshellarg($jsonData);
@@ -29,7 +29,7 @@
         #$output = shell_exec($command);
         
         $process = proc_open(
-            '/srv/www/ratsstuben-germering.de/GojinUnuk/send_msg_argv.py',
+            '/srv/www/ratsstuben-germering.de/GojinUnuk/send_msg_argv.py {$api_key} {$chat_id}',
             [
                 0 => ['pipe', 'r'], // stdin
                 1 => ['pipe', 'w'], // stdout
@@ -58,8 +58,8 @@
             header('Location: ./Die_Reservierung_ist_bestatigt.php');
             exit;
         } else {
-            #echo $output; 
-            #echo $error;
+            echo $output; 
+            echo $error;
             echo "Err1<br>Es ist ein Fehler aufgetreten.<br>Bitte reservieren Sie telefonisch:<br> <a href='tel:+4989847989'>+49 89 847989</a>";
             unset($_SESSION['reservation']);
         }
