@@ -62,7 +62,7 @@ body {
   height: 100%;
   background-color: rgb(51, 51, 51);
 
-  background-image: url('../imgs/Startna.jpg');
+  background-image: url('../imgs/T_1366x1025.png');
   background-size: cover; /* This property ensures the background image covers the entire body */
   background-repeat: no-repeat; /* Prevents the background image from repeating */
   background-position: center; /* Centers the background image */
