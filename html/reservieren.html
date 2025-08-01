@@ -156,8 +156,9 @@ Falls wir eine aktive Reservierung stornieren müssen, kontaktieren wir Sie.<br>
     </div>
  
 
+<!-- MRTVI KOLACIC -->
 
-  <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #222; color: #fff; padding: 1rem; text-align: center; z-index: 9999;">
+<div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #222; color: #fff; padding: 1rem; text-align: center; z-index: 9999;">
     Diese Seite verwendet technisch notwendige Cookies (für Reservierungen). Wir sammeln keine Daten für Marketingzwecke.
     <button id="cookie-ok" style="margin-left: 1rem; padding: 0.5rem 1rem;">Ich erkenne an</button>
 </div>
@@ -177,13 +178,13 @@ Falls wir eine aktive Reservierung stornieren müssen, kontaktieren wir Sie.<br>
     if (!getCookie('cookieInfoShown')) {
         document.getElementById('cookie-banner').style.display = 'block';
     }
+    else {document.getElementById('cookie-banner').style.display = 'none';}
 
     document.getElementById('cookie-ok').addEventListener('click', function () {
         setCookie('cookieInfoShown', 'true', 365);
         document.getElementById('cookie-banner').style.display = 'none';
     });
 </script>
-
 
 
   </body>
