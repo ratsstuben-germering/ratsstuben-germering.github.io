@@ -36,7 +36,7 @@
       <div class="py-5 text-center">
 
         <p class="">
-<h1> Datenschutz­erklärung</h1>
+<h1> Datenschutzerklärung</h1>
 <br>
 <h3>1. Allgemeine Hinweise</h3>
 <br>
@@ -76,16 +76,10 @@
 <br>
 <br>Unsere Website verwendet ausschließlich technisch notwendige Cookies. Dabei handelt es sich um sogenannte Session-Cookies (z. B. `PHPSESSID`), die erforderlich sind, um die Funktionalität der Reservierungsfunktion bereitzustellen. Diese Cookies speichern keine personenbezogenen Daten und werden automatisch gelöscht, sobald Sie die Sitzung beenden oder Ihren Browser schließen.
 <br>Wir verwenden keine Cookies für Tracking, Analyse oder Marketingzwecke. Eine Einwilligung für die Verwendung dieser technisch erforderlichen Cookies ist gemäß § 25 Abs. 2 TTDSG nicht erforderlich.
-<br>
+<br>Darüber hinaus speichern wir ein rein funktionales Cookie, um zu erkennen, ob Sie dem Hinweis zur Cookie-Verwendung bereits zugestimmt haben. Dieses Cookie speichert keine personenbezogenen Daten und dient ausschließlich der Benutzerfreundlichkeit.
 <br>---
 <br>
-<!-- <h3>5. Social Media Links (Facebook, Instagram, WhatsApp)</h3>  
-<br>
-<br>Unsere Website enthält Links zu unseren Profilen auf sozialen Netzwerken (Facebook, Instagram, WhatsApp). Diese Links stellen keine automatische Datenübertragung dar. Erst durch das aktive Anklicken dieser Links werden Sie auf die jeweilige Plattform weitergeleitet.  
-<br>
-<br>Bitte beachten Sie, dass beim Besuch dieser externen Seiten deren eigene Datenschutzrichtlinien gelten.
-<br>
-<br>--- -->
+
 <br>
 <h3>6. Ihre Rechte</h3>
 <br>
@@ -98,7 +92,7 @@
 <br>- Widerspruch gegen die Verarbeitung  
 <br>- Datenübertragbarkeit
 <br>
-<br>Wenn Sie glauben, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht verstößt, können Sie sich bei einer Aufsichtsbehörde beschweren.
+<br>Sie können sich bei einer Aufsichtsbehörde beschweren. Zuständig ist z. B. das Bayerische Landesamt für Datenschutzaufsicht (BayLDA), Promenade 18, 91522 Ansbach.
 <br>
 <br>---
 <br>
@@ -130,21 +124,37 @@
         </ul> -->
         <a href="datenschutz.html">Datenschutz</a><span> | </span><a href="impressum.html">Impressum</a>
       </footer>
-    <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #222; color: #fff; padding: 1rem; text-align: center; z-index: 9999;">
+
+      
+
+
+  <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #222; color: #fff; padding: 1rem; text-align: center; z-index: 9999;">
     Diese Seite verwendet technisch notwendige Cookies (für Reservierungen). Wir sammeln keine Daten für Marketingzwecke.
     <button id="cookie-ok" style="margin-left: 1rem; padding: 0.5rem 1rem;">Ich erkenne an</button>
 </div>
 
 <script>
-    if (!document.cookie.includes('cookieInfoShown=true')) {
+    function setCookie(name, value, days) {
+        const expires = new Date(Date.now() + days * 864e5).toUTCString();
+        document.cookie = name + '=' + encodeURIComponent(value) +
+            '; expires=' + expires +
+            '; path=/; SameSite=Lax';
+    }
+
+    function getCookie(name) {
+        return document.cookie.split('; ').some(row => row.startsWith(name + '='));
+    }
+
+    if (!getCookie('cookieInfoShown')) {
         document.getElementById('cookie-banner').style.display = 'block';
     }
 
     document.getElementById('cookie-ok').addEventListener('click', function () {
-        document.cookie = "cookieInfoShown=true; path=/; max-age=" + 60*60*24*365;
+        setCookie('cookieInfoShown', 'true', 365);
         document.getElementById('cookie-banner').style.display = 'none';
     });
 </script>
+
 
   </body>
 </html>

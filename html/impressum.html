@@ -74,21 +74,36 @@
         </ul> -->
         <a href="datenschutz.html">Datenschutz</a><span> | </span><a href="impressum.html">Impressum</a>
       </footer>
-    <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #222; color: #fff; padding: 1rem; text-align: center; z-index: 9999;">
+
+      
+
+  <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #222; color: #fff; padding: 1rem; text-align: center; z-index: 9999;">
     Diese Seite verwendet technisch notwendige Cookies (für Reservierungen). Wir sammeln keine Daten für Marketingzwecke.
     <button id="cookie-ok" style="margin-left: 1rem; padding: 0.5rem 1rem;">Ich erkenne an</button>
 </div>
 
 <script>
-    if (!document.cookie.includes('cookieInfoShown=true')) {
+    function setCookie(name, value, days) {
+        const expires = new Date(Date.now() + days * 864e5).toUTCString();
+        document.cookie = name + '=' + encodeURIComponent(value) +
+            '; expires=' + expires +
+            '; path=/; SameSite=Lax';
+    }
+
+    function getCookie(name) {
+        return document.cookie.split('; ').some(row => row.startsWith(name + '='));
+    }
+
+    if (!getCookie('cookieInfoShown')) {
         document.getElementById('cookie-banner').style.display = 'block';
     }
 
     document.getElementById('cookie-ok').addEventListener('click', function () {
-        document.cookie = "cookieInfoShown=true; path=/; max-age=" + 60*60*24*365;
+        setCookie('cookieInfoShown', 'true', 365);
         document.getElementById('cookie-banner').style.display = 'none';
     });
 </script>
+
 
   </body>
 </html>
