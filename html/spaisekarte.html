@@ -14,6 +14,9 @@
 
     <!-- Custom styles for this template -->
     <link href="../css/spaisekarte.css" rel="stylesheet">
+
+
+
     
   </head>
 
@@ -78,23 +81,25 @@
         
         
       </div>
+      <a href="datenschutz.html">Datenschutz</a><span> | </span><a href="impressum.html">Impressum</a>
     </footer>
 
 
-    <script src="../js/spaisekarte.js"></script>
+    <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #222; color: #fff; padding: 1rem; text-align: center; z-index: 9999;">
+    Diese Seite verwendet technisch notwendige Cookies (für Reservierungen). Wir sammeln keine Daten für Marketingzwecke.
+    <button id="cookie-ok" style="margin-left: 1rem; padding: 0.5rem 1rem;">Ich erkenne an</button>
+</div>
 
+<script>
+    if (!document.cookie.includes('cookieInfoShown=true')) {
+        document.getElementById('cookie-banner').style.display = 'block';
+    }
 
-
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../../../dist/js/bootstrap.min.js"></script>
-    <script src="../../../../assets/js/vendor/holder.min.js"></script> -->
+    document.getElementById('cookie-ok').addEventListener('click', function () {
+        document.cookie = "cookieInfoShown=true; path=/; max-age=" + 60*60*24*365;
+        document.getElementById('cookie-banner').style.display = 'none';
+    });
+</script>
   
 
   </body>

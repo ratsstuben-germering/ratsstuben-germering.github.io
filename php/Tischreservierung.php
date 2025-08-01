@@ -1,9 +1,16 @@
-<?php   
+<?php
+    
     if (!empty($_POST['address'])) {
         die('Spam detected');
     }
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         session_start();
+//         if (!isset($_COOKIE['PHPSESSID'])) {
+//     http_response_code(403);
+//     echo "<h2>Reservierungen sind ohne die Annahme von Cookies nicht möglich.</h2><br>
+// <p>Wir verwenden Cookies, um die Reservierungsfunktion zu ermöglichen.<br> Ohne diese sind Reservierungen nicht möglich.</p>";
+//     exit;
+// }
         $_SESSION['reservation'] = [
             'zanemari!' => date('H:i d-m-Y'),
             'ime_prezime' => htmlspecialchars($_POST['name'] ?? ''),
