@@ -55,7 +55,7 @@
             $error = 'Failed to start process';
             $return_value = -1;
         }      
-        header('Location: ./Die_Reservierung_ist_bestatigt.php');
+        
         if (trim($output) === '' && trim($error) === '') {
             header('Location: ./Die_Reservierung_ist_bestatigt.php');
             exit;
