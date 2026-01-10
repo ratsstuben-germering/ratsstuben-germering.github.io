@@ -60,9 +60,9 @@
             header('Location: ./Die_Reservierung_ist_bestatigt.php');
             exit;
         } else {
-            echo "Err1<br>Es ist ein Fehler aufgetreten.<br>Bitte reservieren Sie telefonisch:<br> <a href='tel:+4989847989'>+49 89 847989</a>";
-            echo $output;
-            echo $error;
+            echo "Err1<br>Es ist ein Fehler aufgetreten.<br>Bitte reservieren Sie telefonisch<br><a href='tel:+4989847989'>+49 89 847989</a><br>oder per E-Mail an <a href='mailto:ratsstuben.germering@gmail.com'>ratsstuben.germering@gmail.com</a>.<br><br>Falls Sie sich großzügig fühlen, freuen wir uns über eine kurze Fehlermeldung per E-Mail an <a href='mailto:josip@stojanovic.top'>josip@stojanovic.top</a>";
+            #echo $output;
+            #echo $error;
             unset($_SESSION['reservation']);
         }
     }
