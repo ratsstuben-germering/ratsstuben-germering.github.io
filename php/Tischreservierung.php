@@ -70,8 +70,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $chat_id = getenv('CHAT_ID');
 
         $jsonData = json_encode($data);
-        #$escapedData = escapeshellarg($jsonData);
-        
+
+        // Debug: Check if env vars are set
+        if (empty($api_key) || empty($chat_id)) {
+            logError('Telegram credentials not configured', [
+                'has_api_key' => !empty($api_key),
+                'has_chat_id' => !empty($chat_id)
+            ]);
+            http_response_code(500);
+            die(getSafeErrorMessage() . '<br><small>(Debug: Server configuration error)</small>');
+        }
+
         $process = proc_open(
             "/srv/www/ratsstuben-germering.de/GojinUnuk/send_msg_argv.py {$api_key} {$chat_id}",
             [
