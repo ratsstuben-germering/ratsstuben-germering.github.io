@@ -304,7 +304,7 @@ if ($hasReservation) {
         </div>
 
         <div class="contact-box">
-          <p>Falls wir Ihre Reservierung stornieren müssen, kontaktieren wir Sie unter der angegebenen Telefonnummer.</p>
+          <p>Falls wir Ihre Reservierung stornieren müssen, kontaktieren wir Sie unter den angegebenen Kontaktdaten. Bitte achten Sie auf korrekte Angaben.</p>
         </div>
 
         <div class="text-center mt-4">
