@@ -4,10 +4,21 @@
  * Handles table reservation requests with security validation
  */
 
+// Debug: Check if security.php exists
+if (!file_exists(__DIR__ . '/security.php')) {
+    error_log("DEBUG: security.php NOT FOUND at " . __DIR__ . '/security.php');
+    die("Error: security.php missing. Please re-deploy.");
+}
+
 require_once __DIR__ . '/security.php';
 
 // Set security headers
-setSecurityHeaders();
+try {
+    setSecurityHeaders();
+} catch (Exception $e) {
+    error_log("DEBUG: setSecurityHeaders failed: " . $e->getMessage());
+    die("Error: Security headers failed.");
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validate CSRF token
