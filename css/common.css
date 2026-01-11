@@ -45,7 +45,7 @@
 
 html {
   /* height: 100%;  Removed to allow flexbox min-vh-100 to work correctly without conflict */
-  overflow-y: scroll;
+  overflow-y: scroll !important;
 }
 
 body {
