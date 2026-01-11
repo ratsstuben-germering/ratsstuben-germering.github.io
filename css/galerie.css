@@ -93,12 +93,31 @@
    ============================================ */
 
 .reservation-cta {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../imgs/T_hero.webp');
-  background-size: cover;
-  background-position: center;
+  position: relative;
   border: none;
   width: 100%;
   border-radius: 1.25rem !important;
+  overflow: hidden;
+}
+
+.reservation-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../imgs/T_hero.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.reservation-cta > * {
+  position: relative;
+  z-index: 1;
 }
 
 .reservation-cta h3 {
