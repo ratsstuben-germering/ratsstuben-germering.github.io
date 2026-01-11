@@ -4,10 +4,12 @@
  * Handles table reservation requests with security validation
  */
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 // Debug: Check if security.php exists
 if (!file_exists(__DIR__ . '/security.php')) {
-    error_log("DEBUG: security.php NOT FOUND at " . __DIR__ . '/security.php');
-    die("Error: security.php missing. Please re-deploy.");
+    die("Error: security.php missing at " . __DIR__ . '/security.php');
 }
 
 require_once __DIR__ . '/security.php';
