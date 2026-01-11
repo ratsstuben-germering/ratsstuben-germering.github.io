@@ -9,18 +9,23 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
 
-    <title>Impressum - Ratsstuben Germering</title>
+    <title>Speisekarte</title>
 
-    <!-- Bootstrap core CSS -->
+
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Common styles -->
     <link href="../css/common.css" rel="stylesheet">
-    <link href="../css/legal.css" rel="stylesheet">
+
+    <!-- Page-specific styles -->
+    <link href="../css/speisekarte.css" rel="stylesheet">
+
+
+
 
   </head>
 
-  <body class="bg-light d-flex flex-column min-vh-100">
+<body class="bg-light d-flex flex-column min-vh-100">
     <header class="masthead light-header w-100">
       <div class="site-container site-container-wide mx-auto px-3">
         <div class="inner">
@@ -28,7 +33,7 @@
           <nav class="nav nav-masthead justify-content-center">
             <a class="nav-link" href="../index.html">Titelseite</a>
             <a class="nav-link" href="galerie.html">Galerie</a>
-            <a class="nav-link" href="speisekarte.html">Speisekarte</a>
+            <a class="nav-link active" href="speisekarte.html">Speisekarte</a>
             <a class="nav-link" href="reservieren.html">Reservieren</a>
           </nav>
         </div>
@@ -41,50 +46,39 @@
           <div class="row justify-content-center">
             <div class="col-lg-10">
               <!-- Hero Header Card -->
-              <div class="legal-hero text-center text-white d-flex align-items-center justify-content-center shadow-lg mb-0 rounded-lg">
+              <div class="speisekarte-hero text-center text-white d-flex align-items-center justify-content-center shadow-lg mb-0 rounded-lg">
                 <div class="px-3 py-5">
-                  <h1 class="display-4 mb-3">Impressum</h1>
-                  <p class="lead shadow-text mb-0">Gesetzliche Anbieterkennung und Kontaktinformationen.</p>
+                  <h1 class="display-4 mb-3">Unsere Speisekarte</h1>
+                  <p class="lead shadow-text mb-0">Entdecken Sie unsere Auswahl an bayerischen und internationalen Gerichten.</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="row justify-content-center mt-4 mb-5">
-            <div class="col-lg-10">
-              <div class="legal-card shadow-lg bg-white p-4 p-md-5">
-                <div class="legal-content">
-                  <h2 class="h5 border-bottom pb-3 mb-4 text-dark font-weight-bold">Angaben gemäß § 5 TMG</h2>
-                  <p class="mb-5">
-                    <strong>Ratsstuben</strong><br>
-                    Inhaber: Anton Stojanovic<br>
-                    Rathausplatz 1<br>
-                    82110 Germering<br>
-                    Deutschland
-                  </p>
+          <div class="row justify-content-center mt-4">
+            <div class="col-12 col-lg-10">
+              <div class="pdf-header-actions text-center mb-4">
+                <a href="../media/Speisekarte_RatsstubenGermering.pdf" class="btn btn-primary btn-lg shadow-sm" download>
+                  <span class="mr-2">&#8681;</span> Speisekarte herunterladen (PDF)
+                </a>
+              </div>
 
-                  <h2 class="h5 border-bottom pb-3 mb-4 text-dark font-weight-bold">Kontakt</h2>
-                  <p class="mb-5">
-                    Telefon: <a href="tel:089847989" class="text-dark">089 847 989</a><br>
-                    E-Mail: <a href="mailto:ante.gojin@gmail.com" class="text-dark">ante.gojin@gmail.com</a>
-                  </p>
-
-                  <h2 class="h5 border-bottom pb-3 mb-4 text-dark font-weight-bold">Steuernummer</h2>
-                  <p class="mb-5">
-                    117 278 31470
-                  </p>
-
-                  <h2 class="h5 border-bottom pb-3 mb-4 text-dark font-weight-bold">Verantwortlich für den Inhalt</h2>
-                  <p class="mb-5">
-                    Anton Stojanovic<br>
-                    Rathausplatz 1<br>
-                    82110 Germering
-                  </p>
-
-                  <div class="alert alert-light border rounded p-3">
-                    <p class="small text-muted mb-0"><strong>Hinweis:</strong> Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG entfällt, da Kleinunternehmer gemäß § 19 UStG.</p>
+              <div class="pdf-viewer-wrapper shadow-lg mb-5">
+                <object data="../media/Speisekarte_RatsstubenGermering.pdf" type="application/pdf" width="100%">
+                  <div class="pdf-fallback card">
+                    <div class="card-body py-5 text-center">
+                      <p class="card-text mb-4">Ihr Browser unterstützt keine direkte PDF-Anzeige. Kein Problem – Sie können die Speisekarte hier herunterladen:</p>
+                      <a href="../media/Speisekarte_RatsstubenGermering.pdf" class="btn btn-primary btn-lg" download>Speisekarte herunterladen (PDF)</a>
+                    </div>
                   </div>
-                </div>
+                </object>
+              </div>
+
+              <!-- Reservation CTA Section -->
+              <div class="reservation-cta bg-dark text-white text-center p-4 p-md-5 shadow">
+                <h3 class="h2 mb-3">Lust bekommen?</h3>
+                <p class="lead mb-4">Sichern Sie sich jetzt Ihren Tisch für einen gemütlichen Abend.</p>
+                <a href="reservieren.html" class="btn btn-outline-light btn-lg px-5">Tisch online reservieren</a>
               </div>
             </div>
           </div>
@@ -98,7 +92,7 @@
           <div class="footer-section">
             <h4 class="footer-section-title">Kontakt</h4>
             <address>
-              <p class="footer-copyright">&copy; Ratsstuben Germering - Alle Rechte vorbehalten.</p>
+              <p class="footer-copyright">&copy; Ratsstuben Germering</p>
               <p><a href="tel:089847989" class="footer-phone">tel: 089 847989</a></p>
             </address>
           </div>
@@ -119,7 +113,7 @@
         </div>
       </div>
     </footer>
-
+    
     <script src="../js/cookie-banner.js"></script>
 
   </body>

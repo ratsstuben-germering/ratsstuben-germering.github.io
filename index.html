@@ -5,16 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="favicons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
 
     <title>Restaurant Ratsstuben aus Germering</title>
 
     <!-- <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/"> -->
 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
+    <!-- Common styles -->
+    <link href="css/common.css" rel="stylesheet">
+
+    <!-- Page-specific styles -->
     <link href="css/index.css" rel="stylesheet">
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script> -->
     <style>
@@ -35,82 +41,83 @@
 
   </head>
 
-  <body class="text-center content">
+  <body class="content">
 
-    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-      <header class="masthead mb-auto">
-        <div class="inner">
-          <h3 class="masthead-brand" style="color: #e9e7e7">Ratsstuben <small><small><p>aus Germering</p></small></small></h3>
-          <nav class="nav nav-masthead justify-content-center"> 
-            <a class="nav-link active" href="index.html">Titelseite</a>
-            <a class="nav-link" href="html/spaisekarte.html">Speisekarte</a>
-            <a class="nav-link" href="html/reservieren.html">Reservieren</a>
-          </nav>
+    <div class="d-flex flex-column min-vh-100">
+      <header class="masthead dark-header w-100">
+        <div class="site-container site-container-wide mx-auto px-3">
+          <div class="inner">
+            <h3 class="masthead-brand"><a href="index.html">Ratsstuben <small><small><p>aus Germering</p></small></small></a></h3>
+            <nav class="nav nav-masthead justify-content-center">
+              <a class="nav-link active" href="index.html">Titelseite</a>
+              <a class="nav-link" href="html/galerie.html">Galerie</a>
+              <a class="nav-link" href="html/speisekarte.html">Speisekarte</a>
+              <a class="nav-link" href="html/reservieren.html">Reservieren</a>
+            </nav>
+          </div>
         </div>
       </header>
 
-      <main role="main" class="inner cover">
-        <h1 class="cover-heading outlined-text" id="myHeading">Vereint am Tisch </h1>
-        <p class="lead outlined-text">wird um uns herum Essen zur Geschichte.</p>
-        <p class="lead">
+      <div class="site-container site-container-wide d-flex p-3 mx-auto flex-column flex-grow-1 w-100 justify-content-center">
+        <main role="main" class="inner cover text-center">
+          <h1 class="cover-heading outlined-text mb-4" id="myHeading" style="font-weight: 400;">Traditionelle Gastlichkeit im Herzen Germerings</h1>
           
-          <a href="html/spaisekarte.html" class="sec_btn_whitesmoke btn btn-lg btn-secondary"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-map" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.5.5 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103M10 1.91l-4-.8v12.98l4 .8zm1 12.98 4-.8V1.11l-4 .8zm-6-.8V1.11l-4 .8v12.98z"/>
-          </svg> <small>   Schau auf das Menü</small></a>
-          <a href="html/reservieren.html" class="prim_btn_whitesmoke btn btn-lg btn-secondary"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
-            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
-            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
-          </svg><small>   Sitzplatzreservierung</small></a>
-          <a href="tel:089847989" class="sec_btn_whitesmoke btn btn-lg btn-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
-            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
-          </svg>    <small>Rufen Sie uns an</small></a>
- 
-        </p>
-      </main>
+          <div class="mb-4">
+            <a href="https://maps.google.com/?q=Ratsstuben+Germering+Rathausplatz+1" target="_blank" class="outlined-text text-white text-decoration-none">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-geo-alt mr-2" viewBox="0 0 16 16">
+                <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+              </svg> Rathausplatz 1, 82110 Germering
+            </a>
+          </div>
 
-      <footer class="mastfoot mt-auto">
-        <div class="inner">
-          
-          
-          <p class="outlined-text">Arbeitszeiten:<br> Dienstag - Sonntag: 11:30 - 22:00 Uhr<br>
-            Montags geschlossen</p>
-            <p class="outlined-text noga_anime"><a href="">&copy; Ratsstuben Germering </a><br> <a href="tel:089847989">tel: 089 847989</a></p>
+          <p class="lead">
+            <a href="html/speisekarte.html" class="sec_btn_whitesmoke btn btn-lg btn-secondary shadow-sm"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-map mr-2" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.5.5 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103M10 1.91l-4-.8v12.98l4 .8zm1 12.98 4-.8V1.11l-4 .8zm-6-.8V1.11l-4 .8v12.98z"/>
+            </svg> Speisekarte</a>
+            <a href="html/reservieren.html" class="prim_btn_whitesmoke btn btn-lg btn-secondary shadow-sm mx-md-2"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock mr-2" viewBox="0 0 16 16">
+              <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+              <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
+            </svg> Reservieren</a>
+            <a href="tel:089847989" class="sec_btn_whitesmoke btn btn-lg btn-secondary shadow-sm"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone mr-2" viewBox="0 0 16 16">
+              <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+            </svg> Anrufen</a>
+          </p>
+        </main>
+      </div>
+
+      <footer class="site-footer dark-footer">
+        <div class="site-container site-container-wide mx-auto px-3">
+          <div class="inner">
+            <div class="footer-grid">
+              <div class="footer-section">
+                <h4 class="footer-section-title">Kontakt</h4>
+                <address>
+                  <p class="footer-copyright">&copy; Ratsstuben Germering</p>
+                  <p><a href="tel:089847989" class="footer-phone">tel: 089 847989</a></p>
+                </address>
+              </div>
+              <div class="footer-section">
+                <h4 class="footer-section-title">Öffnungszeiten</h4>
+                <p class="footer-work-hours">
+                  Dienstag - Sonntag: 11:30 - 22:00 Uhr<br>
+                  Montags geschlossen
+                </p>
+              </div>
+              <div class="footer-section">
+                <h4 class="footer-section-title">Rechtliches</h4>
+                <nav aria-label="Footer navigation">
+                  <a href="html/datenschutz.html" class="footer-link">Datenschutz</a><br>
+                  <a href="html/impressum.html" class="footer-link">Impressum</a>
+                </nav>
+              </div>
+            </div>
+          </div>
         </div>
-        <a href="html/datenschutz.html">Datenschutz</a><span> | </span><a href="html/impressum.html">Impressum</a>
       </footer>
     </div>
 
-<!-- MRTVI KOLACIC -->
-
-<div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #222; color: #fff; padding: 1rem; text-align: center; z-index: 9999;">
-    Diese Seite verwendet technisch notwendige Cookies (für Reservierungen). Wir sammeln keine Daten für Marketingzwecke.
-    <button id="cookie-ok" style="margin-left: 1rem; padding: 0.5rem 1rem;">Ich erkenne an</button>
-</div>
-
-<script>
-    function setCookie(name, value, days) {
-        const expires = new Date(Date.now() + days * 864e5).toUTCString();
-        document.cookie = name + '=' + encodeURIComponent(value) +
-            '; expires=' + expires +
-            '; path=/; SameSite=Lax';
-    }
-
-    function getCookie(name) {
-        return document.cookie.split('; ').some(row => row.startsWith(name + '='));
-    }
-
-    if (!getCookie('cookieInfoShown')) {
-        document.getElementById('cookie-banner').style.display = 'block';
-    }
-    else {document.getElementById('cookie-banner').style.display = 'none';}
-
-    document.getElementById('cookie-ok').addEventListener('click', function () {
-        setCookie('cookieInfoShown', 'true', 365);
-        document.getElementById('cookie-banner').style.display = 'none';
-    });
-</script>
-
-
+    <script src="js/cookie-banner.js"></script>
   
   </body>
 </html>

@@ -1,0 +1,84 @@
+/* ============================================
+   Ratsstuben Germering - Legal Pages Styles (Impressum & Datenschutz)
+   ============================================ */
+
+/* ============================================
+   Hero Section
+   ============================================ */
+
+.legal-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../imgs/Legal_hero.webp');
+  background-size: cover;
+  background-position: center;
+  min-height: 250px;
+  width: 100%;
+  border-radius: 1.25rem !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.legal-hero .display-4 {
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--color-white);
+  letter-spacing: -0.02em;
+}
+
+.shadow-text {
+  text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 767px) {
+  .legal-hero {
+    min-height: 200px;
+  }
+  
+  .legal-hero .display-4 {
+    font-size: 2.2rem;
+  }
+}
+
+/* ============================================
+   Legal Content Card
+   ============================================ */
+
+.legal-card {
+  position: relative;
+  z-index: 10;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  border-radius: 1.25rem !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06) !important;
+}
+
+.legal-content h2 {
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  color: var(--color-dark);
+  border-bottom-color: #eee !important;
+}
+
+.legal-content p {
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+
+.legal-content strong {
+  color: var(--color-dark);
+}
+
+.legal-content a {
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.legal-content a:hover {
+  border-bottom-color: currentColor;
+}
+
+@media (max-width: 767px) {
+  .legal-card {
+    padding: 2rem 1.5rem !important;
+  }
+}

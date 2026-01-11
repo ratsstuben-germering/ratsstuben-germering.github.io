@@ -1,0 +1,117 @@
+/* ============================================
+   Ratsstuben Germering - Galerie Page Styles
+   ============================================ */
+
+/* ============================================
+   Hero Section
+   ============================================ */
+
+.galerie-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../imgs/Galerie_hero.webp');
+  background-size: cover;
+  background-position: center;
+  min-height: 280px;
+  width: 100%;
+  border-radius: 1.25rem !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.galerie-hero .display-4 {
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--color-white);
+  letter-spacing: -0.02em;
+}
+
+.shadow-text {
+  text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 767px) {
+  .galerie-hero {
+    min-height: 220px;
+  }
+  
+  .galerie-hero .display-4 {
+    font-size: 2.2rem;
+  }
+}
+
+/* ============================================
+   Gallery Masonry Grid
+   ============================================ */
+
+.gallery-masonry {
+  column-count: 1;
+  column-gap: 1.5rem;
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  .gallery-masonry {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 992px) {
+  .gallery-masonry {
+    column-count: 3;
+  }
+}
+
+.gallery-item {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  break-inside: avoid;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
+  z-index: 5;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 1.25rem !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.gallery-item:hover img {
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+/* ============================================
+   Reservation CTA
+   ============================================ */
+
+.reservation-cta {
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../imgs/TitelSite_hero.webp');
+  background-size: cover;
+  background-position: center;
+  border: none;
+  width: 100%;
+  border-radius: 1.25rem !important;
+}
+
+.reservation-cta h3 {
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.reservation-cta .btn-outline-light {
+  border-width: 2px;
+  font-weight: 600;
+}
+
+.reservation-cta .btn-outline-light:hover {
+  background-color: var(--color-white);
+  color: var(--color-dark);
+}
