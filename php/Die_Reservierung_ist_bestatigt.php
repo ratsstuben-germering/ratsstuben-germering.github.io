@@ -232,12 +232,12 @@ if ($hasReservation) {
 
           <div class="detail-row">
             <span class="detail-label">Name:</span>
-            <span class="detail-value"><?php echo htmlspecialchars($reservation['ime_prezime']); ?></span>
+            <span class="detail-value"><?php echo htmlspecialchars($reservation['name']); ?></span>
           </div>
 
           <div class="detail-row">
             <span class="detail-label">Telefon:</span>
-            <span class="detail-value"><?php echo htmlspecialchars($reservation['telefon']); ?></span>
+            <span class="detail-value"><?php echo htmlspecialchars($reservation['phone']); ?></span>
           </div>
 
           <?php if (!empty($reservation['email'])): ?>
@@ -249,57 +249,57 @@ if ($hasReservation) {
 
           <div class="detail-row">
             <span class="detail-label">Datum:</span>
-            <span class="detail-value"><?php echo htmlspecialchars($reservation['datum']); ?></span>
+            <span class="detail-value"><?php echo htmlspecialchars($reservation['date']); ?></span>
           </div>
 
           <div class="detail-row">
             <span class="detail-label">Uhrzeit:</span>
-            <span class="detail-value"><?php echo htmlspecialchars($reservation['vrijeme']); ?></span>
+            <span class="detail-value"><?php echo htmlspecialchars($reservation['time']); ?></span>
           </div>
 
           <div class="detail-row">
             <span class="detail-label">Anzahl Gäste:</span>
-            <span class="detail-value"><?php echo htmlspecialchars($reservation['broj_gostiju']); ?></span>
+            <span class="detail-value"><?php echo htmlspecialchars($reservation['guests']); ?></span>
           </div>
 
           <div class="detail-row">
             <span class="detail-label">Außenbereich:</span>
-            <span class="detail-value <?php echo $reservation['napolju'] ? 'ja' : 'nein'; ?>">
-              <?php echo $reservation['napolju'] ? 'Ja' : 'Nein'; ?>
+            <span class="detail-value <?php echo $reservation['outside'] ? 'ja' : 'nein'; ?>">
+              <?php echo $reservation['outside'] ? 'Ja' : 'Nein'; ?>
             </span>
           </div>
 
           <div class="detail-row">
             <span class="detail-label">Kinderstuhl:</span>
-            <span class="detail-value <?php echo $reservation['Kinderstuhl'] ? 'ja' : 'nein'; ?>">
-              <?php echo $reservation['Kinderstuhl'] ? 'Ja' : 'Nein'; ?>
+            <span class="detail-value <?php echo $reservation['child_seat'] ? 'ja' : 'nein'; ?>">
+              <?php echo $reservation['child_seat'] ? 'Ja' : 'Nein'; ?>
             </span>
           </div>
 
           <div class="detail-row">
             <span class="detail-label">Rollstuhl:</span>
-            <span class="detail-value <?php echo $reservation['Roolstuhl'] ? 'ja' : 'nein'; ?>">
-              <?php echo $reservation['Roolstuhl'] ? 'Ja' : 'Nein'; ?>
+            <span class="detail-value <?php echo $reservation['wheelchair'] ? 'ja' : 'nein'; ?>">
+              <?php echo $reservation['wheelchair'] ? 'Ja' : 'Nein'; ?>
             </span>
           </div>
 
           <div class="detail-row">
             <span class="detail-label">Hund:</span>
-            <span class="detail-value <?php echo $reservation['Hund'] ? 'ja' : 'nein'; ?>">
-              <?php echo $reservation['Hund'] ? 'Ja' : 'Nein'; ?>
+            <span class="detail-value <?php echo $reservation['dog'] ? 'ja' : 'nein'; ?>">
+              <?php echo $reservation['dog'] ? 'Ja' : 'Nein'; ?>
             </span>
           </div>
 
-          <?php if (!empty($reservation['Extra'])): ?>
+          <?php if (!empty($reservation['extra'])): ?>
           <div class="detail-row">
             <span class="detail-label">Besondere Wünsche:</span>
-            <span class="detail-value"><?php echo htmlspecialchars($reservation['Extra']); ?></span>
+            <span class="detail-value"><?php echo htmlspecialchars($reservation['extra']); ?></span>
           </div>
           <?php endif; ?>
 
           <div class="detail-row">
             <span class="detail-label">Reserviert am:</span>
-            <span class="detail-value"><?php echo htmlspecialchars($reservation['nastanak_rezervacije']); ?></span>
+            <span class="detail-value"><?php echo htmlspecialchars($reservation['timestamp']); ?></span>
           </div>
         </div>
 
