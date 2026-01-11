@@ -1,9 +1,24 @@
+<?php
+/**
+ * Reservation Form Page with CSRF Protection
+ * This PHP version should be hosted on the PHP server
+ */
+
+require_once __DIR__ . '/security.php';
+
+// Set security headers
+setSecurityHeaders();
+
+// Generate CSRF token for this form
+$csrfToken = generateCsrfToken();
+$timestamp = time();
+?>
 <!doctype html>
 <html lang="de">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Tisch reservieren bei Ratsstuben Germering - Online-Reservierung für traditionelle bayerische Küche.">
+    <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
@@ -24,6 +39,17 @@
       /* Force reset to debug spacing issue */
       body { padding-bottom: 0 !important; }
       footer { margin-bottom: 0 !important; }
+
+      /* Enhanced honeypot styles */
+      .website-url-field {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+        overflow: hidden;
+        z-index: -1;
+      }
     </style>
 
   </head>
@@ -32,11 +58,11 @@
     <header class="masthead dark-header w-100">
       <div class="site-container site-container-wide mx-auto px-3">
         <div class="inner">
-          <h3 class="masthead-brand"><a href="../index.html">Ratsstuben <span class="brand-subtitle">aus Germering</span></a></h3>
+          <h3 class="masthead-brand"><a href="/index.html">Ratsstuben <span class="brand-subtitle">aus Germering</span></a></h3>
           <nav class="nav nav-masthead">
-            <a class="nav-link" href="../index.html">Titelseite</a>
-            <a class="nav-link" href="galerie.html">Galerie</a>
-            <a class="nav-link" href="speisekarte.html">Speisekarte</a>
+            <a class="nav-link" href="/index.html">Titelseite</a>
+            <a class="nav-link" href="/html/galerie.html">Galerie</a>
+            <a class="nav-link" href="/html/speisekarte.html">Speisekarte</a>
             <a class="nav-link active" href="/php/reservieren.php">Reservieren</a>
           </nav>
         </div>
@@ -58,7 +84,7 @@
             </div>
           </div>
 
-          <div class="row justify-content-center mt-4">
+          <div class="row justify-content-center">
             <div class="col-lg-10">
               <div class="reservation-card shadow-lg bg-white p-4 p-md-5">
                 <div class="text-center mb-5">
@@ -66,8 +92,17 @@
                   Bei kurzfristigen Stornierungen werden wir Sie telefonisch kontaktieren.</p>
                 </div>
 
-                <form method="POST" action="../php/Tischreservierung.php">
-                  
+                <form method="POST" action="Tischreservierung.php" id="reservationForm">
+                  <!-- CSRF Token -->
+                  <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8'); ?>">
+
+                  <!-- Timestamp for bot detection -->
+                  <input type="hidden" name="form_timestamp" value="<?php echo $timestamp; ?>">
+
+                  <!-- Honeypot fields (hidden from users) -->
+                  <input type="text" name="address" class="honeyfield" tabindex="-1" autocomplete="off">
+                  <input type="text" name="website_url" class="website-url-field" tabindex="-1" autocomplete="off">
+
                   <!-- Section 1: Wann & Wer -->
                   <div class="form-section mb-5">
                     <h2 class="h5 border-bottom pb-3 mb-4 text-dark font-weight-bold d-flex align-items-center">
@@ -153,7 +188,7 @@
                       <textarea name="extra" class="form-control" id="extra" rows="3" placeholder="Haben Sie Allergien oder besondere Anlässe?"></textarea>
                     </div>
                   </div>
-                  
+
                   <div class="pt-3">
                     <button class="btn btn-dark btn-lg btn-block py-3 shadow" type="submit">Jetzt verbindlich reservieren</button>
                     <p class="text-center small text-muted mt-3">* Mit dem Absenden akzeptieren Sie, dass wir Sie zwecks Reservierung kontaktieren dürfen.</p>
@@ -173,7 +208,7 @@
             <h4 class="footer-section-title">Kontakt</h4>
             <address>
               <p class="footer-copyright">&copy; Ratsstuben Germering</p>
-              <p><a href="tel:+4989847989" class="footer-phone">tel: +49 89 847989</a></p>
+              <p><a href="tel:089847989" class="footer-phone">tel: 089 847989</a></p>
             </address>
           </div>
           <div class="footer-section">
@@ -186,14 +221,14 @@
           <div class="footer-section">
             <h4 class="footer-section-title">Rechtliches</h4>
             <nav aria-label="Footer navigation">
-              <a href="datenschutz.html" class="footer-link">Datenschutz</a><br>
-              <a href="impressum.html" class="footer-link">Impressum</a>
+              <a href="/html/datenschutz.html" class="footer-link">Datenschutz</a><br>
+              <a href="/html/impressum.html" class="footer-link">Impressum</a>
             </nav>
           </div>
         </div>
       </div>
     </footer>
- 
+
     <script src="../js/cookie-banner.js" defer></script>
 
   </body>

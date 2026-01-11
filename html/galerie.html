@@ -16,16 +16,16 @@
     <link href="../css/galerie.css" rel="stylesheet">
   </head>
 
-  <body class="bg-light d-flex flex-column min-vh-100">
-    <header class="masthead light-header w-100">
+  <body class="bg-dark d-flex flex-column min-vh-100">
+    <header class="masthead dark-header w-100">
       <div class="site-container site-container-wide mx-auto px-3">
         <div class="inner">
-          <h3 class="masthead-brand"><a href="../index.html">Ratsstuben <small><small><p>aus Germering</p></small></small></a></h3>
-          <nav class="nav nav-masthead justify-content-center">
+          <h3 class="masthead-brand"><a href="../index.html">Ratsstuben <span class="brand-subtitle">aus Germering</span></a></h3>
+          <nav class="nav nav-masthead">
             <a class="nav-link" href="../index.html">Titelseite</a>
             <a class="nav-link active" href="galerie.html">Galerie</a>
             <a class="nav-link" href="speisekarte.html">Speisekarte</a>
-            <a class="nav-link" href="reservieren.html">Reservieren</a>
+            <a class="nav-link" href="/php/reservieren.php">Reservieren</a>
           </nav>
         </div>
       </div>
@@ -50,33 +50,32 @@
             <div class="col-lg-12">
               <div class="gallery-masonry">
             <!-- Images will be inserted here -->
-            <div class="gallery-item"><img src="../imgs/gallery/20260111_00h03m48s_grim.webp" alt="Ratsstuben Außenansicht" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h50m19s_grim.webp" alt="Speise - Schnitzel" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h46m28s_grim.webp" alt="Restaurant Interieur" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h54m23s_grim.webp" alt="Gastraum Details" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h49m26s_grim.webp" alt="Frisches Gericht" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h56m41s_grim.webp" alt="Tischdekoration" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h55m30s_grim.webp" alt="Blick in den Gastraum" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260111_00h00m53s_grim.webp" alt="Service Bereich" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h52m42s_grim.webp" alt="Köstliches Essen" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h46m48s_grim.webp" alt="Gemütliche Ecke" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h51m27s_grim.webp" alt="Spezialität des Hauses" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260111_00h01m08s_grim.webp" alt="Abendstimmung" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h57m23s_grim.webp" alt="Unsere Bar" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h53m16s_grim.webp" alt="Leckeres Dessert" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260111_00h02m11s_grim.webp" alt="Details" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h56m11s_grim.webp" alt="Frühstück / Brunch" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260111_00h01m53s_grim.webp" alt="Atmosphäre" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h56m26s_grim.webp" alt="Hauptspeise" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260111_00h02m25s_grim.webp" alt="Gedeckter Tisch" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260111_00h01m22s_grim.webp" alt="Saisonal" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h57m00s_grim.webp" alt="Getränke" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260111_00h01m38s_grim.webp" alt="Küche" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h53m57s_grim.webp" alt="Telleranrichtung" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260111_00h02m52s_grim.webp" alt="Lichtblick" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h48m27s_grim.webp" alt="Willkommen" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260111_00h00m17s_grim.webp" alt="Ratsstuben" class="img-fluid"></div>
-            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h55m11s_grim.webp" alt="Ambiente" class="img-fluid"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260111_00h03m48s_grim.webp" alt="Ratsstuben Außenansicht" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h50m19s_grim.webp" alt="Speise - Schnitzel" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h46m28s_grim.webp" alt="Restaurant Interieur" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h54m23s_grim.webp" alt="Gastraum Details" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h49m26s_grim.webp" alt="Frisches Gericht" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h56m41s_grim.webp" alt="Tischdekoration" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h55m30s_grim.webp" alt="Blick in den Gastraum" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260111_00h00m53s_grim.webp" alt="Service Bereich" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h52m42s_grim.webp" alt="Köstliches Essen" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h51m27s_grim.webp" alt="Spezialität des Hauses" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260111_00h01m08s_grim.webp" alt="Abendstimmung" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h57m23s_grim.webp" alt="Unsere Bar" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h53m16s_grim.webp" alt="Leckeres Dessert" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260111_00h02m11s_grim.webp" alt="Details" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h56m11s_grim.webp" alt="Frühstück / Brunch" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260111_00h01m53s_grim.webp" alt="Atmosphäre" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h56m26s_grim.webp" alt="Hauptspeise" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260111_00h02m25s_grim.webp" alt="Gedeckter Tisch" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260111_00h01m22s_grim.webp" alt="Saisonal" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h57m00s_grim.webp" alt="Getränke" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260111_00h01m38s_grim.webp" alt="Küche" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h53m57s_grim.webp" alt="Telleranrichtung" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260111_00h02m52s_grim.webp" alt="Lichtblick" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h48m27s_grim.webp" alt="Willkommen" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260111_00h00m17s_grim.webp" alt="Ratsstuben" class="img-fluid" loading="lazy"></div>
+            <div class="gallery-item"><img src="../imgs/gallery/20260110_23h55m11s_grim.webp" alt="Ambiente" class="img-fluid" loading="lazy"></div>
           </div>
         </div>
       </div>
@@ -87,7 +86,7 @@
               <div class="reservation-cta bg-dark text-white text-center p-4 p-md-5 shadow">
                 <h3 class="h2 mb-3">Hunger bekommen?</h3>
                 <p class="lead mb-4">Erleben Sie unsere Spezialitäten live vor Ort.</p>
-                <a href="reservieren.html" class="btn btn-outline-light btn-lg px-5">Jetzt Tisch reservieren</a>
+                <a href="/php/reservieren.php" class="btn btn-outline-light btn-lg px-5">Jetzt Tisch reservieren</a>
               </div>
             </div>
           </div>
@@ -95,14 +94,14 @@
       </main>
     </div>
 
-    <footer class="site-footer light-footer w-100">
+    <footer class="site-footer dark-footer w-100">
       <div class="site-container site-container-wide mx-auto px-3">
         <div class="footer-grid">
           <div class="footer-section">
             <h4 class="footer-section-title">Kontakt</h4>
             <address>
               <p class="footer-copyright">&copy; Ratsstuben Germering</p>
-              <p><a href="tel:089847989" class="footer-phone">tel: 089 847989</a></p>
+              <p><a href="tel:+4989847989" class="footer-phone">tel: +49 89 847989</a></p>
             </address>
           </div>
           <div class="footer-section">
@@ -123,7 +122,7 @@
       </div>
     </footer>
     
-    <script src="../js/cookie-banner.js"></script>
+    <script src="../js/cookie-banner.js" defer></script>
 
   </body>
 </html>

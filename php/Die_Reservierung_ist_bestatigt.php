@@ -54,7 +54,7 @@ if ($hasReservation) {
       }
 
       .success-card {
-        background: var(--color-white);
+        background: #2d2d2d;
         border-radius: var(--radius-lg);
         box-shadow: var(--shadow-card);
         padding: 2rem;
@@ -69,12 +69,12 @@ if ($hasReservation) {
 
       .success-card .intro-text {
         text-align: center;
-        color: var(--color-text-muted);
+        color: rgba(255, 255, 255, 0.7);
         margin-bottom: 1.5rem;
       }
 
       .reservation-details {
-        background: #f8f9fa;
+        background: #3d3d3d;
         border-radius: var(--radius-md);
         padding: 1.5rem;
         margin-top: 1.5rem;
@@ -82,10 +82,10 @@ if ($hasReservation) {
 
       .reservation-details h3 {
         font-size: 1.1rem;
-        color: #495057;
+        color: var(--color-white);
         margin-bottom: 1rem;
         padding-bottom: 0.5rem;
-        border-bottom: 1px solid #dee2e6;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
       }
 
       .detail-row {
@@ -101,11 +101,11 @@ if ($hasReservation) {
 
       .detail-label {
         font-weight: 600;
-        color: #495057;
+        color: var(--color-white);
       }
 
       .detail-value {
-        color: var(--color-text-muted);
+        color: rgba(255, 255, 255, 0.7);
         text-align: right;
       }
 
@@ -115,7 +115,7 @@ if ($hasReservation) {
       }
 
       .detail-value.nein {
-        color: var(--color-text-muted);
+        color: rgba(255, 255, 255, 0.5);
       }
 
       .error-container {
@@ -125,7 +125,7 @@ if ($hasReservation) {
       }
 
       .error-card {
-        background: var(--color-white);
+        background: #2d2d2d;
         border-left: 4px solid #dc3545;
         border-radius: var(--radius-lg);
         box-shadow: var(--shadow-card);
@@ -158,7 +158,7 @@ if ($hasReservation) {
       }
 
       .error-card p {
-        color: var(--color-text-muted);
+        color: rgba(255, 255, 255, 0.7);
         text-align: center;
         line-height: 1.6;
       }
@@ -181,7 +181,7 @@ if ($hasReservation) {
       }
 
       .contact-box {
-        background: #e7f3ff;
+        background: #1a3a5a;
         border-radius: var(--radius-md);
         padding: 1rem;
         margin-top: 1.5rem;
@@ -189,23 +189,23 @@ if ($hasReservation) {
       }
 
       .contact-box a {
-        color: #0066cc;
+        color: #66a3ff;
         font-weight: 500;
       }
 
       .extra-empty {
-        color: #adb5bd;
+        color: rgba(255, 255, 255, 0.4);
         font-style: italic;
       }
     </style>
   </head>
 
-  <body class="bg-light d-flex flex-column min-vh-100">
-    <header class="masthead light-header w-100">
+  <body class="bg-dark d-flex flex-column min-vh-100">
+    <header class="masthead dark-header w-100">
       <div class="site-container site-container-wide mx-auto px-3">
         <div class="inner">
-          <h3 class="masthead-brand"><a href="../index.html">Ratsstuben <small><small><p>aus Germering</p></small></small></a></h3>
-          <nav class="nav nav-masthead justify-content-center">
+          <h3 class="masthead-brand"><a href="../index.html">Ratsstuben <span class="brand-subtitle">aus Germering</span></a></h3>
+          <nav class="nav nav-masthead">
             <a class="nav-link" href="../index.html">Titelseite</a>
             <a class="nav-link" href="../html/galerie.html">Galerie</a>
             <a class="nav-link" href="../html/speisekarte.html">Speisekarte</a>
@@ -338,7 +338,7 @@ if ($hasReservation) {
       </main>
     </div>
 
-    <footer class="site-footer light-footer w-100">
+    <footer class="site-footer dark-footer w-100">
       <div class="site-container site-container-wide mx-auto px-3">
         <div class="footer-grid">
           <div class="footer-section">
@@ -365,6 +365,6 @@ if ($hasReservation) {
         </div>
       </div>
     </footer>
-    <script src="../js/cookie-banner.js"></script>
+    <script src="../js/cookie-banner.js" defer></script>
   </body>
 </html>

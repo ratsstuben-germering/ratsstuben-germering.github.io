@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
+    <meta name="description" content="Genießen Sie traditionelle bayerische Küche in den Ratsstuben Germering. Ihr Restaurant für bayerische Spezialitäten, gemütliches Ambiente und erstklassigen Service im Herzen von Germering.">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
@@ -22,37 +22,24 @@
 
     <!-- Page-specific styles -->
     <link href="css/index.css" rel="stylesheet">
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script> -->
-    <style>
-      /* Add some basic styles for the container and text */
-      #myHeading {
-        position: relative;
-        display: inline-block;
-      }
-      .letter {
-        /* display: inline-block; */
-        /* transform-origin: center bottom; */
-        opacity: 0;
-      }
-    </style>
 
 
 
 
   </head>
 
-  <body class="content">
+  <body class="bg-dark">
 
     <div class="d-flex flex-column min-vh-100">
       <header class="masthead dark-header w-100">
         <div class="site-container site-container-wide mx-auto px-3">
           <div class="inner">
-            <h3 class="masthead-brand"><a href="index.html">Ratsstuben <small><small><p>aus Germering</p></small></small></a></h3>
+            <h3 class="masthead-brand"><a href="index.html">Ratsstuben <span class="brand-subtitle">aus Germering</span></a></h3>
             <nav class="nav nav-masthead justify-content-center">
               <a class="nav-link active" href="index.html">Titelseite</a>
               <a class="nav-link" href="html/galerie.html">Galerie</a>
               <a class="nav-link" href="html/speisekarte.html">Speisekarte</a>
-              <a class="nav-link" href="html/reservieren.html">Reservieren</a>
+              <a class="nav-link" href="/php/reservieren.php">Reservieren</a>
             </nav>
           </div>
         </div>
@@ -60,9 +47,9 @@
 
       <div class="site-container site-container-wide d-flex p-3 mx-auto flex-column flex-grow-1 w-100 justify-content-center">
         <main role="main" class="inner cover text-center">
-          <h1 class="cover-heading outlined-text mb-4" id="myHeading" style="font-weight: 400;">Traditionelle Gastlichkeit im Herzen Germerings</h1>
+          <h1 class="cover-heading outlined-text mb-4">Traditionelle Gastlichkeit im Herzen Germerings</h1>
           
-          <div class="mb-4">
+          <div class="address-link mb-4">
             <a href="https://maps.google.com/?q=Ratsstuben+Germering+Rathausplatz+1" target="_blank" class="outlined-text text-white text-decoration-none">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-geo-alt mr-2" viewBox="0 0 16 16">
                 <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
@@ -75,11 +62,11 @@
             <a href="html/speisekarte.html" class="sec_btn_whitesmoke btn btn-lg btn-secondary shadow-sm"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-map mr-2" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.5.5 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103M10 1.91l-4-.8v12.98l4 .8zm1 12.98 4-.8V1.11l-4 .8zm-6-.8V1.11l-4 .8v12.98z"/>
             </svg> Speisekarte</a>
-            <a href="html/reservieren.html" class="prim_btn_whitesmoke btn btn-lg btn-secondary shadow-sm mx-md-2"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock mr-2" viewBox="0 0 16 16">
+            <a href="/php/reservieren.php" class="prim_btn_whitesmoke btn btn-lg btn-secondary shadow-sm mx-md-2"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock mr-2" viewBox="0 0 16 16">
               <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
               <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
             </svg> Reservieren</a>
-            <a href="tel:089847989" class="sec_btn_whitesmoke btn btn-lg btn-secondary shadow-sm"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone mr-2" viewBox="0 0 16 16">
+            <a href="tel:+4989847989" class="sec_btn_whitesmoke btn btn-lg btn-secondary shadow-sm"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone mr-2" viewBox="0 0 16 16">
               <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
             </svg> Anrufen</a>
           </p>
@@ -94,7 +81,7 @@
                 <h4 class="footer-section-title">Kontakt</h4>
                 <address>
                   <p class="footer-copyright">&copy; Ratsstuben Germering</p>
-                  <p><a href="tel:089847989" class="footer-phone">tel: 089 847989</a></p>
+                  <p><a href="tel:+4989847989" class="footer-phone">tel: +49 89 847989</a></p>
                 </address>
               </div>
               <div class="footer-section">
@@ -117,7 +104,7 @@
       </footer>
     </div>
 
-    <script src="js/cookie-banner.js"></script>
+    <script src="js/cookie-banner.js" defer></script>
   
   </body>
 </html>

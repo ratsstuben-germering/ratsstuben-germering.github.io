@@ -1,25 +1,67 @@
 <?php
-    
-    if (!empty($_POST['address'])) {
+/**
+ * Tischreservierung - Reservation Processing Script
+ * Handles table reservation requests with security validation
+ */
+
+require_once __DIR__ . '/security.php';
+
+// Set security headers
+setSecurityHeaders();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Validate CSRF token
+    if (!isset($_POST['csrf_token']) || !validateCsrfToken($_POST['csrf_token'])) {
+        http_response_code(403);
+        logError('CSRF validation failed', ['ip' => $_SERVER['REMOTE_ADDR'] ?? 'unknown']);
+        die('Ungültige Anfrage. Bitte laden Sie die Seite neu und versuchen Sie es erneut.');
+    }
+
+    // Validate honeypot (spam protection)
+    if (!validateHoneypot()) {
+        http_response_code(403);
         die('Spam detected');
     }
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        session_start();
 
-        $_SESSION['reservation'] = [
-            'zanemari!' => date('H:i d-m-Y'),
-            'ime_prezime' => htmlspecialchars($_POST['name'] ?? ''),
-            'datum' => htmlspecialchars($_POST['date'] ?? ''),
-            'vrijeme' => htmlspecialchars($_POST['time'] ?? ''),
-            'broj_gostiju' => (int) ($_POST['n_guests'] ?? 0),
-            'telefon' => htmlspecialchars($_POST['telefon'] ?? ''),
-            'email' => filter_var($_POST['email'], FILTER_SANITIZE_EMAIL) ?? '',
-            'napolju' => isset($_POST['outside-area']),
-            'Kinderstuhl' => isset($_POST['Kinderstuhl']),
-            'Roolstuhl' => isset($_POST['Roolstuhl']),
-            'Hund' => isset($_POST['Hund']),
-            'Extra' => htmlspecialchars($_POST['extra'] ?? '')
-        ];
+    // Validate and sanitize inputs
+    $name = sanitizeString($_POST['name'] ?? '', 100);
+    $date = sanitizeString($_POST['date'] ?? '', 20);
+    $time = sanitizeString($_POST['time'] ?? '', 10);
+    $nGuests = sanitizeInt($_POST['n_guests'] ?? 0);
+    $telefon = sanitizeString($_POST['telefon'] ?? '', 30);
+    $email = sanitizeEmail($_POST['email'] ?? '');
+    $extra = sanitizeString($_POST['extra'] ?? '', 500);
+
+    // Server-side validation
+    if (empty($name) || empty($date) || empty($time) || $nGuests < 1 || empty($telefon)) {
+        http_response_code(400);
+        die('Bitte füllen Sie alle Pflichtfelder aus.');
+    }
+
+    if (!validateDate($date)) {
+        http_response_code(400);
+        die('Ungültiges Datumsformat.');
+    }
+
+    if (!validateTime($time)) {
+        http_response_code(400);
+        die('Ungültiges Zeitformat.');
+    }
+
+    $_SESSION['reservation'] = [
+        'timestamp' => date('H:i d-m-Y'),
+        'name' => $name,
+        'date' => $date,
+        'time' => $time,
+        'guests' => $nGuests,
+        'phone' => $telefon,
+        'email' => $email,
+        'outside' => isset($_POST['outside-area']),
+        'child_seat' => isset($_POST['Kinderstuhl']),
+        'wheelchair' => isset($_POST['Roolstuhl']),
+        'dog' => isset($_POST['Hund']),
+        'extra' => $extra
+    ];
         $reservation = $_SESSION['reservation'];
         
         $data[] = $reservation;
@@ -60,14 +102,22 @@
             header('Location: ./Die_Reservierung_ist_bestatigt.php');
             exit;
         } else {
-            echo "Err1<br>Es ist ein Fehler aufgetreten.<br>Bitte reservieren Sie telefonisch<br><a href='tel:+4989847989'>+49 89 847989</a><br>oder per E-Mail an <a href='mailto:ratsstuben.germering@gmail.com'>ratsstuben.germering@gmail.com</a>.<br><br>Falls Sie sich großzügig fühlen, freuen wir uns über eine kurze Fehlermeldung per E-Mail an <a href='mailto:josip@stojanovic.top'>josip@stojanovic.top</a>";
-            #echo $output;
-            #echo $error;
+            // Log error securely without exposing details
+            logError('Reservation processing failed', [
+                'return_code' => $return_value,
+                'has_output' => !empty(trim($output)),
+                'has_error' => !empty(trim($error))
+            ]);
+
+            http_response_code(500);
+            echo getSafeErrorMessage();
             unset($_SESSION['reservation']);
         }
     }
 else {
-    echo "Err0<br>Es ist ein Fehler aufgetreten.<br>Dies tritt auf, wenn der Benutzer direkt <br>zu dieser Seite navigiert (die Startseite überspringt).<br> Bitte reservieren Sie telefonisch.<br>Telefonische Reservierungen sind von Dienstag bis Sonntag<br>von 11:30 bis 22:00 Uhr möglich.<br> <a href='tel:+4989847989'>+49 89 847989</a><br><br><a href='/index.html'>Zurück zur Startseite.</a>";
+    logError('Direct access to PHP script without POST');
+    http_response_code(405);
+    echo "Es ist ein Fehler aufgetreten.<br>Dies tritt auf, wenn der Benutzer direkt zu dieser Seite navigiert.<br> Bitte reservieren Sie telefonisch.<br>Telefonische Reservierungen sind von Dienstag bis Sonntag<br>von 11:30 bis 22:00 Uhr möglich.<br> <a href='tel:+4989847989'>+49 89 847989</a><br><br><a href='/index.html'>Zurück zur Startseite.</a>";
 }
 
 ?>

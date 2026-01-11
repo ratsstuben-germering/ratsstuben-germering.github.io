@@ -252,4 +252,10 @@ body {
 
   }
 
+  .btn-dark[type="submit"] {
+    white-space: normal;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
 }

@@ -7,7 +7,7 @@
    ============================================ */
 
 .galerie-hero {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../imgs/Galerie_hero.webp');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('../imgs/Galerie_hero.webp');
   background-size: cover;
   background-position: center;
   min-height: 280px;
@@ -93,9 +93,10 @@
    ============================================ */
 
 .reservation-cta {
-  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../imgs/TitelSite_hero.webp');
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../imgs/T_hero.webp');
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   border: none;
   width: 100%;
   border-radius: 1.25rem !important;
@@ -114,4 +115,13 @@
 .reservation-cta .btn-outline-light:hover {
   background-color: var(--color-white);
   color: var(--color-dark);
+}
+
+/* Mobile button adjustment */
+@media (max-width: 767px) {
+  .reservation-cta .btn-outline-light {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    max-width: 100%;
+  }
 }

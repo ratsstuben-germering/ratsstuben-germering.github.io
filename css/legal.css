@@ -7,7 +7,7 @@
    ============================================ */
 
 .legal-hero {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../imgs/Legal_hero.webp');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('../imgs/Legal_hero.webp');
   background-size: cover;
   background-position: center;
   min-height: 250px;
@@ -81,4 +81,51 @@
   .legal-card {
     padding: 2rem 1.5rem !important;
   }
+}
+
+/* ============================================
+   Alert Boxes on Dark Theme
+   ============================================ */
+
+.bg-dark .alert-light {
+  background-color: #3d3d3d !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.bg-dark .alert-light .text-muted,
+.bg-dark .alert-light small {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.bg-dark .alert-light strong {
+  color: var(--color-white) !important;
+}
+
+/* ============================================
+   Legal Content on Dark Theme
+   ============================================ */
+
+.bg-dark .legal-content h2 {
+  color: var(--color-white) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.bg-dark .legal-content p,
+.bg-dark .legal-content li {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.bg-dark .legal-content strong {
+  color: var(--color-white) !important;
+}
+
+.bg-dark .legal-content a {
+  color: rgba(255, 255, 255, 0.9) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+.bg-dark .legal-content a:hover {
+  color: var(--color-white) !important;
+  border-bottom-color: var(--color-white);
 }

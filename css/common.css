@@ -95,6 +95,14 @@ body {
   text-decoration: none;
   transition: opacity 0.2s ease;
   display: inline-block;
+  white-space: nowrap;
+}
+
+/* Brand subtitle (formerly nested small tags) */
+.masthead-brand .brand-subtitle {
+  font-size: 0.7em;
+  display: inline;
+  white-space: nowrap;
 }
 
 .masthead-brand a:hover {
@@ -180,6 +188,13 @@ body {
   }
 }
 
+/* Mobile nav centering */
+@media (max-width: 47.99em) {
+  .masthead .nav-masthead {
+    justify-content: center;
+  }
+}
+
 /* ============================================
    Footer
    ============================================ */
@@ -219,32 +234,39 @@ footer p {
 /* Secondary button styling */
 .btn-secondary {
   margin-bottom: 3%;
-  color: var(--color-medium-gray);
+  color: var(--color-light-gray);
   text-shadow: none;
-  background-color: var(--color-darker);
-  border: 0.05rem solid var(--color-medium-gray);
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
 }
 
 .btn-secondary:hover,
 .btn-secondary:focus {
-  color: var(--color-light-gray);
-  text-shadow: none;
-  background-color: rgba(51, 51, 51, 0.52);
-  border: 0.05rem solid var(--color-dark);
+  color: var(--color-white);
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Custom "whitesmoke" button */
 .sec_btn_whitesmoke {
   color: var(--color-light-gray);
-  border-color: var(--color-medium-gray);
-  margin-bottom: 3%;
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
-.sec_btn_whitesmoke:hover,
-.sec_btn_whitesmoke:focus {
-  background-color: rgba(51, 51, 51, 0.52);
-  color: var(--color-light-gray);
-  text-shadow: none;
+.prim_btn_whitesmoke {
+  background-color: var(--color-white) !important;
+  color: var(--color-dark) !important;
+  border-color: var(--color-white) !important;
+}
+
+.prim_btn_whitesmoke:hover {
+  background-color: var(--color-light) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
 }
 
 /* Honeypot anti-spam field (hidden from users) */
@@ -491,4 +513,90 @@ footer p {
 .cover .btn-lg {
   padding: 0.75rem 1.25rem;
   font-weight: 700;
+}
+
+/* ============================================
+   Dark Theme Cards
+   ============================================ */
+
+/* Dark card backgrounds for content pages */
+.bg-dark {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../imgs/T_hero.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: #1d1d1d;
+}
+
+.bg-dark .card,
+.bg-dark .reservation-card,
+.bg-dark .legal-card,
+.bg-dark .pdf-viewer-wrapper {
+  background-color: #2d2d2d !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Light text on dark backgrounds */
+.bg-dark .text-muted {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Form elements on dark background */
+.bg-dark .form-control,
+.bg-dark .custom-input {
+  background-color: #3d3d3d;
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-light);
+}
+
+.bg-dark .form-control:focus,
+.bg-dark .custom-input:focus {
+  background-color: #4d4d4d;
+  border-color: var(--color-light);
+  color: var(--color-white);
+}
+
+.bg-dark .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Selection pills on dark background */
+.bg-dark .selection-pill {
+  background-color: #3d3d3d;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.bg-dark .selection-pill:hover {
+  background-color: #4d4d4d;
+  border-color: var(--color-light);
+}
+
+.bg-dark .selection-pill .custom-control-label {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.bg-dark .selection-pill .custom-control-input:checked ~ .custom-control-label {
+  color: var(--color-white);
+}
+
+/* Links on dark background */
+.bg-dark a:not(.btn):not(.nav-link):not(.footer-link):not(.footer-phone) {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Text colors on dark background */
+.bg-dark h1, .bg-dark h2, .bg-dark h3, .bg-dark h4, .bg-dark h5, .bg-dark h6,
+.bg-dark .display-4, .bg-dark .font-weight-bold, .bg-dark .font-weight-light {
+  color: var(--color-white) !important;
+}
+
+.bg-dark p, .bg-dark li, .bg-dark span, .bg-dark div {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Border colors on dark background */
+.bg-dark .border-bottom,
+.bg-dark .border-top {
+  border-color: rgba(255, 255, 255, 0.15) !important;
 }
