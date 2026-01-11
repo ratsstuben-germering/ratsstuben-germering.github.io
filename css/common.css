@@ -50,22 +50,39 @@ html {
 
 body {
   min-height: 100vh;
-}
-
-/* Fixed background for all pages - applied to body */
-body {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../imgs/T_hero.webp');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
   background-color: #1d1d1d;
 }
 
-/* Mobile: disable parallax to prevent jitter */
+/* Fixed background for desktop */
+@media (min-width: 768px) {
+  body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../imgs/T_hero.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+  }
+}
+
+/* Mobile: use fixed position element to avoid zoom */
 @media (max-width: 767px) {
   body {
-    background-attachment: scroll;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../imgs/T_hero.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+    pointer-events: none;
   }
 }
 
