@@ -47,7 +47,11 @@ function sanitizeString($input, $maxLength = 255) {
     $input = trim($input);
     $input = strip_tags($input);
     $input = htmlspecialchars($input, ENT_QUOTES | ENT_HTML5, 'UTF-8');
-    return mb_substr($input, 0, $maxLength);
+    // Use substr() with mbstring fallback
+    if (function_exists('mb_substr')) {
+        return mb_substr($input, 0, $maxLength);
+    }
+    return substr($input, 0, $maxLength);
 }
 
 /**
