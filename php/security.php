@@ -2,6 +2,7 @@
 /**
  * Security Utilities for Ratsstuben Germering
  * Provides CSRF protection, input sanitization, and security headers
+ * Compatible with PHP 7.0+
  */
 
 // Start session if not already started
@@ -12,7 +13,7 @@ if (session_status() === PHP_SESSION_NONE) {
 /**
  * Generate and store CSRF token
  */
-function generateCsrfToken(): string {
+function generateCsrfToken() {
     if (empty($_SESSION['csrf_token'])) {
         $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         $_SESSION['csrf_token_time'] = time();
@@ -23,7 +24,7 @@ function generateCsrfToken(): string {
 /**
  * Validate CSRF token
  */
-function validateCsrfToken(string $token): bool {
+function validateCsrfToken($token) {
     if (empty($_SESSION['csrf_token']) || empty($token)) {
         return false;
     }
@@ -42,7 +43,7 @@ function validateCsrfToken(string $token): bool {
 /**
  * Sanitize string input
  */
-function sanitizeString(string $input, int $maxLength = 255): string {
+function sanitizeString($input, $maxLength = 255) {
     $input = trim($input);
     $input = strip_tags($input);
     $input = htmlspecialchars($input, ENT_QUOTES | ENT_HTML5, 'UTF-8');
@@ -52,7 +53,7 @@ function sanitizeString(string $input, int $maxLength = 255): string {
 /**
  * Sanitize email input
  */
-function sanitizeEmail(string $input): string {
+function sanitizeEmail($input) {
     $input = trim($input);
     $input = filter_var($input, FILTER_SANITIZE_EMAIL);
     return htmlspecialchars($input, ENT_QUOTES | ENT_HTML5, 'UTF-8');
@@ -61,14 +62,14 @@ function sanitizeEmail(string $input): string {
 /**
  * Sanitize integer input
  */
-function sanitizeInt($input): int {
+function sanitizeInt($input) {
     return (int) filter_var($input, FILTER_SANITIZE_NUMBER_INT);
 }
 
 /**
  * Validate date format (YYYY-MM-DD)
  */
-function validateDate(string $date): bool {
+function validateDate($date) {
     $d = DateTime::createFromFormat('Y-m-d', $date);
     return $d && $d->format('Y-m-d') === $date;
 }
@@ -76,7 +77,7 @@ function validateDate(string $date): bool {
 /**
  * Validate time format (HH:MM)
  */
-function validateTime(string $time): bool {
+function validateTime($time) {
     $d = DateTime::createFromFormat('H:i', $time);
     return $d && $d->format('H:i') === $time;
 }
@@ -84,7 +85,7 @@ function validateTime(string $time): bool {
 /**
  * Set security headers
  */
-function setSecurityHeaders(): void {
+function setSecurityHeaders() {
     // Prevent clickjacking
     header("X-Frame-Options: SAMEORIGIN");
 
@@ -110,7 +111,7 @@ function setSecurityHeaders(): void {
 /**
  * Set caching headers for static assets
  */
-function setCacheHeaders(int $maxAge = 3600, bool $public = true): void {
+function setCacheHeaders($maxAge = 3600, $public = true) {
     $policy = $public ? 'public' : 'private, no-cache';
     $pragma = $public ? 'public' : 'no-cache';
     header("Cache-Control: $policy, max-age=$maxAge, must-revalidate");
@@ -121,7 +122,7 @@ function setCacheHeaders(int $maxAge = 3600, bool $public = true): void {
 /**
  * Get safe error message (don't expose internal details)
  */
-function getSafeErrorMessage(): string {
+function getSafeErrorMessage() {
     return "Es ist ein Fehler aufgetreten.<br>Bitte reservieren Sie telefonisch<br><a href='tel:+4989847989'>+49 89 847989</a><br>oder per E-Mail an <a href='mailto:ratsstuben.germering@gmail.com'>ratsstuben.germering@gmail.com</a>.";
 }
 
@@ -129,7 +130,7 @@ function getSafeErrorMessage(): string {
  * Advanced honeypot validation
  * Checks multiple bot detection methods
  */
-function validateHoneypot(): bool {
+function validateHoneypot() {
     // Check if honeypot field is filled (basic)
     if (!empty($_POST['address'])) {
         return false;
@@ -155,7 +156,7 @@ function validateHoneypot(): bool {
 /**
  * Log error securely (without exposing sensitive data)
  */
-function logError(string $message, array $context = []): void {
+function logError($message, $context = []) {
     $logFile = __DIR__ . '/error.log';
     $timestamp = date('Y-m-d H:i:s');
     $logEntry = "[$timestamp] $message";
