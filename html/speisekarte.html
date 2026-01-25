@@ -55,24 +55,17 @@
             </div>
           </div>
 
-          <div class="row justify-content-center mt-4">
+          <div class="row justify-content-center mt-5">
             <div class="col-12 col-lg-10">
-              <div class="pdf-header-actions text-center mb-4">
-                <a href="../media/Speisekarte_RatsstubenGermering.pdf" class="btn btn-primary btn-lg shadow-sm" download>
-                  <span class="mr-2">&#8681;</span> Speisekarte herunterladen (PDF)
+              
+              <div class="text-center mb-5">
+                <a href="../media/Speisekarte_RatsstubenGermering.pdf" class="btn btn-outline-light shadow-sm" download>
+                  <span class="mr-2">&#8681;</span> Vollständige Speisekarte als PDF herunterladen
                 </a>
               </div>
 
-              <div class="pdf-viewer-wrapper shadow-lg mb-5">
-                <object data="../media/Speisekarte_RatsstubenGermering.pdf" type="application/pdf" width="100%">
-                  <div class="pdf-fallback card">
-                    <div class="card-body py-5 text-center">
-                      <p class="card-text mb-4">Ihr Browser unterstützt keine direkte PDF-Anzeige. Kein Problem – Sie können die Speisekarte hier herunterladen:</p>
-                      <a href="../media/Speisekarte_RatsstubenGermering.pdf" class="btn btn-primary btn-lg" download>Speisekarte herunterladen (PDF)</a>
-                    </div>
-                  </div>
-                </object>
-              </div>
+              <!-- The menu will be dynamically injected here -->
+              <div id="dynamic-menu-container"></div>
 
               <!-- Reservation CTA Section -->
               <div class="reservation-cta bg-dark text-white text-center p-4 p-md-5 shadow">
@@ -115,6 +108,7 @@
     </footer>
     
     <script src="../js/cookie-banner.js" defer></script>
+    <script src="../js/speisekarte.js" defer></script>
 
   </body>
 </html>

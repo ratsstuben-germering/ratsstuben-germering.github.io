@@ -1,0 +1,269 @@
+{
+  "restaurant": "Ratsstuben Germering",
+  "currency": "EUR",
+  "categories": [
+    {
+      "name": "Kalte Vorspeisen",
+      "items": [
+        {"id": 100, "name": "Krabbencocktail 'Helgoland'", "description": "im Glas, mit knusprigem Toast und Butter", "price": 9.80},
+        {"id": 101, "name": "Wurstsalat 'München'", "description": "Lyoner mit Zwiebeln, Essig und Öl", "price": 8.50},
+        {"id": 102, "name": "Thunfisch", "description": "garniert mit Zwiebeln, Tomate und Butter, dazu Schwarzbrot", "price": 7.50},
+        {"id": 103, "name": "Ölsardinen", "description": "garniert mit Zwiebeln, Butter dazu Schwarzbrot", "price": 7.50},
+        {"id": 104, "name": "Orig. Bulgarischer Schafkäse", "description": "mit Zwiebeln, Butter dazu Schwarzbrot", "price": 9.50}
+      ]
+    },
+    {
+      "name": "Warme Vorspeisen",
+      "items": [
+        {"id": 121, "name": "Debreciner", "description": "2 Stück mit Senf und Schwarzbrot", "price": 7.20},
+        {"id": 122, "name": "Ham and Eggs", "description": "magerer Kochschinken mit 2 Spiegeleiern", "price": 8.50},
+        {"id": 125, "name": "Omelette mit magerer Kochschinken", "price": 8.80},
+        {"id": 123, "name": "Omelette mit Champignon", "price": 8.80},
+        {"id": 124, "name": "Omelette mit bulgarischem Schafkäse", "price": 9.80},
+        {"id": 126, "name": "Gebackener Camembert", "description": "mit Preiselbeeren und Birne", "price": 7.80}
+      ]
+    },
+    {
+      "name": "Suppen",
+      "items": [
+        {"id": 111, "name": "Bohnensuppe", "price": 4.80},
+        {"id": 112, "name": "Bouillon mit Nudeleinlage", "price": 4.20},
+        {"id": 113, "name": "Pfannkuchensuppe", "price": 4.20},
+        {"id": 114, "name": "Tomatensuppe mit Reis", "price": 4.70},
+        {"id": 115, "name": "Gemüsesuppe nach Zagreber Art", "price": 4.70},
+        {"id": 116, "name": "Zwiebelsuppe auf kroatische Art", "price": 4.70}
+      ]
+    },
+    {
+      "name": "Salate",
+      "items": [
+        {"id": 300, "name": "Griechischer Salat", "description": "Tomaten, Paprika, Gurken, Zwiebeln, Schafskäse mit Balsamico - Essig", "price": 10.80},
+        {"id": 301, "name": "Gourmet Salat", "description": "Putenstreifen mit Champignons aus der Pfanne", "price": 14.90},
+        {"id": 201, "name": "Sobskasalat", "price": 8.00},
+        {"id": 202, "name": "Gemischter Salat", "price": 4.60},
+        {"id": 203, "name": "Grüner Salat", "price": 4.60},
+        {"id": 204, "name": "Tomaten Salat", "price": 4.90},
+        {"id": 205, "name": "Krautsalat", "price": 4.40},
+        {"id": 206, "name": "Gurkensalat", "price": 4.60},
+        {"id": 208, "name": "Salatplatte mit 2 Eiern und Dressing", "price": 9.80}
+      ]
+    },
+    {
+      "name": "Pfannengerichte",
+      "items": [
+        {"id": 127, "name": "Pariser Schnitzel", "description": "mit Pommes Frites und Salat", "price": 16.00},
+        {"id": 128, "name": "Wiener Schnitzel", "description": "mit Pommes Frites und Salat", "price": 16.00},
+        {"id": 129, "name": "Paprika Schnitzel", "description": "mit Butterreis", "price": 16.00},
+        {"id": 130, "name": "Rahmschnitzel", "description": "mit hausgemachten Spätzle", "price": 16.00},
+        {"id": 131, "name": "Knoblauchschnitzel", "description": "mit hausgemachten Spätzle", "price": 16.00},
+        {"id": 132, "name": "Schnitzel Imperial", "description": "Spezialität des Hauses mit Nioke (Kartoffelbällchen)", "price": 16.80}
+      ]
+    },
+    {
+      "name": "Spezialitäten vom Rost",
+      "items": [
+        {"id": 160, "name": "Bosnischer Spieß", "description": "mageres Halsgrat, Deberciner, kl. Hacksteak, geräuchertes Wammerl, Cevapcici, mit Pommes Frites und Djuvecreis", "price": 15.80},
+        {"id": 161, "name": "Cevapcici", "description": "8 Hackfleischröllchen, mit Djuvecreis und Pommes, Ajvar, gehackten Zwiebeln und Peperoni", "price": 14.90},
+        {"id": 162, "name": "Rasnjici", "description": "2 Spieße mageres, mit Djuvecreis und Pommes, Ajvar, gehackten Zwiebeln und Peperoni", "price": 14.90},
+        {"id": 163, "name": "Pljeskavica", "description": "1 Hacksteak, mit Djuvecreis und Pommes, Ajvar, gehackten Zwiebeln und Peperoni", "price": 14.90},
+        {"id": 164, "name": "Pljeskavica 'Split'", "description": "1 Hacksteak, gefüllt mit bulgarischen Schafskäse, dazu Djuvecreis, Ajvar, gehackten Zwiebeln und Peperoni", "price": 18.00},
+        {"id": 165, "name": "Pljeskavica 'Opatija'", "description": "1 Hacksteak, m. weißen Bohnen", "price": 14.90},
+        {"id": 166, "name": "Kotelett vom Rost", "description": "mageres Schweinekotelett, mit Djuvecreis und Pommes Frites", "price": 14.50},
+        {"id": 167, "name": "Kotelett 'Opatija'", "description": "mageres Schweinekotelett, mit weißen Bohnen", "price": 14.90},
+        {"id": 168, "name": "Leber vom Rost", "description": "Junge Rinderleber, mit djuvecreis und Pommes Frites", "price": 14.80},
+        {"id": 170, "name": "Grillteller für 1 Person", "description": "Mageres Kotelett und Halsgrat, geräuchertes Wammerl, Cevapcici, kl. Hacksteak, Rinderleber dazu Djuvecreis und Pommes", "price": 17.80},
+        {"id": 171, "name": "Vukovar - Platte für 2 Personen", "description": "eine Spezialität unseres Hauses", "price": 35.60},
+        {"id": 172, "name": "Djingis Khan - Spieß", "description": "verschiedenes Fleisch, am Tisch flambiert, mit Gemüse und Röstkartoffeln", "price": 38.00},
+        {"id": 175, "name": "Gefüllte Paprikaschoten", "description": "mit Salzkartoffeln", "price": 15.80},
+        {"id": 176, "name": "Putenschnitzel", "description": "paniert, mit Kartoffelsalat", "price": 15.80},
+        {"id": 177, "name": "Putengeschnetzeltes", "description": "mit Rahm-Champignonsoße und Curryreis", "price": 17.50},
+        {"id": 178, "name": "Lustiger Bosnjak", "description": "Rinderlende gefüllt mit Schafskäse und Schinken, dazu Bratkartoffeln", "price": 24.00}
+      ]
+    },
+    {
+      "name": "Internationale Gerichte",
+      "items": [
+        {"id": 141, "name": "Cordon Bleu", "description": "aus Schweinelachs, gefüllt mit Käse und Schinken, dazu Pommes Frites", "price": 18.00},
+        {"id": 142, "name": "Geschnetzelte Leber", "description": "vom Rind, dazu Salzkartoffeln und gemischtem Salat", "price": 15.50},
+        {"id": 143, "name": "Zigeunerleber", "description": "vom Rind, in scharfer Souce mit Butterreis und gemischtem Salat", "price": 15.90},
+        {"id": 144, "name": "Muscalica", "description": "Filet geschnetzelt, Djuvec- Gemüse in feuriger Soße mit Butterreis", "price": 17.50},
+        {"id": 145, "name": "Samoborski Kotelett", "description": "Mageres Schweinekotelett vom Grill in feiner Knoblauchrahmsoße mit Salzkartoffeln", "price": 16.00},
+        {"id": 146, "name": "Kotelett 'Palma'", "description": "nach Art des Hauses, mit Pommes Frites", "price": 16.00},
+        {"id": 147, "name": "Filetspitzen 'Stroganoff'", "description": "in Rahmsoße mit Champignons dazu Butterreis", "price": 23.50},
+        {"id": 148, "name": "Filet 'Tokaja'", "description": "Schweinefilet m. Buttergemüse und hausgemachten Spätzle", "price": 19.80},
+        {"id": 149, "name": "Sarma Krautwickel", "description": "gefüllt mit Hackfleisch, dazu Salzkartoffeln", "price": 15.80},
+        {"id": 150, "name": "Schweinemedaillon 'Großmütterchen'", "description": "mit Champignons, geröstet mit Zwiebeln und Speck dazu Bratkartoffeln", "price": 18.80},
+        {"id": 151, "name": "Zigeunerspieß", "description": "mageres Halsgrat mit gedünsteten Zwiebeln, Tomaten und Paprika(scharf) dazu Djuvecreis und Pommes", "price": 16.50},
+        {"id": 152, "name": "Kutscher - Platte", "description": "mageres Halsgrat, geräuchertes Wammerl, Kotelett, cevapcici, 1 Polnische, dazu Sauerkraut und Salzkartoffeln", "price": 18.00},
+        {"id": 153, "name": "Filetsteak", "description": "vom Rind, mit Kräuterbutter, dazu Kroketten und Buttergemüse", "price": 32.00},
+        {"id": 154, "name": "Champignonsteak", "description": "vom Rind, in Rahmsoße, dazu kroketten", "price": 32.00},
+        {"id": 155, "name": "Pfeffersteak", "description": "vom Rind, mit grünem Pfeffer, in Rahmsoße, dazu kroketten", "price": 32.00},
+        {"id": 156, "name": "Filetsteak 'Zagreb'", "description": "vom Rind, Schinken und Zwiebeln gedünstet, dazu Pommes Frites", "price": 32.00},
+        {"id": 157, "name": "Steak 'Hawaii'", "description": "2 kleine Rinderfiletauf Toast mit Ananas und Käse überbacken", "price": 28.50},
+        {"id": 158, "name": "Ilok - Steak", "description": "Rinderlende, ca. 220 g, mit Bratkartoffeln und Gemüse", "price": 25.80}
+      ]
+    },
+    {
+      "name": "Fischgerichte",
+      "items": [
+        {"name": "Branzino (Wolfsbarsch)", "description": "Mit Blattspinat und Salzkartoffeln, ca. 400 g", "price": 24.50},
+        {"name": "Dorade Royal", "description": "mit Blattspinat und Salzkartoffeln, ca. 400g", "price": 24.50},
+        {"name": "Lachssteak", "description": "mit gemischten Gemüse und Hollandaise Souce", "price": 18.80},
+        {"name": "Calamare vom Grill", "description": "mit Blattspinat und Salzkartoffeln", "price": 18.80},
+        {"name": "Schollenfilet in Mantelhülle", "description": "mit Butterkartoffeln und Salat", "price": 18.80},
+        {"name": "Gemischte Fischplatte", "description": "mit Blattspinat und Salzkartoffeln", "price": 25.80},
+        {"id": 305, "name": "Zanderfilet", "description": "in Dillrahmsoße, Saltzkartoffeln und Salat", "price": 21.80},
+        {"id": 180, "name": "Forelle blau", "description": "mit Salzkartoffeln", "price": 17.00},
+        {"id": 181, "name": "Forelle Müllerin", "description": "gebacken, mit Salzkartoffeln in Butter geschwenkt", "price": 17.00},
+        {"id": 182, "name": "Forelle auf mazedonische Art", "description": "gefüllt mit Djuvecgemüse, dazu Salzkartoffeln", "price": 18.50},
+        {"id": 183, "name": "Scampi vom Grill", "description": "mit Curryreis und hausgemachter amerikanischer Soße", "price": 25.50},
+        {"id": 184, "name": "Calamare", "description": "gebacken, mit pommes und hausgemachter amerikanischer Soße", "price": 16.00},
+        {"id": 185, "name": "Zanderfilet paniert", "description": "mit Knoblauchkartoffelpüree", "price": 20.80}
+      ]
+    },
+    {
+      "name": "Fertige Speisen",
+      "items": [
+        {"id": 136, "name": "Weiße Bohnen mit Debreciner", "price": 9.50},
+        {"id": 137, "name": "Peperonada", "description": "Mageres Schweingulasch (scharf) mit Schafskäse und Djuvecreis", "price": 15.80},
+        {"id": 138, "name": "Ungarisches Gulasch", "description": "mit Salzkartoffeln und Salat", "price": 16.00},
+        {"id": 139, "name": "Zigeunergulasch", "description": "(scharf) mit Butterreis und Salat", "price": 16.00}
+      ]
+    },
+    {
+      "name": "Nudelgerichte",
+      "items": [
+        {"id": 302, "name": "Lachsnudeln", "description": "Geräucherten Lachs mit Bandnudeln in Knoblauchrahmsoße", "price": 12.90},
+        {"id": 303, "name": "Schinkennudeln", "description": "mit Salat", "price": 11.50}
+      ]
+    },
+    {
+      "name": "Vom Grill",
+      "items": [
+        {"id": 304, "name": "Hähnchenbrust vom Grill", "description": "in Chanpignonrahmsoße mit Butterreis und Salat", "price": 16.20},
+        {"id": 306, "name": "Zwiebelrostbraten", "description": "mit Bratkartoffeln und Salat", "price": 25.80},
+        {"id": 307, "name": "Gourmet – Spieß", "description": "drei verschiedene Filets in pikanter Sauce auf einem Kartoffelpüre", "price": 25.80},
+        {"id": 308, "name": "Schweinefilet", "description": "in Pfefferrahmsoße, hausgemachte Spätzle und Salat", "price": 19.80},
+        {"id": 309, "name": "Leber Veneziano", "description": "gebratene Rinderleben in Streifen in Rotweinrahmsoße mit Butterreis und Salat", "price": 15.50}
+      ]
+    },
+    {
+      "name": "Beilagen",
+      "items": [
+        {"id": 191, "name": "Djuvecreis", "price": 3.80},
+        {"id": 192, "name": "Pommes Frites", "price": 3.80},
+        {"id": 193, "name": "Salzkartoffeln", "price": 3.80},
+        {"id": 194, "name": "Bratkartoffeln", "price": 5.20},
+        {"id": 195, "name": "Kroketten", "price": 4.20},
+        {"id": 196, "name": "Spätzle", "price": 4.20},
+        {"id": 197, "name": "Reis / Rizi bisi", "price": 4.00},
+        {"id": 198, "name": "Gemischtes Gemüse", "price": 4.80},
+        {"id": 207, "name": "Ajvar", "price": 2.90}
+      ]
+    },
+    {
+      "name": "Desserts",
+      "items": [
+        {"id": 211, "name": "Palatschinken mit Nüssen", "price": 8.00},
+        {"id": 212, "name": "Palatschinken mit Konfitüre", "price": 8.00},
+        {"id": 213, "name": "Palatschinken mit Schokolade", "price": 8.00},
+        {"id": 214, "name": "Palatschinken mit Schokolade und Vanille - Eis", "price": 9.00},
+        {"name": "Topfen Palatschinken", "price": 4.60},
+        {"name": "Apfelstrudel mit vanille sose", "price": 4.60}
+      ]
+    },
+    {
+      "name": "Eispezialitäten",
+      "items": [
+        {"id": 222, "name": "Eisbecher Tutti Frutti", "description": "Vanille und Erdbeer- Eiscreme mit buntem Früchte- Coctail", "price": 5.80},
+        {"id": 223, "name": "Gemischtes Eis", "description": "Verschiedene Eiscreme - und Fruchtreis - sorten mit Sahne", "price": 5.40},
+        {"id": 224, "name": "Gemischtes Eis mit Sahne", "price": 5.60},
+        {"id": 225, "name": "Vanille Eis mit heisen Himbeeren", "price": 5.90},
+        {"id": 226, "name": "1 Kugel Eis", "price": 1.80}
+      ]
+    },
+    {
+      "name": "Getränke - Biere",
+      "items": [
+        {"id": "01", "name": "Hell – vom Fass", "size": "0.5 l", "price": 4.30},
+        {"id": "02", "name": "Hell – vom Fass", "size": "0.25 l", "price": 2.90},
+        {"id": "03", "name": "Pils – vom Fass", "size": "0.4 l", "price": 4.60},
+        {"id": "04", "name": "Salvator Dunkel", "size": "0.5 l", "price": 4.60},
+        {"id": "05", "name": "Hefe Weißbier", "size": "0.5 l", "price": 4.60},
+        {"id": "06", "name": "Hefe Weißbier Dunkel", "size": "0.5 l", "price": 4.60}
+      ]
+    },
+    {
+      "name": "Alkoholfreie Getränke",
+      "items": [
+        {"id": 12, "name": "Apfelsaft / Orangensaft", "size": "0.2 l", "price": 2.90},
+        {"id": 13, "name": "Coca-Cola, Fanta", "size": "0.4 l", "price": 4.00},
+        {"id": 13, "name": "Coca-Cola", "size": "0.2 l (Flasche)", "price": 3.00},
+        {"id": 14, "name": "Spezi", "size": "0.5 l", "price": 4.10},
+        {"id": 15, "name": "Johannisbeer – Apfel – Maracuja – Rhabarber oder Orangen-Schorle", "size": "0.4 l", "price": 4.20},
+        {"id": 16, "name": "Tafelwasser", "size": "0.25 l", "price": 2.60},
+        {"id": 17, "name": "Tafelwasser", "size": "0.5 l", "price": 3.60}
+      ]
+    },
+    {
+      "name": "Heiße Getränke",
+      "items": [
+        {"id": 22, "name": "Tasse Kaffee", "price": 3.00},
+        {"id": 23, "name": "Cappuccino", "price": 3.60},
+        {"id": 24, "name": "Mocca- Espresso", "price": 3.00},
+        {"id": 25, "name": "Tee mit Zitrone", "price": 3.00},
+        {"id": 26, "name": "Tee mit Rum 2 cl", "price": 5.20}
+      ]
+    },
+    {
+      "name": "Aperitiv",
+      "items": [
+        {"id": 45, "name": "Campari - Soda, Orange", "size": "5 cl", "price": 5.90},
+        {"id": 46, "name": "Campari, Martini", "size": "5 cl", "price": 4.80},
+        {"id": 47, "name": "Sljivovic", "size": "2 cl", "price": 2.90},
+        {"name": "Aperol Spritz", "price": 6.50},
+        {"name": "Hugo", "price": 6.00},
+        {"id": 48, "name": "Barack Palinka (Aprikoaenbrand)", "size": "2 cl", "price": 2.90},
+        {"id": 49, "name": "Pelinkovac (Magenbitter aus dalmatischen Kräuten)", "size": "2 cl", "price": 2.90}
+      ]
+    },
+    {
+      "name": "Sekte",
+      "items": [
+        {"id": 36, "name": "Fürst Metternich", "size": "0.75 l", "price": 30.00},
+        {"id": 37, "name": "Fürst Metternich", "size": "0.25 l", "price": 9.50}
+      ]
+    },
+    {
+      "name": "Spirituosen & Liköre",
+      "items": [
+        {"id": 57, "name": "Jägermeister", "size": "2 cl", "price": 2.90},
+        {"id": 58, "name": "Obstler", "size": "2 cl", "price": 2.90},
+        {"id": 59, "name": "Fernet Branca", "size": "2 cl", "price": 3.20},
+        {"id": 60, "name": "Williamsbrine", "size": "2 cl", "price": 3.10},
+        {"id": 63, "name": "Metaxa (Griechischer Weinbrand)", "size": "2 cl", "price": 3.40},
+        {"name": "Ouzo", "size": "2 cl", "price": 2.90},
+        {"id": 65, "name": "Hennessy (Französischer Cognac)", "size": "2 cl", "price": 3.80},
+        {"name": "Jack Daniel's", "size": "2 cl", "price": 3.80},
+        {"id": 67, "name": "Wodka", "size": "2 cl", "price": 2.90},
+        {"id": 68, "name": "Kruskovac (Brinenlikör)", "size": "2 cl", "price": 2.90},
+        {"name": "Julischka", "size": "2 cl", "price": 2.90}
+      ]
+    },
+    {
+      "name": "Original kroatische Weine",
+      "items": [
+        {"id": 71, "name": "Laski Rizling (lieblich)", "type": "Weiß", "size": "0.2 l", "price": 5.90},
+        {"id": 72, "name": "Traminer (lieblich, schöne würzige Art)", "type": "Weiß", "size": "0.2 l", "price": 5.90},
+        {"id": 73, "name": "Zilavka- Mostar (Spitzenwein, feinfruchtig, trockene Art)", "type": "Weiß", "size": "0.2 l", "price": 5.90},
+        {"id": 78, "name": "Merlot (feinherb, schooner Sortencharakter)", "type": "Rot", "size": "0.2 l", "price": 5.90},
+        {"id": 79, "name": "Plavac (feinherb, gehaltvoll)", "type": "Rot", "size": "0.2 l", "price": 5.90},
+        {"id": 80, "name": "Peljesac (mild, weich, samtige Fülle)", "type": "Rot", "size": "0.2 l", "price": 5.90},
+        {"id": 87, "name": "Weinschorle (süß oder sauer)", "size": "0.25 l", "price": 3.90},
+        {"id": 88, "name": "Weinschorle (süß oder sauer)", "size": "0.5 l", "price": 6.80},
+        {"id": 89, "name": "Weinschorle aus Zilavka", "size": "0.5 l", "price": 8.50}
+      ]
+    }
+  ],
+  "footer": "Die Preise sind inclusive Mehrwertsteuer und Bedienung"
+}
