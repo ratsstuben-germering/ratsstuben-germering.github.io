@@ -131,6 +131,70 @@ function getSafeErrorMessage() {
 }
 
 /**
+ * Rate limiting based on IP address
+ * prevents DoS and brute force attacks
+ *
+ * @param int $limit Maximum number of requests allowed
+ * @param int $period Time period in seconds
+ * @return bool True if request is allowed, False if limit exceeded
+ */
+function checkRateLimit($limit = 30, $period = 600) {
+    // Use local temp directory
+    $tempDir = __DIR__ . '/temp/';
+    
+    // Ensure directory exists
+    if (!is_dir($tempDir)) {
+        @mkdir($tempDir, 0755, true);
+    }
+    
+    // Garbage Collection (2% chance)
+    // Deletes files older than the period to prevent accumulation
+    if (rand(1, 100) <= 2) {
+        $files = glob($tempDir . 'rl_*');
+        $now = time();
+        foreach ($files as $f) {
+            if ($now - filemtime($f) > $period) {
+                @unlink($f);
+            }
+        }
+    }
+
+    // Get client IP
+    $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+    
+    // Create a safe filename for the IP
+    $file = $tempDir . 'rl_' . md5($ip . 'ratsstuben');
+    
+    $data = ['count' => 0, 'startTime' => time()];
+    
+    // Read existing data if file exists
+    if (file_exists($file)) {
+        $content = @file_get_contents($file);
+        if ($content) {
+            $decoded = json_decode($content, true);
+            if (is_array($decoded)) {
+                $data = $decoded;
+            }
+        }
+    }
+    
+    // Reset counter if period has expired
+    if (time() - $data['startTime'] > $period) {
+        $data['count'] = 0;
+        $data['startTime'] = time();
+    }
+    
+    // Increment counter
+    $data['count']++;
+    
+    // Save updated data
+    @file_put_contents($file, json_encode($data));
+    
+    // Check if limit is exceeded
+    return $data['count'] <= $limit;
+}
+
+/**
  * Advanced honeypot validation
  * Checks multiple bot detection methods
  */

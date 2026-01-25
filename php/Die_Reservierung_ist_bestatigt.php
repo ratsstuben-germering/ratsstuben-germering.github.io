@@ -205,13 +205,12 @@ if ($hasReservation) {
       <div class="site-container site-container-wide mx-auto px-3">
         <div class="inner">
           <h3 class="masthead-brand"><a href="../index.html">Ratsstuben <span class="brand-subtitle">aus Germering</span></a></h3>
-          <nav class="nav nav-masthead">
-            <a class="nav-link" href="../index.html">Titelseite</a>
-            <a class="nav-link" href="../html/galerie.html">Galerie</a>
-            <a class="nav-link" href="../html/speisekarte.html">Speisekarte</a>
-            <a class="nav-link" href="../html/reservieren.html">Reservieren</a>
-          </nav>
-        </div>
+                      <nav class="nav nav-masthead">
+                        <a class="nav-link" href="../index.html">Titelseite</a>
+                        <a class="nav-link" href="../html/galerie.html">Galerie</a>
+                        <a class="nav-link" href="../html/speisekarte.html">Speisekarte</a>
+                        <a class="nav-link" href="reservieren.php">Reservieren</a>
+                      </nav>        </div>
       </div>
     </header>
 

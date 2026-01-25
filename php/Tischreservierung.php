@@ -28,6 +28,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die('Ungültige Anfrage. Bitte laden Sie die Seite neu und versuchen Sie es erneut.');
     }
 
+    // Rate limiting (30 requests per 10 mins)
+    if (!checkRateLimit()) {
+        http_response_code(429); // Too Many Requests
+        logError('Rate limit exceeded', ['ip' => $_SERVER['REMOTE_ADDR'] ?? 'unknown']);
+        die('Zu viele Anfragen. Bitte versuchen Sie es in einigen Minuten erneut.');
+    }
+
     // Validate honeypot (spam protection)
     if (!validateHoneypot()) {
         http_response_code(403);

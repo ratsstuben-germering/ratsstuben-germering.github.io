@@ -15,7 +15,7 @@ Restaurant website for "Ratsstuben Germering" - a traditional German restaurant 
 | Bootstrap | 4.0 | Responsive grid and component base |
 | PHP | 7.4+ | Reservation processing with security |
 | WebP | - | High-performance image optimization |
-| JavaScript | Vanilla | Cookie consent (deferred loading) |
+| JavaScript | Vanilla | Interactive components (Lightbox, Cookie banner) |
 
 ## File Structure
 
@@ -29,28 +29,29 @@ ratsstuben-germering.github.io/
 │   ├── common.css          # Global variables, dark theme, utility classes
 │   ├── index.css           # Homepage-specific styles
 │   ├── speisekarte.css     # Hero header, PDF viewer styling
-│   ├── galerie.css         # Masonry collage, parallax CTA
+│   ├── galerie.css         # Masonry collage, Lightbox styles, parallax CTA
 │   ├── reservieren.css     # Premium form card, icons, interactive pills
 │   └── legal.css           # Legal document layout, dark theme overrides
 ├── html/                   # Static pages (ALL DARK THEME)
-│   ├── galerie.html        # Photo gallery (27 images, lazy loaded)
+│   ├── galerie.html        # Photo gallery (36 images, lazy loaded)
 │   ├── speisekarte.html    # Menu with PDF viewer & CTA
-│   ├── reservieren.html    # Legacy static form (use PHP version)
 │   ├── impressum.html      # Legal notice
 │   └── datenschutz.html    # Privacy policy
 ├── php/                    # Server-side processing (ALL DARK THEME)
-│   ├── security.php        # Security utilities (CSRF, validation, headers)
+│   ├── security.php        # Security utilities (CSRF, Rate Limiting, sanitization)
 │   ├── reservieren.php     # Secure reservation form with CSRF
 │   ├── Tischreservierung.php  # Form handler (security improvements)
-│   └── Die_Reservierung_ist_bestatigt.php  # Success page (dark theme)
+│   ├── Die_Reservierung_ist_bestatigt.php  # Success page (dark theme)
+│   └── temp/               # Protected rate limiting storage
 ├── js/
-│   └── cookie-banner.js    # Cookie consent (deferred loading)
+│   ├── cookie-banner.js    # Cookie consent (deferred loading)
+│   └── lightbox.js         # Lightweight gallery lightbox
 ├── media/
 │   └── Speisekarte_RatsstubenGermering.pdf  # Menu source
 ├── imgs/
 │   ├── T_hero.webp         # Main hero image (used site-wide)
 │   ├── *_hero.webp         # Page-specific banner images
-│   └── gallery/            # 27 optimized WebP gallery images
+│   └── gallery/            # 38 optimized WebP gallery images
 ├── favicons/               # Complete favicon set
 └── .deployment_scripts/
     ├── deployWebApp.sh     # Production deployment script
@@ -178,6 +179,9 @@ All hero images now use consistent `0.45` dark overlay for text readability:
 ### Security Module (`php/security.php`)
 
 ```php
+// Rate Limiting
+checkRateLimit($limit, $period) // IP-based DoS protection (30/10min)
+
 // CSRF Protection
 generateCsrfToken()    // Generate 32-byte token
 validateCsrfToken()    // Validate with 2-hour expiry
@@ -202,6 +206,7 @@ validateHoneypot()      // Advanced bot detection
 
 | Feature | Implementation |
 |---------|---------------|
+| Rate Limiting | IP-based (30 req / 10 min), local temp storage |
 | CSRF Protection | Token-based, 2-hour expiration |
 | Input Sanitization | `htmlspecialchars()`, `filter_var()` |
 | Honeypot | Multiple fields + timing validation (< 2s = bot) |
@@ -223,8 +228,9 @@ Permissions-Policy: geolocation=(), microphone=(), camera=()
 ## Performance Optimization
 
 ### Image Optimization
-- **Format:** WebP (reduced from ~20MB to ~3MB)
-- **Lazy Loading:** All 27 gallery images use `loading="lazy"`
+- **Format:** WebP (optimized via `cwebp` and `magick`)
+- **Processing:** New gallery images surgically cropped to content and flattened against card background (`#2d2d2d`) for consistent rounded corners.
+- **Lazy Loading:** All 38 gallery images use `loading="lazy"`
 - **Metadata:** Stripped EXIF data
 
 ### JavaScript Loading
@@ -268,19 +274,11 @@ Permissions-Policy: geolocation=(), microphone=(), camera=()
 5. On success: Telegram notification → redirect to confirmation
 6. On error: Safe message with phone/email contact
 
-**Form Fields:**
-- Date, Time, Guest Count (required)
-- Name, Phone (required)
-- Email (optional)
-- Outside Area, Child Seat, Wheelchair, Dog (checkboxes)
-- Special Requests (textarea)
-
-### 2. Masonry Gallery (`html/galerie.html`)
+### 2. Masonry Gallery with Lightbox (`html/galerie.html`)
 - 3-column desktop grid, 1-column mobile
 - WebP images with lazy loading
-- Hover effects for engagement
-- Alt tags for accessibility/SEO
-- Parallax CTA section
+- **Lightbox Feature:** Interactive full-screen view for all images (`js/lightbox.js`)
+- **Surgical Cropping:** New images fill the frame for a professional "full-frame" look
 
 ### 3. Responsive Menu (`html/speisekarte.html`)
 - Embedded PDF viewer
@@ -302,12 +300,6 @@ docker run -d --name ratsstuben-php -p 8080:80 \
   -v "$(pwd):/var/www/html" php:apache
 ```
 
-**Alternative:**
-```bash
-python3 -m http.server 8080
-php -S localhost:8080
-```
-
 ### Environment Variables
 - `TELEGRAM_BOT_TOKEN` - Bot API token
 - `CHAT_ID` - Target chat for notifications
@@ -323,51 +315,20 @@ php -S localhost:8080
 | **Phone** | +49 89 847989 |
 | **Email** | ratsstuben.germering@gmail.com |
 
-## Recent Updates (2026-01)
+## Recent Updates (2026-01-25)
 
-### Dark Theme Implementation ✅
-- All pages converted to dark theme
-- Site-wide parallax background image
-- Consistent card styling (#2d2d2d)
-- Proper text contrast on all pages
+### Security Hardening ✅
+- Implemented IP-based **Rate Limiting** (30 requests per 10 minutes).
+- Created secure `php/temp/` storage for rate limit data with 2% garbage collection.
+- Verified 403 Forbidden access to sensitive security data.
 
-### Brand/Logo Fixes ✅
-- Fixed invalid HTML structure (nested small tags → span)
-- Added `white-space: nowrap` to prevent text wrapping
-- Fixed on all pages including PHP files
-
-### Hero Overlay Adjustments ✅
-- Standardized to 0.45 on all hero sections
-- Better text readability while maintaining image visibility
-
-### CTA Improvements ✅
-- Both CTAs use same image (T_hero.webp)
-- Parallax scrolling effect (background-attachment: fixed)
-- Consistent dark overlay (0.5)
-
-### Navigation & Mobile Fixes ✅
-- Mobile navigation centered (< 768px)
-- Desktop navigation floats right (≥ 768px)
-- Brand subtitle stays on one line
-
-### Contrast Improvements ✅
-- Alert boxes styled for dark theme
-- Legal content text properly visible
-- All text has adequate contrast
-
-### Button Fixes ✅
-- "Jetzt verbindlich reservieren" text wraps properly
-- "Jetzt Tisch reservieren" padding reduced on mobile
-
-### Language & Contact ✅
-- All pages use `lang="de"`
-- Phone format: `+49 89 847989` (international)
-- Meta descriptions added to all pages
+### Codebase Maintenance ✅
+- Removed deprecated `html/reservieren.html` and updated all navigation links.
+- Removed and archived 2 low-quality gallery images (`Exterior2.webp`, `picture_of_menu_and_plate.webp`).
 
 ## Known Issues & TODO
 
 ### Potential Improvements
-- [ ] Implement rate limiting for reservation form
 - [ ] Add reCAPTCHA v3 for additional spam protection
 - [ ] Purge unused Bootstrap CSS (~100KB savings)
 - [ ] Combine CSS files for production
@@ -377,4 +338,3 @@ php -S localhost:8080
 ### Migration Notes
 - Static `html/reservieren.html` is deprecated; use `/php/reservieren.php`
 - All navigation links now point to secure PHP version
-- Old variable names (Croatian) replaced with English equivalents

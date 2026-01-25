@@ -52,16 +52,16 @@ ratsstuben-germering.github.io/
 │   ├── speisekarte.css     # Menu page
 │   └── legal.css           # Privacy/Terms pages
 ├── html/                   # Static pages
-│   ├── galerie.html        # Photo gallery (27 images)
+│   ├── galerie.html        # Photo gallery
 │   ├── speisekarte.html    # Menu with PDF viewer
-│   ├── reservieren.html    # Static reservation form (legacy)
 │   ├── datenschutz.html    # Privacy policy
 │   └── impressum.html      # Legal notice
 ├── php/                    # Server-side processing
-│   ├── security.php        # Security utilities (CSRF, sanitization, headers)
+│   ├── security.php        # Security utilities (CSRF, Rate Limiting, sanitization)
 │   ├── reservieren.php     # Secure reservation form with CSRF
 │   ├── Tischreservierung.php  # Form handler with validation
-│   └── Die_Reservierung_ist_bestatigt.php  # Success page
+│   ├── Die_Reservierung_ist_bestatigt.php  # Success page
+│   └── temp/               # Local storage for rate limiting data (auto-cleaned)
 ├── js/
 │   └── cookie-banner.js    # Cookie consent (deferred loading)
 ├── imgs/
@@ -77,6 +77,7 @@ ratsstuben-germering.github.io/
 ## Features
 
 ### Security
+- ✅ IP-based rate limiting (30 requests / 10 min)
 - ✅ CSRF token protection (2-hour expiration)
 - ✅ Input sanitization (string, email, integer)
 - ✅ Security headers (CSP, X-Frame-Options, X-XSS-Protection)
