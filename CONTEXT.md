@@ -45,9 +45,12 @@ ratsstuben-germering.github.io/
 │   └── temp/               # Protected rate limiting storage
 ├── js/
 │   ├── cookie-banner.js    # Cookie consent (deferred loading)
-│   └── lightbox.js         # Lightweight gallery lightbox
+│   ├── lightbox.js         # Lightweight gallery lightbox
+│   └── speisekarte.js      # Dynamic menu renderer (JSON-driven)
 ├── media/
-│   └── Speisekarte_RatsstubenGermering.pdf  # Menu source
+│   ├── Speisekarte_RatsstubenGermering.pdf  # PDF source
+│   ├── Speisekarte.json    # Original menu data
+│   └── Speisekarte_v2.json # Enhanced menu data (folded flags, badges)
 ├── imgs/
 │   ├── T_hero.webp         # Main hero image (used site-wide)
 │   ├── *_hero.webp         # Page-specific banner images
@@ -280,10 +283,12 @@ Permissions-Policy: geolocation=(), microphone=(), camera=()
 - **Lightbox Feature:** Interactive full-screen view for all images (`js/lightbox.js`)
 - **Surgical Cropping:** New images fill the frame for a professional "full-frame" look
 
-### 3. Responsive Menu (`html/speisekarte.html`)
-- Embedded PDF viewer
-- Download fallback for mobile
-- Parallax CTA section
+### 3. Interactive HTML Menu (`html/speisekarte.html`)
+- **JSON-Driven:** Built dynamically from `media/Speisekarte_v2.json` via `js/speisekarte.js`.
+- **Collapsible Categories:** Accordion-style layout to reduce vertical scroll on mobile.
+- **Featured Section:** "Empfehlungen des Hauses" section always open for signature dishes.
+- **Visual Badges:** Color-coded annotations (Gold for classics, Blue for origin, Orange for specials).
+- **Mobile Optimized:** Prevents horizontal overflow and handles long names gracefully.
 
 ### 4. Legal Pages
 - Dark theme with proper contrast
@@ -317,14 +322,16 @@ docker run -d --name ratsstuben-php -p 8080:80 \
 
 ## Recent Updates (2026-01-25)
 
+### Dynamic Menu Implementation ✅
+- **Data Conversion:** Transcribed entire PDF menu into structured JSON.
+- **Interactive Engine:** Built `speisekarte.js` renderer with category folding and smooth animations.
+- **Visual Improvements:** Added "Empfehlungen" section with gold styling and color-coded badges (Klassiker, Kroatisch, Beliebt).
+- **UX Fixes:** Resolved horizontal scrolling on mobile and removed jittery parallax from CTA.
+
 ### Security Hardening ✅
 - Implemented IP-based **Rate Limiting** (30 requests per 10 minutes).
 - Created secure `php/temp/` storage for rate limit data with 2% garbage collection.
 - Verified 403 Forbidden access to sensitive security data.
-
-### Codebase Maintenance ✅
-- Removed deprecated `html/reservieren.html` and updated all navigation links.
-- Removed and archived 2 low-quality gallery images (`Exterior2.webp`, `picture_of_menu_and_plate.webp`).
 
 ## Known Issues & TODO
 

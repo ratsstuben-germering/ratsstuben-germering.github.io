@@ -85,18 +85,20 @@ ratsstuben-germering.github.io/
 - ✅ Secure error logging (no sensitive data exposure)
 - ✅ Server-side validation (date, time, required fields)
 
-### Performance
-- ✅ Image lazy loading (27 gallery images)
+### Performance & Modernization
+- ✅ **Dynamic HTML Menu:** JSON-driven speisekarte with interactive categories
+- ✅ Image lazy loading (38 gallery images)
 - ✅ Deferred JavaScript loading
 - ✅ Nginx caching configuration
-- ✅ WebP image format (3MB total vs ~20MB original)
+- ✅ WebP image format (optimized assets)
 - ✅ Gzip compression ready
 
 ### User Experience
 - Responsive design (mobile-first)
+- **Interactive Speisekarte:** Collapsible categories with smooth animations
+- **Featured Dishes:** "Empfehlungen des Hauses" section with color-coded badges
 - Card-based layout with modern styling
-- Interactive form elements
-- PDF menu viewer with download fallback
+- PDF menu fallback for download
 - German language interface
 
 ## Deployment
