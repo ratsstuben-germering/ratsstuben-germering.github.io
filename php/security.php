@@ -148,45 +148,31 @@ function checkRateLimit($limit = 30, $period = 600) {
 
     // Initialize on first call
     if ($db === null) {
-        // Check if SQLite3 extension is available
-        if (!class_exists('SQLite3')) {
-            logError('SQLite3 extension not available, using file-based rate limiting');
-            return checkRateLimitFile($limit, $period);
-        }
-
         $tempDir = __DIR__ . '/temp/';
         if (!is_dir($tempDir)) {
-            if (!@mkdir($tempDir, 0755, true)) {
-                logError('Failed to create temp directory, using file-based rate limiting');
-                return checkRateLimitFile($limit, $period);
-            }
+            mkdir($tempDir, 0755, true);
         }
 
         $dbPath = $tempDir . 'rate_limit.db';
 
-        try {
-            $db = new SQLite3($dbPath, SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE);
-            $db->exec('PRAGMA journal_mode = WAL');
-            $db->exec('PRAGMA synchronous = NORMAL');
-            $db->busyTimeout(1000);
+        $db = new SQLite3($dbPath, SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE);
+        $db->exec('PRAGMA journal_mode = WAL');
+        $db->exec('PRAGMA synchronous = NORMAL');
+        $db->busyTimeout(1000);
 
-            $db->exec('
-                CREATE TABLE IF NOT EXISTS rate_limits (
-                    ip_hash TEXT PRIMARY KEY,
-                    count INTEGER NOT NULL DEFAULT 1,
-                    window_start INTEGER NOT NULL
-                );
-                CREATE INDEX IF NOT EXISTS idx_window_start ON rate_limits(window_start);
-            ');
+        $db->exec('
+            CREATE TABLE IF NOT EXISTS rate_limits (
+                ip_hash TEXT PRIMARY KEY,
+                count INTEGER NOT NULL DEFAULT 1,
+                window_start INTEGER NOT NULL
+            );
+            CREATE INDEX IF NOT EXISTS idx_window_start ON rate_limits(window_start);
+        ');
 
-            // Garbage collection (1% chance)
-            if (rand(1, 100) === 1) {
-                $cutoff = time() - $period;
-                $db->exec("DELETE FROM rate_limits WHERE window_start < $cutoff");
-            }
-        } catch (Exception $e) {
-            logError('SQLite error, falling back to file-based', ['error' => $e->getMessage()]);
-            return checkRateLimitFile($limit, $period);
+        // Garbage collection (1% chance)
+        if (rand(1, 100) === 1) {
+            $cutoff = time() - $period;
+            $db->exec("DELETE FROM rate_limits WHERE window_start < $cutoff");
         }
     }
 
@@ -195,90 +181,37 @@ function checkRateLimit($limit = 30, $period = 600) {
     $now = time();
     $windowStart = $now - ($now % $period);
 
-    try {
-        $result = $db->querySingle(
-            "SELECT count, window_start FROM rate_limits WHERE ip_hash = '$ipHash'",
-            true
-        );
+    $result = $db->querySingle(
+        "SELECT count, window_start FROM rate_limits WHERE ip_hash = '$ipHash'",
+        true
+    );
 
-        if ($result === false) {
-            $stmt = $db->prepare('INSERT INTO rate_limits (ip_hash, count, window_start) VALUES (:ip, 1, :window)');
-            $stmt->bindValue(':ip', $ipHash, SQLITE3_TEXT);
-            $stmt->bindValue(':window', $windowStart, SQLITE3_INTEGER);
-            $stmt->execute();
-            return true;
-        }
-
-        $count = (int) $result['count'];
-        $existingWindow = (int) $result['window_start'];
-
-        if ($now - $existingWindow >= $period) {
-            $stmt = $db->prepare('UPDATE rate_limits SET count = 1, window_start = :window WHERE ip_hash = :ip');
-            $stmt->bindValue(':ip', $ipHash, SQLITE3_TEXT);
-            $stmt->bindValue(':window', $windowStart, SQLITE3_INTEGER);
-            $stmt->execute();
-            return true;
-        }
-
-        $newCount = $count + 1;
-        $stmt = $db->prepare('UPDATE rate_limits SET count = :count WHERE ip_hash = :ip');
+    if ($result === false) {
+        $stmt = $db->prepare('INSERT INTO rate_limits (ip_hash, count, window_start) VALUES (:ip, 1, :window)');
         $stmt->bindValue(':ip', $ipHash, SQLITE3_TEXT);
-        $stmt->bindValue(':count', $newCount, SQLITE3_INTEGER);
+        $stmt->bindValue(':window', $windowStart, SQLITE3_INTEGER);
         $stmt->execute();
-
-        return $newCount <= $limit;
-    } catch (Exception $e) {
-        logError('SQLite query error, falling back to file-based', ['error' => $e->getMessage()]);
-        return checkRateLimitFile($limit, $period);
-    }
-}
-
-/**
- * Fallback file-based rate limiting (used when SQLite is unavailable)
- * This is the original implementation but optimized slightly
- */
-function checkRateLimitFile($limit = 30, $period = 600) {
-    $tempDir = __DIR__ . '/temp/';
-
-    if (!is_dir($tempDir)) {
-        @mkdir($tempDir, 0755, true);
+        return true;
     }
 
-    $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
-    $file = $tempDir . 'rl_' . md5($ip . 'ratsstuben');
+    $count = (int) $result['count'];
+    $existingWindow = (int) $result['window_start'];
 
-    $data = ['count' => 0, 'startTime' => time()];
-
-    if (file_exists($file)) {
-        $content = @file_get_contents($file);
-        if ($content) {
-            $decoded = json_decode($content, true);
-            if (is_array($decoded)) {
-                $data = $decoded;
-            }
-        }
+    if ($now - $existingWindow >= $period) {
+        $stmt = $db->prepare('UPDATE rate_limits SET count = 1, window_start = :window WHERE ip_hash = :ip');
+        $stmt->bindValue(':ip', $ipHash, SQLITE3_TEXT);
+        $stmt->bindValue(':window', $windowStart, SQLITE3_INTEGER);
+        $stmt->execute();
+        return true;
     }
 
-    if (time() - $data['startTime'] > $period) {
-        $data['count'] = 0;
-        $data['startTime'] = time();
-    }
+    $newCount = $count + 1;
+    $stmt = $db->prepare('UPDATE rate_limits SET count = :count WHERE ip_hash = :ip');
+    $stmt->bindValue(':ip', $ipHash, SQLITE3_TEXT);
+    $stmt->bindValue(':count', $newCount, SQLITE3_INTEGER);
+    $stmt->execute();
 
-    $data['count']++;
-    @file_put_contents($file, json_encode($data));
-
-    // Only do cleanup rarely (1% instead of 2% to reduce impact)
-    if (rand(1, 100) <= 1) {
-        $files = glob($tempDir . 'rl_*');
-        $now = time();
-        foreach ($files as $f) {
-            if ($now - filemtime($f) > $period) {
-                @unlink($f);
-            }
-        }
-    }
-
-    return $data['count'] <= $limit;
+    return $newCount <= $limit;
 }
 
 /**
