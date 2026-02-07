@@ -5,6 +5,11 @@
  * Compatible with PHP 7.0+
  */
 
+// Enable output buffering for faster TTFB
+if (!ob_get_level()) {
+    ob_start();
+}
+
 // Start session if not already started
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -131,67 +136,95 @@ function getSafeErrorMessage() {
 }
 
 /**
- * Rate limiting based on IP address
- * prevents DoS and brute force attacks
+ * SQLite-based Rate Limiting
+ * Much faster than file-based approach - uses indexed queries instead of glob()
  *
  * @param int $limit Maximum number of requests allowed
  * @param int $period Time period in seconds
  * @return bool True if request is allowed, False if limit exceeded
  */
 function checkRateLimit($limit = 30, $period = 600) {
-    // Use local temp directory
-    $tempDir = __DIR__ . '/temp/';
-    
-    // Ensure directory exists
-    if (!is_dir($tempDir)) {
-        @mkdir($tempDir, 0755, true);
-    }
-    
-    // Garbage Collection (2% chance)
-    // Deletes files older than the period to prevent accumulation
-    if (rand(1, 100) <= 2) {
-        $files = glob($tempDir . 'rl_*');
-        $now = time();
-        foreach ($files as $f) {
-            if ($now - filemtime($f) > $period) {
-                @unlink($f);
+    static $db = null;
+    static $dbPath = null;
+
+    // Initialize on first call
+    if ($db === null) {
+        $tempDir = __DIR__ . '/temp/';
+        if (!is_dir($tempDir)) {
+            @mkdir($tempDir, 0755, true);
+        }
+        $dbPath = $tempDir . 'rate_limit.db';
+
+        $db = new SQLite3($dbPath, SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE);
+        // Enable WAL mode for better concurrent performance
+        $db->exec('PRAGMA journal_mode = WAL');
+        $db->exec('PRAGMA synchronous = NORMAL');
+        // Set busy timeout (wait up to 1 second if locked)
+        $db->busyTimeout(1000);
+
+        // Create table with indexes for fast lookups
+        $db->exec('
+            CREATE TABLE IF NOT EXISTS rate_limits (
+                ip_hash TEXT PRIMARY KEY,
+                count INTEGER NOT NULL DEFAULT 1,
+                window_start INTEGER NOT NULL
+            );
+            CREATE INDEX IF NOT EXISTS idx_window_start ON rate_limits(window_start);
+        ');
+
+        // Garbage collection - run rarely (1% chance) using a single fast DELETE
+        if (rand(1, 100) === 1) {
+            $cutoff = time() - $period;
+            $db->exec("DELETE FROM rate_limits WHERE window_start < $cutoff");
+            // Optimize database occasionally
+            if (rand(1, 100) === 1) {
+                $db->exec('VACUUM');
             }
         }
     }
 
-    // Get client IP
     $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
-    
-    // Create a safe filename for the IP
-    $file = $tempDir . 'rl_' . md5($ip . 'ratsstuben');
-    
-    $data = ['count' => 0, 'startTime' => time()];
-    
-    // Read existing data if file exists
-    if (file_exists($file)) {
-        $content = @file_get_contents($file);
-        if ($content) {
-            $decoded = json_decode($content, true);
-            if (is_array($decoded)) {
-                $data = $decoded;
-            }
-        }
+    // Hash IP for privacy and to ensure valid database keys
+    $ipHash = hash('sha256', $ip . 'ratsstuben_rate_limit');
+    $now = time();
+    $windowStart = $now - ($now % $period);  // Align to period boundaries
+
+    // Use a transaction for atomicity
+    $result = $db->querySingle(
+        "SELECT count, window_start FROM rate_limits WHERE ip_hash = '$ipHash'",
+        true
+    );
+
+    if ($result === false) {
+        // First request from this IP
+        $stmt = $db->prepare('INSERT INTO rate_limits (ip_hash, count, window_start) VALUES (:ip, 1, :window)');
+        $stmt->bindValue(':ip', $ipHash, SQLITE3_TEXT);
+        $stmt->bindValue(':window', $windowStart, SQLITE3_INTEGER);
+        $stmt->execute();
+        return true;
     }
-    
-    // Reset counter if period has expired
-    if (time() - $data['startTime'] > $period) {
-        $data['count'] = 0;
-        $data['startTime'] = time();
+
+    $count = (int) $result['count'];
+    $existingWindow = (int) $result['window_start'];
+
+    // Check if we're in a new time window
+    if ($now - $existingWindow >= $period) {
+        // Reset count for new window
+        $stmt = $db->prepare('UPDATE rate_limits SET count = 1, window_start = :window WHERE ip_hash = :ip');
+        $stmt->bindValue(':ip', $ipHash, SQLITE3_TEXT);
+        $stmt->bindValue(':window', $windowStart, SQLITE3_INTEGER);
+        $stmt->execute();
+        return true;
     }
-    
+
     // Increment counter
-    $data['count']++;
-    
-    // Save updated data
-    @file_put_contents($file, json_encode($data));
-    
-    // Check if limit is exceeded
-    return $data['count'] <= $limit;
+    $newCount = $count + 1;
+    $stmt = $db->prepare('UPDATE rate_limits SET count = :count WHERE ip_hash = :ip');
+    $stmt->bindValue(':ip', $ipHash, SQLITE3_TEXT);
+    $stmt->bindValue(':count', $newCount, SQLITE3_INTEGER);
+    $stmt->execute();
+
+    return $newCount <= $limit;
 }
 
 /**
