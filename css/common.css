@@ -550,63 +550,96 @@ footer p {
 }
 
 /* ============================================
-   Holiday Banner
+   Holiday Modal Popup
    ============================================ */
 
-.holiday-banner {
+.holiday-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 9999;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-  border-bottom: 2px solid #c9a227;
-  padding: 0.75rem 1rem;
-  text-align: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-.holiday-banner-content {
-  max-width: 60em;
-  margin: 0 auto;
+  bottom: 0;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.25rem;
+  justify-content: center;
+  padding: 1rem;
 }
 
-@media (min-width: 768px) {
-  .holiday-banner-content {
-    flex-direction: row;
-    justify-content: center;
-    gap: 1rem;
+.holiday-modal {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border: 2px solid #c9a227;
+  border-radius: 1.25rem;
+  padding: 2rem 2.5rem;
+  max-width: 28rem;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  animation: holiday-modal-appear 0.3s ease-out;
+}
+
+@keyframes holiday-modal-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
   }
 }
 
-.holiday-banner-text {
-  color: #f5f5f5;
-  font-size: 0.95rem;
-  font-weight: 500;
+.holiday-modal-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
 }
 
-.holiday-banner-highlight {
+.holiday-modal-title {
+  color: #c9a227;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+}
+
+.holiday-modal-text {
+  color: #f5f5f5;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0 0 0.75rem 0;
+}
+
+.holiday-modal-highlight {
   color: #c9a227;
   font-weight: 700;
+  font-size: 1.2rem;
 }
 
-.holiday-banner-note {
+.holiday-modal-note {
   color: rgba(255, 255, 255, 0.75);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  margin: 0 0 1.5rem 0;
 }
 
-body.has-holiday-banner {
-  padding-top: 4.5rem;
+.holiday-modal-btn {
+  background: #c9a227;
+  color: #1a1a1a;
+  border: none;
+  padding: 0.75rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
 }
 
-@media (min-width: 768px) {
-  body.has-holiday-banner {
-    padding-top: 3.5rem;
-  }
+.holiday-modal-btn:hover {
+  background: #d4ad2f;
+  transform: translateY(-1px);
+}
+
+.holiday-modal-btn:active {
+  transform: translateY(0);
 }
 
 /* ============================================

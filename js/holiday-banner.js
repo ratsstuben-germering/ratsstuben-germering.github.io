@@ -3,18 +3,23 @@
   var now = new Date();
 
   if (now < reopenDate) {
-    document.body.classList.add('has-holiday-banner');
+    var overlay = document.createElement('div');
+    overlay.className = 'holiday-modal-overlay';
+    overlay.id = 'holiday-modal';
 
-    var banner = document.createElement('div');
-    banner.className = 'holiday-banner';
-    banner.innerHTML = '\
-      <div class="holiday-banner-content">\
-        <span class="holiday-banner-text">\
-          Wir haben Urlaub! Wieder offen ab <span class="holiday-banner-highlight">31.03.2026</span>\
-        </span>\
-        <span class="holiday-banner-note">Reservierungen für spätere Termine nehmen wir gerne entgegen.</span>\
+    overlay.innerHTML = '\
+      <div class="holiday-modal">\
+        <div class="holiday-modal-icon">&#9728;</div>\
+        <h3 class="holiday-modal-title">Urlaubszeit!</h3>\
+        <p class="holiday-modal-text">\
+          Wir haben Urlaub!<br>\
+          Wieder offen ab <span class="holiday-modal-highlight">31.03.2026</span>\
+        </p>\
+        <p class="holiday-modal-note">Reservierungen für spätere Termine nehmen wir gerne entgegen.</p>\
+        <button class="holiday-modal-btn" onclick="document.getElementById(\'holiday-modal\').style.display=\'none\'">Verstanden</button>\
       </div>\
     ';
-    document.body.insertBefore(banner, document.body.firstChild);
+
+    document.body.appendChild(overlay);
   }
 })();
