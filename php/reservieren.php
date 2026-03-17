@@ -30,7 +30,7 @@ $timestamp = time();
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Common styles -->
-    <link href="../css/common.css" rel="stylesheet">
+    <link href="../css/common.css?v=2" rel="stylesheet">
 
     <!-- Page-specific styles -->
     <link href="../css/reservieren.css" rel="stylesheet">
@@ -229,7 +229,7 @@ $timestamp = time();
       </div>
     </footer>
 
-    <script src="../js/holiday-banner.js"></script>
+    <script src="../js/holiday-banner.js?v=2"></script>
     <script src="../js/cookie-banner.js" defer></script>
 
   </body>

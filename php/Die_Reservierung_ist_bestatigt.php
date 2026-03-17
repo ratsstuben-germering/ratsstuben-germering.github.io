@@ -26,7 +26,7 @@ if ($hasReservation) {
     <title>Reservierungsbestätigung - Ratsstuben Germering</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/common.css" rel="stylesheet">
+    <link href="../css/common.css?v=2" rel="stylesheet">
 
     <style>
       .success-container {
