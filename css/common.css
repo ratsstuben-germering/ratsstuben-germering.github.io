@@ -550,6 +550,66 @@ footer p {
 }
 
 /* ============================================
+   Holiday Banner
+   ============================================ */
+
+.holiday-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border-bottom: 2px solid #c9a227;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.holiday-banner-content {
+  max-width: 60em;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .holiday-banner-content {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+.holiday-banner-text {
+  color: #f5f5f5;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.holiday-banner-highlight {
+  color: #c9a227;
+  font-weight: 700;
+}
+
+.holiday-banner-note {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.85rem;
+}
+
+body.has-holiday-banner {
+  padding-top: 4.5rem;
+}
+
+@media (min-width: 768px) {
+  body.has-holiday-banner {
+    padding-top: 3.5rem;
+  }
+}
+
+/* ============================================
    Dark Theme Cards
    ============================================ */
 

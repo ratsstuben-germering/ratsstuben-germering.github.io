@@ -229,6 +229,7 @@ $timestamp = time();
       </div>
     </footer>
 
+    <script src="../js/holiday-banner.js"></script>
     <script src="../js/cookie-banner.js" defer></script>
 
   </body>
