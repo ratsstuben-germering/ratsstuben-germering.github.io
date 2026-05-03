@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Show loading state
     menuContainer.innerHTML = '<div class="text-center py-5"><div class="spinner-border text-light" role="status"><span class="sr-only">Lade Speisekarte...</span></div></div>';
 
-    fetch('../media/Speisekarte_v2.json')
+    fetch('../media/Speisekarte_v2.json?v=20260503')
         .then(response => {
             if (!response.ok) throw new Error('Network response was not ok');
             return response.json();

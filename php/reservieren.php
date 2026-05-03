@@ -27,13 +27,13 @@ $timestamp = time();
     <title>Tisch reservieren - Ratsstuben Germering</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css?v=20260503" rel="stylesheet">
 
     <!-- Common styles -->
-    <link href="../css/common.css?v=2" rel="stylesheet">
+    <link href="../css/common.css?v=20260503" rel="stylesheet">
 
     <!-- Page-specific styles -->
-    <link href="../css/reservieren.css" rel="stylesheet">
+    <link href="../css/reservieren.css?v=20260503" rel="stylesheet">
 
     <style>
       /* Force reset to debug spacing issue */
@@ -229,8 +229,8 @@ $timestamp = time();
       </div>
     </footer>
 
-    <script src="../js/holiday-banner.js?v=2"></script>
-    <script src="../js/cookie-banner.js" defer></script>
+    <script src="../js/holiday-banner.js?v=20260503"></script>
+    <script src="../js/cookie-banner.js?v=20260503" defer></script>
 
   </body>
 </html>

@@ -25,8 +25,8 @@ if ($hasReservation) {
 
     <title>Reservierungsbestätigung - Ratsstuben Germering</title>
 
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/common.css?v=2" rel="stylesheet">
+    <link href="../css/bootstrap.min.css?v=20260503" rel="stylesheet">
+    <link href="../css/common.css?v=20260503" rel="stylesheet">
 
     <style>
       .success-container {
@@ -364,6 +364,6 @@ if ($hasReservation) {
         </div>
       </div>
     </footer>
-    <script src="../js/cookie-banner.js" defer></script>
+    <script src="../js/cookie-banner.js?v=20260503" defer></script>
   </body>
 </html>
