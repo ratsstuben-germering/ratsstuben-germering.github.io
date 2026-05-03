@@ -2,78 +2,121 @@
    Ratsstuben Germering - Menu (Speisekarte) Page Styles
    ============================================ */
 
-/* This file contains menu-page-specific styles only.
-   Common styles are in common.css */
-
-/* ============================================
-   Page Body Overrides
-   ============================================ */
-
-/* Common dark theme colors are used from common.css */
-
-/* ============================================
-   Hero Section
-   ============================================ */
-
 .speisekarte-hero {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('../imgs/gallery/NiceFishPlate.webp');
+  background-image:
+    linear-gradient(rgba(16, 12, 10, 0.5), rgba(16, 12, 10, 0.72)),
+    url('../imgs/gallery/NiceFishPlate.webp');
   background-size: cover;
   background-position: center;
-  min-height: 280px;
+  min-height: 290px;
   width: 100%;
-  border-radius: 1.25rem !important;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 1.5rem !important;
+  box-shadow: var(--shadow-card) !important;
+  border: 1px solid var(--color-line);
+  position: relative;
+  overflow: hidden;
+}
+
+.speisekarte-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(201, 162, 39, 0.2), transparent 34%);
+}
+
+.speisekarte-hero .display-4,
+.speisekarte-hero .lead {
+  position: relative;
+  z-index: 1;
 }
 
 .speisekarte-hero .display-4 {
-  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  text-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.4);
   font-size: 3rem;
-  font-weight: 300;
-  color: var(--color-white);
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  color: var(--color-paper);
+  letter-spacing: -0.03em;
 }
 
 .shadow-text {
-  text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+  text-shadow: 0 0.15rem 0.7rem rgba(0, 0, 0, 0.45);
 }
 
-@media (max-width: 767px) {
-  .speisekarte-hero {
-    min-height: 220px;
-  }
-  
-  .speisekarte-hero .display-4 {
-    font-size: 2rem;
-  }
+.menu-download {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1.15rem 1.3rem;
+  border-radius: 1.2rem;
+  background: linear-gradient(180deg, #211a16 0%, #181310 100%);
+  border: 1px solid rgba(201, 162, 39, 0.16);
+  box-shadow: var(--shadow-subtle);
 }
 
-/* ============================================
-   Heading Styles (Legacy - replaced by hero)
-   ============================================ */
-
-/* Replaced by hero styles above */
-
-/* ============================================
-   PDF Container & Viewer
-   ============================================ */
-
-.pdf-header-actions .btn {
-  padding-left: 2rem;
-  padding-right: 2rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.menu-download-copy {
+  min-width: 0;
 }
 
-.pdf-header-actions .btn:hover {
+.menu-download-kicker {
+  display: inline-block;
+  margin-bottom: 0.45rem;
+  color: var(--color-gold-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.menu-download-copy p {
+  color: rgba(240, 229, 209, 0.78);
+  line-height: 1.55;
+}
+
+.menu-download-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  flex-shrink: 0;
+  padding: 0.85rem 1.15rem;
+  border-radius: 999px;
+  border: 1px solid rgba(239, 227, 201, 0.24);
+  background: rgba(255, 250, 242, 0.03);
+  color: var(--color-paper);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.menu-download-link:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  color: var(--color-paper);
+  text-decoration: none;
+  border-color: rgba(239, 227, 201, 0.48);
+  background: rgba(255, 250, 242, 0.08);
+  box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.18);
+}
+
+.menu-download-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 999px;
+  background: rgba(201, 162, 39, 0.16);
+  color: var(--color-paper);
+  font-size: 1rem;
+  line-height: 1;
 }
 
 .pdf-viewer-wrapper {
-  background: var(--color-white);
-  border-radius: var(--radius-lg);
+  background: #f8f0e1;
+  border-radius: 1.15rem;
   overflow: hidden;
-  border: 1px solid #dee2e6;
+  border: 1px solid rgba(34, 28, 23, 0.08);
   width: 100%;
 }
 
@@ -84,7 +127,6 @@
   min-height: 500px;
 }
 
-/* Fallback for browsers that don't support inline PDF */
 .pdf-fallback {
   border: none;
 }
@@ -95,56 +137,32 @@
 
 .pdf-fallback p {
   font-size: 1.1rem;
-  color: var(--color-text-muted);
+  color: #584a39;
 }
-
-/* Responsive adjustments for mobile */
-@media (max-width: 767px) {
-  .pdf-viewer-wrapper object {
-    height: 60vh;
-    min-height: 400px;
-  }
-
-  .pdf-header-actions .btn-lg {
-    width: 100%;
-    font-size: 1.05rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .reservation-cta {
-    padding: 2.5rem 1.5rem !important;
-  }
-
-  .reservation-cta h3 {
-    font-size: 1.75rem;
-  }
-
-  .reservation-cta p.lead {
-    font-size: 1.1rem;
-  }
-
-  .reservation-cta .btn-lg {
-    width: 100%;
-    font-size: 1.1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
-
-/* ============================================
-   Menu Items & Categories (HTML Version)
-   ============================================ */
 
 .menu-container {
-  background-color: #2d2d2d;
-  border-radius: 1.25rem;
+  background:
+    linear-gradient(180deg, #241d18 0%, #181311 100%);
+  border-radius: 1.5rem;
   padding: 3rem 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(201, 162, 39, 0.18);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(201, 162, 39, 0.12), transparent 30%);
+  pointer-events: none;
 }
 
 .menu-section {
-  margin-bottom: 4rem;
+  margin-bottom: 3.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .menu-section:last-child {
@@ -152,45 +170,45 @@
 }
 
 .menu-category-title {
-  color: var(--color-white);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  padding-bottom: 0.75rem;
-  margin-bottom: 2rem;
-  font-weight: 300;
+  color: var(--color-gold-soft);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.24);
+  padding-bottom: 0.9rem;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-size: 1.75rem;
+  letter-spacing: 0.18em;
+  font-size: 1.5rem;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Accordion Toggle Styles */
 .menu-section.collapsible .menu-category-title {
   cursor: pointer;
   user-select: none;
-  transition: background-color 0.2s ease;
-  border-radius: 0.5rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  border-radius: 0.9rem;
   padding: 1rem;
   margin-bottom: 1rem;
 }
 
 .menu-section.collapsible .menu-category-title:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(201, 162, 39, 0.07);
+  border-color: rgba(201, 162, 39, 0.38);
 }
 
 .menu-category-title::after {
   content: '';
   display: inline-block;
-  width: 0.8rem;
-  height: 0.8rem;
-  margin-left: 1.5rem;
-  border-right: 2px solid rgba(255, 255, 255, 0.5);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-left: 1.4rem;
+  border-right: 2px solid rgba(224, 188, 87, 0.75);
+  border-bottom: 2px solid rgba(224, 188, 87, 0.75);
   transform: rotate(45deg);
   transition: transform 0.3s ease;
-  display: none; /* Hidden by default */
+  display: none;
 }
 
 .menu-section.collapsible .menu-category-title::after {
@@ -209,9 +227,9 @@
 }
 
 .menu-section.active .menu-content-wrapper {
-  max-height: 2000px; /* High enough to contain the content */
+  max-height: 2600px;
   opacity: 1;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .menu-section:not(.collapsible) .menu-content-wrapper {
@@ -223,19 +241,29 @@
 .menu-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 1.1rem;
 }
 
 @media (min-width: 992px) {
   .menu-grid {
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 4rem;
+    column-gap: 2.25rem;
   }
 }
 
 .menu-item {
   position: relative;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  padding: 1rem 1rem 0.95rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(201, 162, 39, 0.1);
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.menu-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(201, 162, 39, 0.24);
+  background: rgba(201, 162, 39, 0.04);
 }
 
 .menu-item-header {
@@ -252,41 +280,41 @@
 }
 
 .menu-item-id {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-family: monospace;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(240, 229, 209, 0.28);
   margin-right: 0.75rem;
   min-width: 1.5rem;
 }
 
 .menu-item-name {
-  font-weight: 500;
-  font-size: 1.15rem;
-  color: var(--color-white);
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: var(--color-paper);
   margin-bottom: 0;
   line-height: 1.2;
 }
 
 .menu-item-dots {
   flex: 1;
-  border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+  border-bottom: 1px dotted rgba(201, 162, 39, 0.24);
   margin: 0 0.75rem;
   height: 1px;
 }
 
 .menu-item-price {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.1rem;
-  color: var(--color-white);
+  color: var(--color-gold-soft);
   white-space: nowrap;
 }
 
 .menu-item-description {
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.65);
-  margin-top: 0.25rem;
-  line-height: 1.5;
-  padding-left: 2.25rem; /* Align with name when ID is present */
+  color: rgba(240, 229, 209, 0.62);
+  margin-top: 0.35rem;
+  line-height: 1.55;
+  padding-left: 2.25rem;
 }
 
 .menu-item-description:empty {
@@ -295,82 +323,134 @@
 
 .menu-footer-note {
   font-style: italic;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.9rem;
+  color: rgba(240, 229, 209, 0.42);
   margin-top: 3rem;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
-/* Specific styling for drinks/bottles */
 .menu-item-size {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(240, 229, 209, 0.44);
   margin-left: 0.5rem;
   font-weight: normal;
 }
 
 .menu-item-badge {
-  font-size: 0.7rem;
-  padding: 0.15rem 0.6rem;
+  font-size: 0.68rem;
+  padding: 0.18rem 0.58rem;
   border-radius: 1rem;
   margin-left: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   vertical-align: middle;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  color: #fff;
-  background-color: #6c757d; /* Default gray */
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+  color: #16110e;
+  background-color: #b5a48f;
 }
 
 .menu-item-badge.badge-classic {
-  background-color: #d4af37; /* Gold */
-  color: #000;
+  background-color: #c7ab62;
 }
 
 .menu-item-badge.badge-origin {
-  background-color: #2980b9; /* Blue */
+  background-color: #b88d5b;
 }
 
 .menu-item-badge.badge-special {
-  background-color: #e67e22; /* Orange */
+  background-color: #cfb171;
 }
 
 .menu-item-badge.badge-veggie {
-  background-color: #27ae60; /* Green */
+  background-color: #9fbc6d;
 }
 
-/* Featured Section Styling */
 .menu-section:first-child:not(.collapsible) {
-  background-color: rgba(212, 175, 55, 0.05); /* Very subtle gold tint */
+  background:
+    linear-gradient(180deg, rgba(176, 138, 47, 0.1) 0%, rgba(176, 138, 47, 0.03) 100%);
   padding: 2rem;
-  border-radius: 1rem;
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  margin-bottom: 5rem;
+  border-radius: 1.2rem;
+  border: 1px solid rgba(176, 138, 47, 0.22);
+  margin-bottom: 4rem;
 }
 
 .menu-section:first-child:not(.collapsible) .menu-category-title {
-  color: #d4af37;
-  border-bottom-color: rgba(212, 175, 55, 0.3);
+  color: var(--color-paper);
+  border-bottom-color: rgba(176, 138, 47, 0.28);
 }
 
-/* Responsive adjustments */
+.reservation-cta {
+  background: linear-gradient(180deg, #211a16 0%, #181310 100%);
+  border: 1px solid rgba(201, 162, 39, 0.16);
+  width: 100%;
+  border-radius: 1.1rem !important;
+  box-shadow: var(--shadow-subtle);
+  padding: 1.35rem 1.5rem;
+}
+
+.reservation-cta .lead {
+  color: rgba(240, 229, 209, 0.8);
+  font-size: 1rem;
+}
+
+.reservation-cta .btn-outline-light {
+  border-width: 1px;
+  font-weight: 600;
+  background: rgba(255, 250, 242, 0.02);
+}
+
+.reservation-cta .btn-outline-light:hover {
+  background-color: rgba(255, 250, 242, 0.1);
+  border-color: rgba(255, 250, 242, 0.6);
+  color: var(--color-paper);
+}
+
 @media (max-width: 767px) {
-  .menu-container {
-    padding: 2rem 1.25rem;
-  }
-  
-  .menu-category-title {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+  .speisekarte-hero {
+    min-height: 230px;
   }
 
-  /* Fix for long dish names pushing layout */
+  .speisekarte-hero .display-4 {
+    font-size: 2.1rem;
+  }
+
+  .pdf-viewer-wrapper object {
+    height: 60vh;
+    min-height: 400px;
+  }
+
+  .menu-download {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    padding: 1.15rem;
+  }
+
+  .menu-download-link,
+  .pdf-header-actions .btn-lg {
+    width: 100%;
+    font-size: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .menu-container {
+    padding: 2rem 1.2rem;
+  }
+
+  .menu-category-title {
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+  }
+
   .menu-item-header {
     flex-wrap: wrap;
   }
 
   .menu-item-dots {
-    display: none; /* Hide dots on mobile if name is long */
+    display: none;
   }
 
   .menu-item-price {
@@ -379,45 +459,31 @@
   }
 
   .menu-item-name {
-    font-size: 1.1rem;
+    font-size: 1.08rem;
   }
 
   .menu-item-description {
     padding-left: 0;
-    margin-top: 0.5rem;
+    margin-top: 0.55rem;
   }
 
-  /* Fix for the long PDF download button text causing overflow */
   .btn {
     white-space: normal !important;
     word-wrap: break-word;
   }
-}
 
-/* ============================================
-   Reservation CTA
-   ============================================ */
+  .reservation-cta {
+    padding: 1.2rem !important;
+  }
 
-.reservation-cta {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../imgs/gallery/Exteriror.webp');
-  background-size: cover;
-  background-position: center;
-  border: none;
-  width: 100%;
-  border-radius: 1.25rem !important;
-}
+  .reservation-cta p.lead {
+    font-size: 1rem;
+  }
 
-.reservation-cta h3 {
-  font-weight: 700;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-}
-
-.reservation-cta .btn-outline-light {
-  border-width: 2px;
-  font-weight: 600;
-}
-
-.reservation-cta .btn-outline-light:hover {
-  background-color: var(--color-white);
-  color: var(--color-dark);
+  .reservation-cta .btn-outline-light {
+    width: 100%;
+    font-size: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }

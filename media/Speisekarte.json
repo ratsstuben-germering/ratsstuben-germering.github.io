@@ -16,7 +16,7 @@
       "name": "Warme Vorspeisen",
       "items": [
         {"id": 121, "name": "Debreciner", "description": "2 Stück mit Senf und Schwarzbrot", "price": 7.20},
-        {"id": 122, "name": "Ham and Eggs", "description": "magerer Kochschinken mit 2 Spiegeleiern", "price": 8.50},
+        {"id": 122, "name": "Schinken und Eier", "description": "magerer Kochschinken mit 2 Spiegeleiern", "price": 8.50},
         {"id": 125, "name": "Omelette mit magerer Kochschinken", "price": 8.80},
         {"id": 123, "name": "Omelette mit Champignon", "price": 8.80},
         {"id": 124, "name": "Omelette mit bulgarischem Schafkäse", "price": 9.80},

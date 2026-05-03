@@ -4,7 +4,8 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-    const galleryItems = document.querySelectorAll('.gallery-item img');
+    const galleryRoot = document.getElementById('gallery-masonry');
+    if (!galleryRoot) return;
     
     // Create lightbox elements
     const lightbox = document.createElement('div');
@@ -21,14 +22,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightboxImage = lightbox.querySelector('.lightbox-image');
     const lightboxClose = lightbox.querySelector('.lightbox-close');
 
-    // Open lightbox
-    galleryItems.forEach(item => {
-        item.style.cursor = 'pointer';
-        item.addEventListener('click', () => {
-            lightboxImage.src = item.src;
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
-        });
+    // Open lightbox with event delegation so dynamically appended images also work
+    galleryRoot.addEventListener('click', (event) => {
+        const item = event.target.closest('.gallery-item img');
+        if (!item) return;
+
+        lightboxImage.src = item.dataset.fullsrc || item.currentSrc || item.src;
+        lightboxImage.alt = item.alt || '';
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
     });
 
     // Close lightbox
@@ -37,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = '';
         setTimeout(() => {
             lightboxImage.src = '';
+            lightboxImage.alt = '';
         }, 300);
     };
 
