@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="alert alert-danger bg-dark text-white border-secondary text-center py-5">
                     <h4>Hoppla!</h4>
                     <p>Die Speisekarte konnte nicht geladen werden.</p>
-                    <a href="../media/Speisekarte_RatsstubenGermering.pdf" class="btn btn-outline-light mt-3" download>PDF-Version herunterladen</a>
+                    <a href="../media/Speisekarte_RatsstubenGermering.pdf?v=20260605" class="btn btn-outline-light mt-3" download>PDF-Version herunterladen</a>
                 </div>
             `;
         });
