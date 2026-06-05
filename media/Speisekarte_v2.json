@@ -37,6 +37,7 @@
     {
       "name": "Pfannengerichte",
       "folded": true,
+      "note": "Sämtliche Schnitzelgerichte werden aus Schweinefleisch zubereitet.",
       "items": [
         {"id": 127, "name": "Pariser Schnitzel", "description": "mit Pommes Frites und Salat", "price": 16.00},
         {"id": 128, "name": "Wiener Schnitzel", "description": "mit Pommes Frites und Salat", "price": 16.00},

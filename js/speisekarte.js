@@ -59,6 +59,13 @@ function renderMenu(data, container) {
         
         section.appendChild(title);
 
+        if (category.note) {
+            const note = document.createElement('p');
+            note.className = 'menu-category-note text-center text-muted font-italic mb-3 px-3';
+            note.textContent = category.note;
+            section.appendChild(note);
+        }
+
         // Content Wrapper for Accordion
         const contentWrapper = document.createElement('div');
         contentWrapper.className = 'menu-content-wrapper';
