@@ -4,7 +4,7 @@
 
 body {
   padding-top: 0;
-  color: var(--color-text-muted);
+  color: var(--ink);
 }
 
 /* ============================================
@@ -188,7 +188,7 @@ body {
 
 .btn-dark:hover {
 
-  background-color: #000;
+  background-color: var(--blue-deep);
 
   transform: translateY(-2px);
 

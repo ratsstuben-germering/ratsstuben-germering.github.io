@@ -25,8 +25,8 @@ if ($hasReservation) {
 
     <title>Reservierungsbestätigung - Ratsstuben Germering</title>
 
-    <link href="../css/bootstrap.min.css?v=20260503" rel="stylesheet">
-    <link href="../css/common.css?v=20260503" rel="stylesheet">
+    <link href="../css/bootstrap.min.css?v=20260627d" rel="stylesheet">
+    <link href="../css/common.css?v=20260627d" rel="stylesheet">
 
     <style>
       .success-container {
@@ -54,27 +54,29 @@ if ($hasReservation) {
       }
 
       .success-card {
-        background: #2d2d2d;
+        background: var(--paper-card);
+        border: 1px solid var(--line);
         border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-card);
+        box-shadow: var(--shadow);
         padding: 2rem;
         margin-top: 2rem;
       }
 
       .success-card h2 {
-        color: #28a745;
+        color: #1f8f3b;
         margin-bottom: 1rem;
         text-align: center;
       }
 
       .success-card .intro-text {
         text-align: center;
-        color: rgba(255, 255, 255, 0.7);
+        color: var(--ink-soft);
         margin-bottom: 1.5rem;
       }
 
       .reservation-details {
-        background: #3d3d3d;
+        background: rgba(44, 82, 133, 0.06);
+        border: 1px solid var(--line);
         border-radius: var(--radius-md);
         padding: 1.5rem;
         margin-top: 1.5rem;
@@ -82,17 +84,17 @@ if ($hasReservation) {
 
       .reservation-details h3 {
         font-size: 1.1rem;
-        color: var(--color-white);
+        color: var(--ink);
         margin-bottom: 1rem;
         padding-bottom: 0.5rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        border-bottom: 1px solid var(--line);
       }
 
       .detail-row {
         display: flex;
         justify-content: space-between;
         padding: 0.5rem 0;
-        border-bottom: 1px solid #e9ecef;
+        border-bottom: 1px solid var(--line);
       }
 
       .detail-row:last-child {
@@ -101,21 +103,21 @@ if ($hasReservation) {
 
       .detail-label {
         font-weight: 600;
-        color: var(--color-white);
+        color: var(--ink);
       }
 
       .detail-value {
-        color: rgba(255, 255, 255, 0.7);
+        color: var(--ink-soft);
         text-align: right;
       }
 
       .detail-value.ja {
-        color: #28a745;
-        font-weight: 500;
+        color: #1f8f3b;
+        font-weight: 600;
       }
 
       .detail-value.nein {
-        color: rgba(255, 255, 255, 0.5);
+        color: rgba(95, 86, 69, 0.6);
       }
 
       .error-container {
@@ -125,10 +127,11 @@ if ($hasReservation) {
       }
 
       .error-card {
-        background: #2d2d2d;
+        background: var(--paper-card);
+        border: 1px solid var(--line);
         border-left: 4px solid #dc3545;
         border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-card);
+        box-shadow: var(--shadow);
         padding: 2rem;
         margin-top: 2rem;
       }
@@ -158,7 +161,7 @@ if ($hasReservation) {
       }
 
       .error-card p {
-        color: rgba(255, 255, 255, 0.7);
+        color: var(--ink-soft);
         text-align: center;
         line-height: 1.6;
       }
@@ -166,51 +169,55 @@ if ($hasReservation) {
       .btn-home {
         display: inline-block;
         padding: 0.75rem 1.5rem;
-        background: var(--color-dark);
-        color: var(--color-white);
+        background: var(--blue);
+        color: var(--cream);
         text-decoration: none;
-        border-radius: var(--radius-sm);
+        border-radius: 7px;
+        font-weight: 700;
         margin-top: 1rem;
         transition: background 0.2s;
       }
 
       .btn-home:hover {
-        background: var(--color-medium-gray);
-        color: var(--color-white);
+        background: var(--blue-deep);
+        color: var(--cream);
         text-decoration: none;
       }
 
       .contact-box {
-        background: #1a3a5a;
+        background: rgba(44, 82, 133, 0.06);
+        border: 1px solid var(--line);
         border-radius: var(--radius-md);
         padding: 1rem;
         margin-top: 1.5rem;
         text-align: center;
+        color: var(--ink);
       }
 
       .contact-box a {
-        color: #66a3ff;
-        font-weight: 500;
+        color: var(--blue);
+        font-weight: 700;
       }
 
       .extra-empty {
-        color: rgba(255, 255, 255, 0.4);
+        color: rgba(95, 86, 69, 0.6);
         font-style: italic;
       }
     </style>
   </head>
 
-  <body class="bg-dark d-flex flex-column min-vh-100">
-    <header class="masthead dark-header w-100">
-      <div class="site-container site-container-wide mx-auto px-3">
-        <div class="inner">
-          <h3 class="masthead-brand"><a href="../index.html">Ratsstuben <span class="brand-subtitle">aus Germering</span></a></h3>
-                      <nav class="nav nav-masthead">
-                        <a class="nav-link" href="../index.html">Titelseite</a>
-                        <a class="nav-link" href="../html/galerie.html">Galerie</a>
-                        <a class="nav-link" href="../html/speisekarte.html">Speisekarte</a>
-                        <a class="nav-link" href="reservieren.php">Reservieren</a>
-                      </nav>        </div>
+  <body class="d-flex flex-column min-vh-100">
+    <header class="site-head">
+      <div class="wrap site-head-inner">
+        <a class="brand" href="/index.html" aria-label="Ratsstuben Germering – Startseite">
+          <img class="brand-logo" src="/imgs/logo-ratsstuben.svg?v=20260627d" alt="Ratsstuben Germering – Paulaner München" width="262" height="46">
+        </a>
+        <nav class="mainnav" aria-label="Hauptnavigation">
+          <a href="/html/speisekarte.html">Speisekarte</a>
+          <a href="/html/galerie.html">Galerie</a>
+          <a class="active" href="/php/reservieren.php">Reservieren</a>
+          <a class="nav-call" href="tel:+4989847989">089&nbsp;847989</a>
+        </nav>
       </div>
     </header>
 
@@ -337,7 +344,7 @@ if ($hasReservation) {
       </main>
     </div>
 
-    <footer class="site-footer dark-footer w-100">
+    <footer class="site-footer w-100">
       <div class="site-container site-container-wide mx-auto px-3">
         <div class="footer-grid">
           <div class="footer-section">

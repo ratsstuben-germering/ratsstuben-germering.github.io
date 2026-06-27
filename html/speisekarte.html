@@ -9,81 +9,58 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
 
-    <title>Speisekarte</title>
+    <title>Speisekarte – Ratsstuben Germering</title>
 
 
-    <link href="../css/bootstrap.min.css?v=20260503" rel="stylesheet">
+    <link href="../css/bootstrap.min.css?v=20260627d" rel="stylesheet">
 
     <!-- Common styles -->
-    <link href="../css/common.css?v=20260503" rel="stylesheet">
+    <link href="../css/common.css?v=20260627d" rel="stylesheet">
 
     <!-- Page-specific styles -->
-    <link href="../css/speisekarte.css?v=20260503" rel="stylesheet">
+    <link href="../css/speisekarte.css?v=20260627e" rel="stylesheet">
 
 
 
 
   </head>
 
-<body class="bg-dark d-flex flex-column min-vh-100">
-    <header class="masthead dark-header w-100">
-      <div class="site-container site-container-wide mx-auto px-3">
-        <div class="inner">
-          <h3 class="masthead-brand"><a href="../index.html">Ratsstuben <span class="brand-subtitle">aus Germering</span></a></h3>
-          <nav class="nav nav-masthead">
-            <a class="nav-link" href="../index.html">Titelseite</a>
-            <a class="nav-link" href="galerie.html">Galerie</a>
-            <a class="nav-link active" href="speisekarte.html">Speisekarte</a>
-            <a class="nav-link" href="/php/reservieren.php">Reservieren</a>
-          </nav>
-        </div>
+<body class="d-flex flex-column min-vh-100">
+    <header class="site-head">
+      <div class="wrap site-head-inner">
+        <a class="brand" href="/index.html" aria-label="Ratsstuben Germering – Startseite">
+          <img class="brand-logo" src="/imgs/logo-ratsstuben.svg?v=20260627d" alt="Ratsstuben Germering – Paulaner München" width="262" height="46">
+        </a>
+        <nav class="mainnav" aria-label="Hauptnavigation">
+          <a class="active" href="/html/speisekarte.html">Speisekarte</a>
+          <a href="/html/galerie.html">Galerie</a>
+          <a href="/php/reservieren.php">Reservieren</a>
+          <a class="nav-call" href="tel:+4989847989">089&nbsp;847989</a>
+        </nav>
       </div>
     </header>
 
-    <div class="site-container site-container-wide mx-auto w-100">
-      <main role="main">
-        <div class="container px-3 pt-4">
-          <div class="row justify-content-center">
-            <div class="col-lg-10">
-              <!-- Hero Header Card -->
-              <div class="speisekarte-hero text-center text-white d-flex align-items-center justify-content-center shadow-lg mb-0 rounded-lg">
-                <div class="px-3 py-5">
-                  <h1 class="display-4 mb-3">Unsere Speisekarte</h1>
-                  <p class="lead shadow-text mb-0">Entdecken Sie unsere Auswahl an bayerischen und internationalen Gerichten.</p>
-                </div>
-              </div>
+    <main class="sheet" role="main">
+      <div class="mast">
+        <h1>Speisekarte</h1>
+        <p class="sub">Bayerische &amp; kroatische Küche · Rathausplatz 1, Germering</p>
+        <a class="pdf" href="../media/Speisekarte_RatsstubenGermering.pdf?v=20260605" download>
+          Ganze Karte als PDF <span aria-hidden="true">↓</span>
+        </a>
+      </div>
 
-            </div>
-          </div>
+      <!-- The menu is rendered here from Speisekarte_v2.json -->
+      <div id="dynamic-menu-container"><p class="menu-loading">Speisekarte wird geladen …</p></div>
 
-          <div class="row justify-content-center mt-5">
-            <div class="col-12 col-lg-10">
-              
-              <div class="menu-download mb-5">
-                <div class="menu-download-copy">
-                  <p class="mb-0">Die Speisekarte lieber als PDF auf dem Geraet behalten.</p>
-                </div>
-                <a href="../media/Speisekarte_RatsstubenGermering.pdf?v=20260605" class="menu-download-link" download>
-                  <span class="menu-download-icon" aria-hidden="true">↓</span>
-                  <span>Speisekarte als PDF</span>
-                </a>
-              </div>
+      <p id="menu-note" class="menu-note"></p>
+    </main>
 
-              <!-- The menu will be dynamically injected here -->
-              <div id="dynamic-menu-container"></div>
-
-              <!-- Reservation CTA Section -->
-              <div class="reservation-cta text-white text-center shadow">
-                <p class="lead mb-3">Erleben Sie unsere Spezialitäten live vor Ort.</p>
-                <a href="/php/reservieren.php" class="btn btn-outline-light px-4">Tisch reservieren</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
+    <div class="menu-reserve">
+      <p>Erleben Sie unsere Spezialitäten live vor Ort.</p>
+      <a class="btn-primary" href="/php/reservieren.php">Tisch reservieren</a>
     </div>
 
-    <footer class="site-footer dark-footer w-100">
+    <footer class="site-footer w-100">
       <div class="site-container site-container-wide mx-auto px-3">
         <div class="footer-grid">
           <div class="footer-section">
@@ -112,7 +89,7 @@
     </footer>
     
     <script src="../js/cookie-banner.js?v=20260503" defer></script>
-    <script src="../js/speisekarte.js?v=20260605" defer></script>
+    <script src="../js/speisekarte.js?v=20260627e" defer></script>
 
   </body>
 </html>

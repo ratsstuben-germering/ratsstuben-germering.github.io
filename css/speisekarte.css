@@ -1,489 +1,131 @@
 /* ============================================
-   Ratsstuben Germering - Menu (Speisekarte) Page Styles
+   Ratsstuben Germering – Speisekarte
+   The menu as one printed card on linen paper:
+   typography-led, left-aligned, leader dots to price.
    ============================================ */
 
-.speisekarte-hero {
-  background-image:
-    linear-gradient(rgba(16, 12, 10, 0.5), rgba(16, 12, 10, 0.72)),
-    url('../imgs/gallery/NiceFishPlate.webp');
-  background-size: cover;
-  background-position: center;
-  min-height: 290px;
-  width: 100%;
-  border-radius: 1.5rem !important;
-  box-shadow: var(--shadow-card) !important;
-  border: 1px solid var(--color-line);
-  position: relative;
-  overflow: hidden;
+body { background: var(--paper); }
+
+/* the menu sheet – one printed page, not a stack of cards */
+.sheet {
+  flex: 1 0 auto;
+  max-width: 50rem;
+  margin: 2.5rem auto 2.5rem;
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  border-radius: 2px;
+  padding: 3rem 3.2rem 2.4rem;
 }
 
-.speisekarte-hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top, rgba(201, 162, 39, 0.2), transparent 34%);
+/* masthead */
+.mast { text-align: center; border-bottom: 2px solid var(--ink); padding-bottom: 1.3rem; }
+.mast h1 {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 900; font-size: 2.7rem; letter-spacing: 0.01em;
+  color: var(--ink); margin: 0; line-height: 1;
 }
-
-.speisekarte-hero .display-4,
-.speisekarte-hero .lead {
-  position: relative;
-  z-index: 1;
+.mast .sub {
+  font-family: "Source Sans 3", sans-serif;
+  text-transform: uppercase; letter-spacing: 0.22em;
+  font-size: 0.72rem; color: var(--ink-soft); margin: 0.7rem 0 0;
 }
-
-.speisekarte-hero .display-4 {
-  text-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.4);
-  font-size: 3rem;
-  font-weight: 400;
-  color: var(--color-paper);
-  letter-spacing: -0.03em;
+.mast .pdf {
+  display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1rem;
+  font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--blue); text-decoration: none; border-bottom: 1px solid transparent;
 }
+.mast .pdf:hover { border-bottom-color: var(--amber); color: var(--blue-deep); }
 
-.shadow-text {
-  text-shadow: 0 0.15rem 0.7rem rgba(0, 0, 0, 0.45);
+/* section heads: left-aligned, hairline rule */
+.sec { margin-top: 2.4rem; }
+.sec-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.9rem; }
+.sec-head h2 {
+  font-family: "Fraunces", Georgia, serif; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  font-size: 1.12rem; color: var(--blue); margin: 0; white-space: nowrap;
 }
+.sec-head .rule { flex: 1; height: 0; border-top: 1.5px solid var(--blue); opacity: 0.22; }
+.star { color: var(--amber-deep); font-size: 1rem; }
 
-.menu-download {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.25rem;
-  padding: 1.15rem 1.3rem;
-  border-radius: 1.2rem;
-  background: linear-gradient(180deg, #211a16 0%, #181310 100%);
-  border: 1px solid rgba(201, 162, 39, 0.16);
-  box-shadow: var(--shadow-subtle);
+/* recommendations band – amber wash, full-bleed within the sheet */
+.feat {
+  background: rgba(192, 125, 29, 0.06);
+  margin: 0.4rem -3.2rem 0; padding: 1rem 3.2rem 1.4rem;
+  border-top: 1.5px solid rgba(192, 125, 29, 0.35);
+  border-bottom: 1.5px solid rgba(192, 125, 29, 0.35);
 }
+.feat .sec-head { margin-top: 0; }
+.feat .sec-head h2 { color: var(--amber-deep); }
+.feat .sec-head .rule { border-top-color: var(--amber-deep); opacity: 0.3; }
 
-.menu-download-copy {
-  min-width: 0;
+/* dish rows: [no.] name ........ price / description below */
+.dishes { list-style: none; margin: 0; padding: 0; }
+.dish {
+  display: grid; grid-template-columns: 2.6em 1fr; column-gap: 0.7rem;
+  padding: 0.5rem 0; border-bottom: 1px solid rgba(226, 212, 186, 0.55);
 }
-
-.menu-download-kicker {
-  display: inline-block;
-  margin-bottom: 0.45rem;
-  color: var(--color-gold-soft);
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 0.7rem;
-  font-weight: 700;
+.dish:last-child { border-bottom: none; }
+.num {
+  font-family: "Source Sans 3", sans-serif; font-size: 0.76rem;
+  color: var(--ink-soft); font-variant-numeric: tabular-nums;
+  text-align: right; padding-top: 0.28rem;
 }
-
-.menu-download-copy p {
-  color: rgba(240, 229, 209, 0.78);
-  line-height: 1.55;
+.line { display: flex; align-items: baseline; }
+.nm { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 1.04rem; color: var(--ink); }
+.dots {
+  flex: 1 1 auto; min-width: 1.5rem; margin: 0 0.5rem;
+  border-bottom: 1px dotted #cbb892; position: relative; top: -0.28em;
 }
-
-.menu-download-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.7rem;
-  flex-shrink: 0;
-  padding: 0.85rem 1.15rem;
-  border-radius: 999px;
-  border: 1px solid rgba(239, 227, 201, 0.24);
-  background: rgba(255, 250, 242, 0.03);
-  color: var(--color-paper);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-decoration: none;
-  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+.size {
+  font-family: "Source Sans 3", sans-serif; font-size: 0.82rem; color: var(--ink-soft);
+  margin-right: 0.7rem; font-variant-numeric: tabular-nums; white-space: nowrap;
 }
-
-.menu-download-link:hover {
-  transform: translateY(-2px);
-  color: var(--color-paper);
-  text-decoration: none;
-  border-color: rgba(239, 227, 201, 0.48);
-  background: rgba(255, 250, 242, 0.08);
-  box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.18);
+.pr {
+  font-family: "Source Sans 3", sans-serif; font-weight: 700; color: var(--amber-deep);
+  font-variant-numeric: tabular-nums; white-space: nowrap;
 }
+.desc { margin: 0.15rem 0 0; font-size: 0.9rem; color: var(--ink-soft); line-height: 1.45; max-width: 42rem; }
 
-.menu-download-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.7rem;
-  height: 1.7rem;
-  border-radius: 999px;
-  background: rgba(201, 162, 39, 0.16);
-  color: var(--color-paper);
-  font-size: 1rem;
-  line-height: 1;
+/* badges – quiet printed marks, not filled pills */
+.badge {
+  font-family: "Source Sans 3", sans-serif; font-size: 0.6rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.12em; margin-left: 0.55rem; vertical-align: 0.12em;
 }
+.b-special { color: #b6541d; }
+.b-classic { color: var(--blue); }
+.b-origin  { color: var(--amber-deep); }
 
-.pdf-viewer-wrapper {
-  background: #f8f0e1;
-  border-radius: 1.15rem;
-  overflow: hidden;
-  border: 1px solid rgba(34, 28, 23, 0.08);
-  width: 100%;
+/* drinks – grouped & labelled by type, two columns */
+.drinks { column-count: 2; column-gap: 2.6rem; margin-top: 0.4rem; }
+.drink-group { break-inside: avoid; margin: 0 0 1.5rem; }
+.drink-sub {
+  font-family: "Source Sans 3", sans-serif; font-size: 0.74rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.13em; color: var(--amber-deep);
+  margin: 0 0 0.5rem; padding-bottom: 0.3rem; border-bottom: 1px solid rgba(192, 125, 29, 0.3);
 }
+.drink-note { font-weight: 400; font-style: italic; text-transform: none; letter-spacing: 0; color: var(--ink-soft); font-size: 0.72rem; }
+.drinks-list { list-style: none; margin: 0; padding: 0; }
+.drink-row { display: flex; align-items: baseline; padding: 0.26rem 0; }
+.d-nm { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 0.96rem; color: var(--ink); }
+.drink-row .pr { font-size: 0.96rem; }
 
-.pdf-viewer-wrapper object {
-  display: block;
-  width: 100%;
-  height: 80vh;
-  min-height: 500px;
+/* footer note + reservation prompt */
+.menu-note {
+  text-align: center; font-style: italic; color: var(--ink-soft);
+  font-size: 0.85rem; margin: 2rem 0 0; padding-top: 1.2rem; border-top: 1px solid var(--line);
 }
+.menu-reserve { text-align: center; max-width: 50rem; margin: 0 auto 3.5rem; padding: 0 1.5rem; }
+.menu-reserve p { color: var(--ink-soft); margin: 0 0 0.9rem; }
 
-.pdf-fallback {
-  border: none;
-}
+.menu-loading { text-align: center; color: var(--ink-soft); padding: 2.5rem 0; }
+.menu-loading a { color: var(--blue); }
 
-.pdf-fallback .card-body {
-  padding: 3rem 1rem;
-}
-
-.pdf-fallback p {
-  font-size: 1.1rem;
-  color: #584a39;
-}
-
-.menu-container {
-  background:
-    linear-gradient(180deg, #241d18 0%, #181311 100%);
-  border-radius: 1.5rem;
-  padding: 3rem 2rem;
-  border: 1px solid rgba(201, 162, 39, 0.18);
-  box-shadow: var(--shadow-card);
-  position: relative;
-  overflow: hidden;
-}
-
-.menu-container::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top, rgba(201, 162, 39, 0.12), transparent 30%);
-  pointer-events: none;
-}
-
-.menu-section {
-  margin-bottom: 3.5rem;
-  position: relative;
-  z-index: 1;
-}
-
-.menu-section:last-child {
-  margin-bottom: 1rem;
-}
-
-.menu-category-title {
-  color: var(--color-gold-soft);
-  border-bottom: 1px solid rgba(201, 162, 39, 0.24);
-  padding-bottom: 0.9rem;
-  margin-bottom: 1.5rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 1.5rem;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.menu-section.collapsible .menu-category-title {
-  cursor: pointer;
-  user-select: none;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
-  border-radius: 0.9rem;
-  padding: 1rem;
-  margin-bottom: 1rem;
-}
-
-.menu-section.collapsible .menu-category-title:hover {
-  background-color: rgba(201, 162, 39, 0.07);
-  border-color: rgba(201, 162, 39, 0.38);
-}
-
-.menu-category-title::after {
-  content: '';
-  display: inline-block;
-  width: 0.75rem;
-  height: 0.75rem;
-  margin-left: 1.4rem;
-  border-right: 2px solid rgba(224, 188, 87, 0.75);
-  border-bottom: 2px solid rgba(224, 188, 87, 0.75);
-  transform: rotate(45deg);
-  transition: transform 0.3s ease;
-  display: none;
-}
-
-.menu-section.collapsible .menu-category-title::after {
-  display: inline-block;
-}
-
-.menu-section.active .menu-category-title::after {
-  transform: rotate(-135deg);
-}
-
-.menu-content-wrapper {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-  opacity: 0;
-}
-
-.menu-section.active .menu-content-wrapper {
-  max-height: 2600px;
-  opacity: 1;
-  margin-top: 1rem;
-}
-
-.menu-section:not(.collapsible) .menu-content-wrapper {
-  max-height: none;
-  opacity: 1;
-  overflow: visible;
-}
-
-.menu-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.1rem;
-}
-
-@media (min-width: 992px) {
-  .menu-grid {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 2.25rem;
-  }
-}
-
-.menu-item {
-  position: relative;
-  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
-  padding: 1rem 1rem 0.95rem;
-  border-radius: 1rem;
-  border: 1px solid rgba(201, 162, 39, 0.1);
-  background: rgba(255, 255, 255, 0.015);
-}
-
-.menu-item:hover {
-  transform: translateY(-2px);
-  border-color: rgba(201, 162, 39, 0.24);
-  background: rgba(201, 162, 39, 0.04);
-}
-
-.menu-item-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 0.25rem;
-}
-
-.menu-item-name-wrapper {
-  display: flex;
-  align-items: baseline;
-  flex: 1;
-}
-
-.menu-item-id {
-  font-size: 0.72rem;
-  font-family: monospace;
-  color: rgba(240, 229, 209, 0.28);
-  margin-right: 0.75rem;
-  min-width: 1.5rem;
-}
-
-.menu-item-name {
-  font-weight: 400;
-  font-size: 1.2rem;
-  color: var(--color-paper);
-  margin-bottom: 0;
-  line-height: 1.2;
-}
-
-.menu-item-dots {
-  flex: 1;
-  border-bottom: 1px dotted rgba(201, 162, 39, 0.24);
-  margin: 0 0.75rem;
-  height: 1px;
-}
-
-.menu-item-price {
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--color-gold-soft);
-  white-space: nowrap;
-}
-
-.menu-item-description {
-  font-size: 0.95rem;
-  color: rgba(240, 229, 209, 0.62);
-  margin-top: 0.35rem;
-  line-height: 1.55;
-  padding-left: 2.25rem;
-}
-
-.menu-item-description:empty {
-  display: none;
-}
-
-.menu-footer-note {
-  font-style: italic;
-  font-size: 0.9rem;
-  color: rgba(240, 229, 209, 0.42);
-  margin-top: 3rem;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
-.menu-item-size {
-  font-size: 0.85rem;
-  color: rgba(240, 229, 209, 0.44);
-  margin-left: 0.5rem;
-  font-weight: normal;
-}
-
-.menu-item-badge {
-  font-size: 0.68rem;
-  padding: 0.18rem 0.58rem;
-  border-radius: 1rem;
-  margin-left: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  vertical-align: middle;
-  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
-  color: #16110e;
-  background-color: #b5a48f;
-}
-
-.menu-item-badge.badge-classic {
-  background-color: #c7ab62;
-}
-
-.menu-item-badge.badge-origin {
-  background-color: #b88d5b;
-}
-
-.menu-item-badge.badge-special {
-  background-color: #cfb171;
-}
-
-.menu-item-badge.badge-veggie {
-  background-color: #9fbc6d;
-}
-
-.menu-section:first-child:not(.collapsible) {
-  background:
-    linear-gradient(180deg, rgba(176, 138, 47, 0.1) 0%, rgba(176, 138, 47, 0.03) 100%);
-  padding: 2rem;
-  border-radius: 1.2rem;
-  border: 1px solid rgba(176, 138, 47, 0.22);
-  margin-bottom: 4rem;
-}
-
-.menu-section:first-child:not(.collapsible) .menu-category-title {
-  color: var(--color-paper);
-  border-bottom-color: rgba(176, 138, 47, 0.28);
-}
-
-.reservation-cta {
-  background: linear-gradient(180deg, #211a16 0%, #181310 100%);
-  border: 1px solid rgba(201, 162, 39, 0.16);
-  width: 100%;
-  border-radius: 1.1rem !important;
-  box-shadow: var(--shadow-subtle);
-  padding: 1.35rem 1.5rem;
-}
-
-.reservation-cta .lead {
-  color: rgba(240, 229, 209, 0.8);
-  font-size: 1rem;
-}
-
-.reservation-cta .btn-outline-light {
-  border-width: 1px;
-  font-weight: 600;
-  background: rgba(255, 250, 242, 0.02);
-}
-
-.reservation-cta .btn-outline-light:hover {
-  background-color: rgba(255, 250, 242, 0.1);
-  border-color: rgba(255, 250, 242, 0.6);
-  color: var(--color-paper);
-}
-
-@media (max-width: 767px) {
-  .speisekarte-hero {
-    min-height: 230px;
-  }
-
-  .speisekarte-hero .display-4 {
-    font-size: 2.1rem;
-  }
-
-  .pdf-viewer-wrapper object {
-    height: 60vh;
-    min-height: 400px;
-  }
-
-  .menu-download {
-    flex-direction: column;
-    align-items: stretch;
-    text-align: center;
-    padding: 1.15rem;
-  }
-
-  .menu-download-link,
-  .pdf-header-actions .btn-lg {
-    width: 100%;
-    font-size: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .menu-container {
-    padding: 2rem 1.2rem;
-  }
-
-  .menu-category-title {
-    font-size: 1.3rem;
-    margin-bottom: 1.2rem;
-  }
-
-  .menu-item-header {
-    flex-wrap: wrap;
-  }
-
-  .menu-item-dots {
-    display: none;
-  }
-
-  .menu-item-price {
-    margin-left: auto;
-    padding-top: 0.25rem;
-  }
-
-  .menu-item-name {
-    font-size: 1.08rem;
-  }
-
-  .menu-item-description {
-    padding-left: 0;
-    margin-top: 0.55rem;
-  }
-
-  .btn {
-    white-space: normal !important;
-    word-wrap: break-word;
-  }
-
-  .reservation-cta {
-    padding: 1.2rem !important;
-  }
-
-  .reservation-cta p.lead {
-    font-size: 1rem;
-  }
-
-  .reservation-cta .btn-outline-light {
-    width: 100%;
-    font-size: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
+@media (max-width: 600px) {
+  .sheet { padding: 1.8rem 1.3rem; margin: 1.2rem 0.7rem 2rem; }
+  .feat { margin-left: -1.3rem; margin-right: -1.3rem; padding-left: 1.3rem; padding-right: 1.3rem; }
+  .mast h1 { font-size: 2rem; }
+  .dish { grid-template-columns: 2.2em 1fr; column-gap: 0.5rem; }
+  .nm { font-size: 1rem; }
+  .drinks { column-count: 1; }
 }

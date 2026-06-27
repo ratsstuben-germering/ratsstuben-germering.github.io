@@ -27,13 +27,13 @@ $timestamp = time();
     <title>Tisch reservieren - Ratsstuben Germering</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css?v=20260503" rel="stylesheet">
+    <link href="../css/bootstrap.min.css?v=20260627d" rel="stylesheet">
 
     <!-- Common styles -->
-    <link href="../css/common.css?v=20260503" rel="stylesheet">
+    <link href="../css/common.css?v=20260627d" rel="stylesheet">
 
     <!-- Page-specific styles -->
-    <link href="../css/reservieren.css?v=20260503" rel="stylesheet">
+    <link href="../css/reservieren.css?v=20260627d" rel="stylesheet">
 
     <style>
       /* Force reset to debug spacing issue */
@@ -54,18 +54,18 @@ $timestamp = time();
 
   </head>
 
-  <body class="bg-dark d-flex flex-column min-vh-100">
-    <header class="masthead dark-header w-100">
-      <div class="site-container site-container-wide mx-auto px-3">
-        <div class="inner">
-          <h3 class="masthead-brand"><a href="/index.html">Ratsstuben <span class="brand-subtitle">aus Germering</span></a></h3>
-          <nav class="nav nav-masthead">
-            <a class="nav-link" href="/index.html">Titelseite</a>
-            <a class="nav-link" href="/html/galerie.html">Galerie</a>
-            <a class="nav-link" href="/html/speisekarte.html">Speisekarte</a>
-            <a class="nav-link active" href="/php/reservieren.php">Reservieren</a>
-          </nav>
-        </div>
+  <body class="d-flex flex-column min-vh-100">
+    <header class="site-head">
+      <div class="wrap site-head-inner">
+        <a class="brand" href="/index.html" aria-label="Ratsstuben Germering – Startseite">
+          <img class="brand-logo" src="/imgs/logo-ratsstuben.svg?v=20260627d" alt="Ratsstuben Germering – Paulaner München" width="262" height="46">
+        </a>
+        <nav class="mainnav" aria-label="Hauptnavigation">
+          <a href="/html/speisekarte.html">Speisekarte</a>
+          <a href="/html/galerie.html">Galerie</a>
+          <a class="active" href="/php/reservieren.php">Reservieren</a>
+          <a class="nav-call" href="tel:+4989847989">089&nbsp;847989</a>
+        </nav>
       </div>
     </header>
 
@@ -201,7 +201,7 @@ $timestamp = time();
       </main>
     </div>
 
-    <footer class="site-footer dark-footer w-100">
+    <footer class="site-footer w-100">
       <div class="site-container site-container-wide mx-auto px-3">
         <div class="footer-grid">
           <div class="footer-section">

@@ -1,761 +1,374 @@
 /* ============================================
-   Ratsstuben Germering - Common Styles
+   Ratsstuben Germering – Common Styles
+   Bright Bavarian Wirtshaus: linen paper, ink text,
+   Bavarian blue (the umbrellas) as the lead colour,
+   warm beer-amber as the accent.
    ============================================ */
 
-/* CSS Custom Properties (Variables) */
-:root {
-  /* Colors */
-  --color-dark: #221c17;
-  --color-darker: #120f0d;
-  --color-light: #f0e5d1;
-  --color-light-gray: #dccdb3;
-  --color-medium-gray: #ab9a82;
-  --color-text-muted: #8d7d68;
-  --color-white: #fffaf2;
-  --color-gold: #b08a2f;
-  --color-gold-soft: #c8a24a;
-  --color-paper: #e9dac2;
-  --color-panel: #1a1512;
-  --color-panel-strong: #241d18;
-  --color-line: rgba(201, 162, 39, 0.28);
-
-  /* Background */
-  --bg-dark: #18120f;
-
-  /* Spacing */
-  --container-max-width: 42em;
-  --header-margin-bottom: 2rem;
-  --nav-link-padding: 0.25rem 0;
-  --nav-link-spacing: 1rem;
-  --nav-border-width: 0.25rem;
-
-  /* Transitions */
-  --transition-base: all 0.2s ease-in-out;
-
-  /* Shadows */
-  --shadow-subtle: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.18);
-  --shadow-card: 0 1rem 2.5rem rgba(0, 0, 0, 0.25);
-  --shadow-text: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.45);
-  --shadow-inset: inset 0 0 5rem rgba(0, 0, 0, 0.42);
-
-  /* Border radius */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.375rem;
-  --radius-lg: 0.5rem;
-  --radius-full: 50%;
+/* ============================================
+   Self-hosted fonts (no third-party CDN, GDPR-safe)
+   Display: Fraunces   ·   Body: Source Sans 3
+   ============================================ */
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/fraunces-v38-latin_latin-ext-regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/fraunces-v38-latin_latin-ext-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("../fonts/fraunces-v38-latin_latin-ext-900.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/source-sans-3-v19-latin_latin-ext-regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/source-sans-3-v19-latin_latin-ext-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/source-sans-3-v19-latin_latin-ext-700.woff2") format("woff2");
 }
 
 /* ============================================
-   Base & Layout
+   Palette  –  change --blue once to re-tint the site
    ============================================ */
+:root {
+  --paper:      #f6efe1;   /* warm linen tablecloth      */
+  --paper-card: #fffaf0;   /* lighter surface            */
+  --ink:        #2b2419;   /* warm near-black            */
+  --ink-soft:   #5f5645;   /* muted body text            */
+  --blue:       #284a72;   /* navy from the painted RATSSTUBEN sign (lead) */
+  --blue-deep:  #1d3a5c;   /* the sign's stroke core (hover/darker)        */
+  --amber:      #c07d1d;   /* beer & golden Schnitzel    */
+  --amber-deep: #a1640d;
+  --line:       #e2d4ba;   /* warm hairline border       */
+  --cream:      #fdf6e6;   /* text on blue               */
+  --cream-soft: #d9e2ef;   /* muted text on blue         */
 
-html {
-  /* height: 100%;  Removed to allow flexbox min-vh-100 to work correctly without conflict */
-  overflow-y: scroll !important;
+  --shadow:     0 1.4rem 2.6rem rgba(58, 42, 18, 0.16);
+  --shadow-sm:  0 0.5rem 1.1rem rgba(58, 42, 18, 0.12);
+
+  /* legacy aliases – old var names from the dark theme remapped onto the
+     new light palette so the not-yet-rewritten page CSS resolves correctly.
+     The old "dark" (headings, submit button, focus, checked states) → blue. */
+  --color-line: var(--line);
+  --color-paper: var(--ink);
+  --color-light: var(--ink);
+  --color-white: #fff;
+  --color-dark: var(--blue);
+  --color-darker: var(--blue-deep);
+  --color-text-muted: var(--ink-soft);
+  --color-medium-gray: var(--ink-soft);
+  --color-light-gray: var(--ink-soft);
+  --color-gold: var(--amber-deep);
+  --color-gold-soft: var(--amber-deep);
+  --shadow-card: var(--shadow);
+  --shadow-subtle: var(--shadow-sm);
+  --transition-base: all 0.2s ease-in-out;
+  --radius-sm: 0.25rem;
+  --radius-md: 7px;
+  --radius-lg: 0.6rem;
 }
+
+/* ============================================
+   Base
+   ============================================ */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { overflow-y: scroll; }
 
 body {
+  margin: 0;
   min-height: 100vh;
-  background-color: var(--bg-dark);
-  color: var(--color-light);
-  font-family: "Trebuchet MS", "Gill Sans", "Segoe UI", sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1.0625rem;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
+h1, h2, h3, h4, h5, h6,
 .masthead-brand,
 .footer-section-title,
 .holiday-modal-title {
-  font-family: Georgia, "Times New Roman", serif;
-  letter-spacing: 0.01em;
-}
-
-/* Fixed background for desktop */
-@media (min-width: 768px) {
-  body {
-    background-image:
-      radial-gradient(circle at top, rgba(201, 162, 39, 0.16), transparent 28%),
-      linear-gradient(rgba(10, 8, 6, 0.76), rgba(10, 8, 6, 0.88)),
-      url('../imgs/T_hero.webp');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-  }
-}
-
-/* Mobile: use fixed position element to avoid zoom */
-@media (max-width: 767px) {
-  body {
-    position: relative;
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100vh;
-    background-image:
-      radial-gradient(circle at top, rgba(201, 162, 39, 0.14), transparent 32%),
-      linear-gradient(rgba(10, 8, 6, 0.76), rgba(10, 8, 6, 0.9)),
-      url('../imgs/T_hero.webp');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: -1;
-    pointer-events: none;
-  }
-}
-
-/* Container max-width for page layout */
-.site-container {
-  max-width: var(--container-max-width);
-}
-
-.site-container-wide {
-  max-width: 60em;
-}
-
-/* Helper to force full viewport height on index page */
-.min-vh-100 {
-  min-height: 100vh !important;
-}
-
-/* Helper for flex growth (missing in Bootstrap 4.0) */
-.flex-grow-1 {
-  flex-grow: 1 !important;
-}
-
-/* ============================================
-   Header & Navigation
-   ============================================ */
-
-.masthead {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  position: relative;
-}
-
-.masthead-brand {
-  margin-bottom: 0;
-  text-align: center;
-}
-
-.masthead-brand p {
-  margin: 0;
-}
-
-/* Masthead brand link styling */
-.masthead-brand a {
-  text-decoration: none;
-  transition: opacity 0.2s ease, color 0.2s ease;
-  display: inline-block;
-  white-space: nowrap;
-  font-size: 1.45rem;
-}
-
-/* Brand subtitle (formerly nested small tags) */
-.masthead-brand .brand-subtitle {
-  font-size: 0.7em;
-  display: inline;
-  white-space: nowrap;
-  color: var(--color-gold-soft);
-}
-
-.masthead-brand a:hover {
-  opacity: 0.8;
-}
-
-/* Dark header theme (for index.html) */
-.masthead.dark-header {
-  background: rgba(18, 15, 13, 0.84);
-  border-bottom: 1px solid var(--color-line);
-  box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(10px);
-}
-
-.masthead.dark-header .masthead-brand,
-.masthead.dark-header .masthead-brand a {
-  color: var(--color-paper);
-}
-
-.masthead.dark-header .nav-masthead .nav-link {
-  padding: var(--nav-link-padding);
-  font-weight: 700;
-  color: rgba(240, 229, 209, 0.82);
-  background-color: transparent;
-  border-bottom: var(--nav-border-width) solid transparent;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.78rem;
-  transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-}
-
-.masthead.dark-header .nav-masthead .nav-link:hover,
-.masthead.dark-header .nav-masthead .nav-link:focus {
-  color: var(--color-gold-soft);
-  border-bottom-color: rgba(201, 162, 39, 0.45);
-}
-
-.masthead.dark-header .nav-masthead .nav-link + .nav-link {
-  margin-left: var(--nav-link-spacing);
-}
-
-.masthead.dark-header .nav-masthead .active {
-  color: var(--color-gold-soft);
-  border-bottom-color: var(--color-gold);
-}
-
-/* Light header theme (for all other pages) */
-.masthead.light-header {
-  background-color: #e9ecef;
-  border-bottom: 1px solid #dee2e6;
-}
-
-.masthead.light-header .masthead-brand,
-.masthead.light-header .masthead-brand a {
-  color: rgba(51, 51, 51, 0.5);
-}
-
-.masthead.light-header .nav-masthead .nav-link {
-  padding: var(--nav-link-padding);
-  font-weight: 700;
-  color: rgba(51, 51, 51, 0.5);
-  background-color: transparent;
-  border-bottom: var(--nav-border-width) solid transparent;
-  transition: border-color 0.15s ease-in-out;
-}
-
-.masthead.light-header .nav-masthead .nav-link:hover,
-.masthead.light-header .nav-masthead .nav-link:focus {
-  border-bottom-color: rgba(51, 51, 51, 0.25);
-}
-
-.masthead.light-header .nav-masthead .nav-link + .nav-link {
-  margin-left: var(--nav-link-spacing);
-}
-
-.masthead.light-header .nav-masthead .active {
-  color: var(--color-dark);
-  border-bottom-color: var(--color-dark);
-}
-
-/* Responsive header layout */
-@media (min-width: 48em) {
-  .masthead .masthead-brand {
-    float: left;
-    text-align: left;
-  }
-  .masthead .nav-masthead {
-    float: right;
-  }
-}
-
-/* Mobile nav centering */
-@media (max-width: 47.99em) {
-  .masthead .nav-masthead {
-    justify-content: center;
-  }
-}
-
-/* ============================================
-   Footer
-   ============================================ */
-
-footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-footer p {
-  margin-bottom: 0.25rem;
-}
-
-.mastfoot {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-/* ============================================
-   Utility Classes
-   ============================================ */
-
-/* Outlined text effect for better contrast on light backgrounds */
-.outlined-text {
-  color: var(--color-light);
-  text-shadow: 0 0.18rem 1rem rgba(0, 0, 0, 0.52);
-}
-
-/* Box shadow utility */
-.box-shadow {
-  box-shadow: var(--shadow-subtle);
-}
-
-/* Secondary button styling */
-.btn-secondary {
-  margin-bottom: 3%;
-  color: var(--color-light);
-  text-shadow: none;
-  background: linear-gradient(180deg, #241d18 0%, #171210 100%);
-  border: 1px solid rgba(201, 162, 39, 0.4);
-  transition: all 0.3s ease;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 0.75rem 1.5rem rgba(0, 0, 0, 0.18);
-  border-radius: 999px;
-}
-
-.btn-secondary:hover,
-.btn-secondary:focus {
-  color: var(--color-white);
-  background: linear-gradient(180deg, #2b231d 0%, #1a1411 100%);
-  border-color: rgba(224, 188, 87, 0.7);
-  transform: translateY(-2px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.28);
-}
-
-/* Custom "whitesmoke" button */
-.sec_btn_whitesmoke {
-  color: var(--color-light-gray);
-  border-color: rgba(201, 162, 39, 0.45);
-}
-
-.prim_btn_whitesmoke {
-  background: linear-gradient(180deg, #dcbc69 0%, #c9a227 100%) !important;
-  color: #1a1411 !important;
-  border-color: rgba(212, 184, 95, 0.85) !important;
-}
-
-.prim_btn_whitesmoke:hover {
-  background: linear-gradient(180deg, #e6c977 0%, #d0ac34 100%) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 1rem 1.8rem rgba(0, 0, 0, 0.24);
-}
-
-/* Honeypot anti-spam field (hidden from users) */
-.honeyfield {
-  position: absolute;
-  left: -9999px;
-  display: none;
-}
-
-/* ============================================
-   Footer
-   ============================================ */
-
-/* Footer base styles */
-.site-footer {
-  padding-top: 1.5rem;
-  padding-bottom: 2rem;
-  border-top: 1px solid var(--color-line);
-  margin-top: 1.5rem;
-}
-
-/* Footer grid layout */
-.site-footer .footer-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-@media (min-width: 768px) {
-  .site-footer .footer-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
-    text-align: left;
-  }
-
-  .site-footer .footer-section:nth-child(2) {
-    text-align: center;
-  }
-
-  .site-footer .footer-section:nth-child(3) {
-    text-align: right;
-  }
-}
-
-/* Footer sections */
-.site-footer .footer-section {
-  margin-bottom: 1.5rem;
-}
-
-.site-footer .footer-section-title {
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 1rem;
-}
-
-/* Footer for dark background pages (index.html) */
-.site-footer.dark-footer {
-  background:
-    linear-gradient(180deg, rgba(17, 13, 10, 0.92) 0%, rgba(12, 10, 8, 0.98) 100%);
-  border-top-color: var(--color-line);
-  color: rgba(240, 229, 209, 0.76);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
-}
-
-.site-footer.dark-footer .footer-section-title {
-  color: var(--color-gold-soft);
-}
-
-.site-footer.dark-footer .footer-text,
-.site-footer.dark-footer address {
-  color: var(--color-light);
-}
-
-.site-footer.dark-footer .footer-link {
-  color: var(--color-light);
-  transition: opacity 0.2s ease;
-}
-
-.site-footer.dark-footer .footer-link:hover {
-  color: var(--color-gold-soft);
-  opacity: 0.8;
-  text-decoration: underline;
-}
-
-.site-footer.dark-footer .footer-phone {
-  color: var(--color-light);
-}
-
-/* Footer for light background pages */
-.site-footer.light-footer {
-  background-color: #e9ecef;
-  border-top-color: #dee2e6;
-  color: var(--color-text-muted);
-}
-
-.site-footer.light-footer .footer-section-title {
-  color: var(--color-dark);
-}
-
-.site-footer.light-footer .footer-text,
-.site-footer.light-footer address {
-  color: var(--color-text-muted);
-}
-
-.site-footer.light-footer .footer-link {
-  color: var(--color-text-muted);
-  transition: color 0.2s ease;
-}
-
-.site-footer.light-footer .footer-link:hover {
-  color: var(--color-dark);
-  text-decoration: underline;
-}
-
-.site-footer.light-footer .footer-phone {
-  color: var(--color-text-muted);
-}
-
-/* Footer address/contact styling */
-.site-footer address {
-  font-style: normal;
-  margin-bottom: 0;
-}
-
-.site-footer .footer-phone {
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-
-.site-footer .footer-phone:hover {
-  text-decoration: underline;
-}
-
-/* Footer work hours */
-.site-footer .footer-work-hours {
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
-
-/* Footer legal/nav section */
-.site-footer .footer-legal {
-  padding-top: 2rem;
-  border-top: 1px solid;
-  margin-top: 1rem;
-  text-align: center;
-  font-size: 0.85rem;
-}
-
-.site-footer.dark-footer .footer-legal {
-  border-top-color: rgba(255, 255, 255, 0.1);
-}
-
-.site-footer.light-footer .footer-legal {
-  border-top-color: #dee2e6;
-}
-
-.site-footer .footer-legal nav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.5rem 1rem;
-}
-
-.site-footer .footer-legal .footer-link {
-  display: inline-block;
-}
-
-/* Footer copyright */
-.site-footer .footer-copyright {
-  margin-bottom: 0.5rem;
-}
-
-/* Responsive footer text alignment */
-@media (max-width: 767px) {
-  .site-footer {
-    padding-top: 1.5rem;
-    padding-bottom: 1rem;
-    margin-top: 1.5rem;
-  }
-
-  .site-footer .footer-grid {
-    text-align: center;
-    gap: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .site-footer .footer-section {
-    margin-bottom: 0.5rem;
-  }
-
-  .site-footer .footer-section-title {
-    margin-bottom: 0.5rem;
-  }
-
-  .site-footer .footer-legal nav {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-}
-
-/* ============================================
-   Jumbotron Styles
-   ============================================ */
-
-:root {
-  --jumbotron-padding-y: 0.5em;
-}
-
-.jumbotron {
-  padding-top: var(--jumbotron-padding-y);
-  padding-bottom: var(--jumbotron-padding-y);
-  margin-bottom: 0;
-  background-color: var(--color-white);
-}
-
-@media (min-width: 768px) {
-  .jumbotron {
-    padding-top: calc(var(--jumbotron-padding-y) * 2);
-    padding-bottom: calc(var(--jumbotron-padding-y) * 2);
-  }
-}
-
-.jumbotron p:last-child {
-  margin-bottom: 0;
-}
-
-.jumbotron-heading {
-  font-weight: 300;
-}
-
-.jumbotron .container {
-  max-width: 40rem;
-}
-
-/* ============================================
-   Cover Section
-   ============================================ */
-
-.cover {
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  letter-spacing: 0.005em;
+}
+
+/* default link colour uses a plain element selector (specificity 0,0,1)
+   so component classes always win — avoids the blue-on-blue button bug */
+a { color: var(--blue); }
+a:hover { color: var(--blue-deep); }
+
+a:focus-visible,
+.btn:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 70rem;
+  margin: 0 auto;
   padding: 0 1.5rem;
 }
 
-.cover .btn-lg {
-  padding: 0.75rem 1.25rem;
-  font-weight: 700;
-}
+/* keep Bootstrap-based content pages constrained like before */
+.site-container { max-width: 42em; }
+.site-container-wide { max-width: 70rem; }
+.min-vh-100 { min-height: 100vh !important; }
+.flex-grow-1 { flex-grow: 1 !important; }
+
+/* Outlined text for titles laid over photos (page heroes) */
+.outlined-text { text-shadow: 0 0.15rem 0.9rem rgba(0, 0, 0, 0.55); }
 
 /* ============================================
-   Holiday Modal Popup
+   Buttons – shared, sturdy, sign-like (not pills)
    ============================================ */
+.btn,
+.btn-primary,
+.btn-accent,
+.btn-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.35rem;
+  border-radius: 7px;
+  font-weight: 700;
+  font-size: 1.02rem;
+  line-height: 1.1;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+.btn:active,
+.btn-primary:active,
+.btn-accent:active,
+.btn-call:active { transform: translateY(1px); }
 
-.holiday-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 99999;
-  background: rgba(0, 0, 0, 0.8);
+.btn-primary { background: var(--blue); color: var(--cream); box-shadow: var(--shadow-sm); }
+.btn-primary:hover { background: var(--blue-deep); color: var(--cream); }
+
+.btn-accent { background: var(--amber); color: #2b2419; box-shadow: var(--shadow-sm); }
+.btn-accent:hover { background: var(--amber-deep); color: #fff; }
+
+.btn-call {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--amber);
+  font-variant-numeric: tabular-nums;
+}
+.btn-call:hover { background: rgba(192, 125, 29, 0.1); color: var(--ink); }
+.btn-call svg { flex: none; }
+
+/* Honeypot anti-spam field (hidden from users) */
+.honeyfield { position: absolute; left: -9999px; display: none; }
+
+/* ============================================
+   Header – the real Ratsstuben sign: the traced
+   navy logo (RATSSTUBEN + Paulaner roundel) on a
+   light linen band with an amber rule, exactly as
+   it reads on the building.
+   ============================================ */
+.site-head {
+  background: var(--paper-card);
+  color: var(--ink);
+  border-bottom: 4px solid var(--amber);
+  padding: 0;
+}
+
+.site-head-inner {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 1rem;
+  justify-content: space-between;
+  gap: 1.25rem;
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 0.7rem 1.5rem;
 }
 
-.holiday-modal {
-  background: linear-gradient(135deg, #181310 0%, #2a221c 100%);
-  border: 2px solid var(--color-gold);
-  border-radius: 1.25rem;
-  padding: 2rem 2.5rem;
-  max-width: 28rem;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-  animation: holiday-modal-appear 0.3s ease-out;
+/* wordmark – the traced sign logo */
+.brand {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+.brand-logo {
+  display: block;
+  height: 46px;
+  width: auto;
 }
 
-@keyframes holiday-modal-appear {
-  from {
-    opacity: 0;
-    transform: scale(0.9) translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
+/* nav */
+.mainnav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.4rem;
 }
-
-.holiday-modal-icon {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-}
-
-.holiday-modal-title {
-  color: var(--color-gold);
-  font-size: 1.5rem;
+.mainnav a {
+  color: var(--blue);
+  text-decoration: none;
   font-weight: 600;
-  margin: 0 0 1rem 0;
+  letter-spacing: 0.02em;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
 }
-
-.holiday-modal-text {
-  color: #f5f5f5;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin: 0 0 0.75rem 0;
+.mainnav a:hover,
+.mainnav a:focus,
+.mainnav a.active {
+  color: var(--blue-deep);
+  border-bottom-color: var(--amber);
 }
+.mainnav .nav-call { font-variant-numeric: tabular-nums; }
 
-.holiday-modal-highlight {
-  color: var(--color-gold);
-  font-weight: 700;
-  font-size: 1.2rem;
-}
-
-.holiday-modal-note {
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 0.9rem;
-  margin: 0 0 1.5rem 0;
-}
-
-.holiday-modal-btn {
-  background: var(--color-gold);
-  color: #1a1a1a;
-  border: none;
-  padding: 0.75rem 2.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: background 0.2s ease, transform 0.1s ease;
-}
-
-.holiday-modal-btn:hover {
-  background: var(--color-gold-soft);
-  transform: translateY(-1px);
-}
-
-.holiday-modal-btn:active {
-  transform: translateY(0);
+@media (max-width: 560px) {
+  .site-head-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+  .mainnav { gap: 0.3rem 1.1rem; }
+  .brand-logo { height: 38px; }
 }
 
 /* ============================================
-   Dark Theme Cards
+   Footer – matching blue sign band
    ============================================ */
-
-/* Dark card backgrounds for content pages */
-.bg-dark {
-  /* Background is now on body element */
+.site-foot,
+.site-footer {
+  background: var(--blue);
+  color: var(--cream-soft);
+  border-top: 4px solid var(--amber);
+  padding: 2.5rem 0 1.5rem;
+  margin-top: 3rem;
 }
 
-.bg-dark .card,
-.bg-dark .reservation-card,
-.bg-dark .legal-card,
-.bg-dark .pdf-viewer-wrapper {
-  background: linear-gradient(180deg, #241d18 0%, #1b1613 100%) !important;
-  border-color: var(--color-line) !important;
-  box-shadow: var(--shadow-card);
+.site-foot-grid,
+.site-footer .footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
-/* Light text on dark backgrounds */
-.bg-dark .text-muted {
-  color: rgba(240, 229, 209, 0.68) !important;
+.site-foot h3,
+.site-footer .footer-section-title {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cream-soft);
+  margin: 0 0 0.6rem;
 }
 
-/* Form elements on dark background */
-.bg-dark .form-control,
-.bg-dark .custom-input {
-  background-color: #2b241f;
-  border-color: rgba(201, 162, 39, 0.16);
-  color: var(--color-light);
+.foot-brand,
+.site-footer .footer-copyright {
+  display: block;
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 900;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--cream);
+  margin-bottom: 0.6rem;
 }
 
-.bg-dark .form-control:focus,
-.bg-dark .custom-input:focus {
-  background-color: #342b25;
-  border-color: var(--color-gold);
-  color: var(--color-white);
-  box-shadow: 0 0 0 0.15rem rgba(201, 162, 39, 0.16);
+.site-foot address,
+.site-footer address { font-style: normal; line-height: 1.7; margin: 0; }
+.site-foot a,
+.site-footer a,
+.site-footer .footer-link,
+.site-footer .footer-phone { color: var(--cream); text-decoration: none; }
+.site-foot a:hover,
+.site-footer a:hover,
+.site-footer .footer-link:hover { color: #fff; text-decoration: underline; }
+.site-foot p,
+.site-footer p { margin: 0; line-height: 1.7; }
+.site-footer .footer-section { margin: 0; }
+
+.foot-copy {
+  max-width: 70rem;
+  margin: 1.75rem auto 0;
+  padding: 1.1rem 1.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  font-size: 0.9rem;
+  color: var(--cream-soft);
 }
 
-.bg-dark .form-control::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+@media (max-width: 767px) {
+  .site-foot-grid,
+  .site-footer .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; text-align: left; }
 }
 
-/* Selection pills on dark background */
-.bg-dark .selection-pill {
-  background-color: #2b241f;
-  border-color: rgba(201, 162, 39, 0.16);
+/* ============================================
+   Holiday Modal Popup (re-themed light/blue)
+   ============================================ */
+.holiday-modal-overlay {
+  position: fixed; inset: 0; z-index: 99999;
+  background: rgba(33, 28, 18, 0.7);
+  display: flex; align-items: center; justify-content: center; padding: 1rem;
 }
-
-.bg-dark .selection-pill:hover {
-  background-color: #342b25;
-  border-color: var(--color-gold);
+.holiday-modal {
+  background: var(--paper-card);
+  border: 2px solid var(--blue);
+  border-radius: 1.25rem;
+  padding: 2rem 2.5rem;
+  max-width: 28rem; width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(33, 28, 18, 0.35);
+  animation: holiday-modal-appear 0.3s ease-out;
 }
-
-.bg-dark .selection-pill .custom-control-label {
-  color: rgba(255, 255, 255, 0.7);
+@keyframes holiday-modal-appear {
+  from { opacity: 0; transform: scale(0.95) translateY(-12px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
 }
-
-.bg-dark .selection-pill .custom-control-input:checked ~ .custom-control-label {
-  color: var(--color-white);
+.holiday-modal-icon { font-size: 3rem; margin-bottom: 0.5rem; }
+.holiday-modal-title { color: var(--blue); font-size: 1.5rem; font-weight: 900; margin: 0 0 1rem; }
+.holiday-modal-text { color: var(--ink); font-size: 1.1rem; line-height: 1.6; margin: 0 0 0.75rem; }
+.holiday-modal-highlight { color: var(--amber-deep); font-weight: 700; font-size: 1.2rem; }
+.holiday-modal-note { color: var(--ink-soft); font-size: 0.9rem; margin: 0 0 1.5rem; }
+.holiday-modal-btn {
+  background: var(--blue); color: var(--cream); border: none;
+  padding: 0.75rem 2.5rem; font-size: 1rem; font-weight: 700;
+  border-radius: 7px; cursor: pointer; transition: background 0.2s ease, transform 0.1s ease;
 }
+.holiday-modal-btn:hover { background: var(--blue-deep); transform: translateY(-1px); }
+.holiday-modal-btn:active { transform: translateY(0); }
 
-/* Links on dark background */
-.bg-dark a:not(.btn):not(.nav-link):not(.footer-link):not(.footer-phone) {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-/* Text colors on dark background */
-.bg-dark h1, .bg-dark h2, .bg-dark h3, .bg-dark h4, .bg-dark h5, .bg-dark h6,
-.bg-dark .display-4, .bg-dark .font-weight-bold, .bg-dark .font-weight-light {
-  color: var(--color-white) !important;
-}
-
-.bg-dark p, .bg-dark li, .bg-dark span, .bg-dark div {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-/* Border colors on dark background */
-.bg-dark .border-bottom,
-.bg-dark .border-top {
-  border-color: rgba(255, 255, 255, 0.15) !important;
+@media (prefers-reduced-motion: reduce) {
+  .holiday-modal { animation: none; }
 }

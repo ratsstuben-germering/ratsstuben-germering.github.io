@@ -173,21 +173,104 @@
     },
     {
       "name": "Getränke",
-      "folded": true,
-      "items": [
-        {"id": "01", "name": "Hell – vom Fass", "size": "0.5 l", "price": 4.30},
-        {"id": "03", "name": "Pils – vom Fass", "size": "0.4 l", "price": 4.60},
-        {"id": "05", "name": "Hefe Weißbier", "size": "0.5 l", "price": 4.60},
-        {"id": 12, "name": "Apfelsaft / Orangensaft", "size": "0.2 l", "price": 2.90},
-        {"id": 13, "name": "Coca-Cola, Fanta", "size": "0.4 l", "price": 4.00},
-        {"id": 14, "name": "Spezi", "size": "0.5 l", "price": 4.10},
-        {"id": 15, "name": "Johannisbeerschorle", "size": "0.4 l", "price": 4.20},
-        {"id": 22, "name": "Tasse Kaffee", "price": 3.00},
-        {"id": 23, "name": "Cappuccino", "price": 3.60},
-        {"id": 71, "name": "Laski Rizling (Weiß)", "size": "0.2 l", "price": 5.90},
-        {"id": 78, "name": "Merlot (Rot)", "size": "0.2 l", "price": 5.90},
-        {"id": 79, "name": "Plavac (Rot)", "size": "0.2 l", "price": 5.90, "badge": "Kroatisch", "badge_type": "origin"},
-        {"id": 80, "name": "Peljesac (Rot)", "size": "0.2 l", "price": 5.90, "badge": "Kroatisch", "badge_type": "origin"}
+      "folded": false,
+      "layout": "drinks",
+      "groups": [
+        {
+          "label": "Biere",
+          "items": [
+            {"name": "Hell – vom Fass", "size": "0.5 l", "price": 4.30},
+            {"name": "Hell – vom Fass", "size": "0.25 l", "price": 2.90},
+            {"name": "Pils – vom Fass", "size": "0.4 l", "price": 4.60},
+            {"name": "Salvator Dunkel", "size": "0.5 l", "price": 4.60},
+            {"name": "Hefe Weißbier", "size": "0.5 l", "price": 4.60},
+            {"name": "Hefe Weißbier Dunkel", "size": "0.5 l", "price": 4.60}
+          ]
+        },
+        {
+          "label": "Alkoholfreie Getränke",
+          "items": [
+            {"name": "Apfelsaft / Orangensaft", "size": "0.2 l", "price": 2.90},
+            {"name": "Coca-Cola, Fanta", "size": "0.4 l", "price": 4.00},
+            {"name": "Coca-Cola (Flasche)", "size": "0.2 l", "price": 3.00},
+            {"name": "Spezi", "size": "0.5 l", "price": 4.10},
+            {"name": "Schorle – Johannisbeer-Apfel, Maracuja, Rhabarber, Orange", "size": "0.4 l", "price": 4.20},
+            {"name": "Tafelwasser", "size": "0.25 l", "price": 2.60},
+            {"name": "Tafelwasser", "size": "0.5 l", "price": 3.60}
+          ]
+        },
+        {
+          "label": "Heiße Getränke",
+          "items": [
+            {"name": "Tasse Kaffee", "price": 3.00},
+            {"name": "Cappuccino", "price": 3.60},
+            {"name": "Mocca / Espresso", "price": 3.00},
+            {"name": "Tee mit Zitrone", "price": 3.00},
+            {"name": "Tee mit Rum", "size": "2 cl", "price": 5.20}
+          ]
+        },
+        {
+          "label": "Aperitif",
+          "items": [
+            {"name": "Campari-Soda / Orange", "price": 5.90},
+            {"name": "Campari, Martini", "price": 4.80},
+            {"name": "Sljivovic", "price": 2.90},
+            {"name": "Aperol Spritz", "price": 6.50},
+            {"name": "Hugo", "price": 6.00},
+            {"name": "Barack Palinka", "price": 2.90},
+            {"name": "Pelinkovac", "price": 2.90}
+          ]
+        },
+        {
+          "label": "Spirituosen & Liköre",
+          "note": "je 2 cl",
+          "items": [
+            {"name": "Jägermeister", "price": 2.90},
+            {"name": "Obstler", "price": 2.90},
+            {"name": "Fernet Branca", "price": 3.20},
+            {"name": "Williamsbirne", "price": 3.10},
+            {"name": "Metaxa", "price": 3.40},
+            {"name": "Ouzo", "price": 2.90},
+            {"name": "Hennessy", "price": 3.80},
+            {"name": "Jack Daniel's", "price": 3.80},
+            {"name": "Wodka", "price": 2.90},
+            {"name": "Kruskovac", "price": 2.90},
+            {"name": "Julischka", "price": 2.90}
+          ]
+        },
+        {
+          "label": "Sekt",
+          "items": [
+            {"name": "Fürst Metternich (Flasche)", "price": 30.00},
+            {"name": "Fürst Metternich (Glas)", "price": 9.50}
+          ]
+        },
+        {
+          "label": "Kroatische Weine — Weiß",
+          "note": "je 0.2 l",
+          "items": [
+            {"name": "Laski Rizling", "price": 5.90},
+            {"name": "Traminer", "price": 5.90},
+            {"name": "Zilavka – Mostar", "price": 5.90}
+          ]
+        },
+        {
+          "label": "Kroatische Weine — Rot",
+          "note": "je 0.2 l",
+          "items": [
+            {"name": "Merlot", "price": 5.90},
+            {"name": "Plavac", "price": 5.90},
+            {"name": "Peljesac", "price": 5.90}
+          ]
+        },
+        {
+          "label": "Weinschorle",
+          "items": [
+            {"name": "Weinschorle", "size": "0.25 l", "price": 3.90},
+            {"name": "Weinschorle", "size": "0.5 l", "price": 6.80},
+            {"name": "Weinschorle aus Zilavka", "size": "0.5 l", "price": 8.50}
+          ]
+        }
       ]
     }
   ],
