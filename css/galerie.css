@@ -24,7 +24,7 @@ body { background: var(--paper); overflow-x: clip; }
   margin: 1.8rem 0 0; background: #fff; padding: 0.55rem 0.55rem 0;
   border: 1px solid var(--line); box-shadow: var(--shadow);
 }
-.lead-photo img { display: block; width: 100%; aspect-ratio: 16 / 7; object-fit: cover; }
+.lead-photo img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 7; object-fit: cover; }
 .lead-photo figcaption {
   font-family: "Source Sans 3", sans-serif; font-style: italic;
   font-size: 0.8rem; color: var(--ink-soft); text-align: center; padding: 0.6rem 0 0.7rem;
