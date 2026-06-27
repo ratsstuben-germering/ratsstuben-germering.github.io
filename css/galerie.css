@@ -1,159 +1,92 @@
 /* ============================================
-   Ratsstuben Germering - Galerie Page Styles
-   Light theme – printed photos laid on linen.
+   Ratsstuben Germering – Galerie
+   The photo pages of the printed booklet: same linen,
+   same Fraunces section heads, photos as framed prints.
    ============================================ */
 
-body { overflow-x: clip; }
+body { background: var(--paper); overflow-x: clip; }
 
-.galerie-hero {
-  background-image:
-    linear-gradient(rgba(16, 12, 10, 0.25), rgba(16, 12, 10, 0.5)),
-    url('../imgs/T_hero.webp');
-  background-size: cover;
-  background-position: center;
-  min-height: 300px;
-  width: 100%;
-  border-radius: 1.25rem !important;
-  box-shadow: var(--shadow) !important;
-  border: 1px solid var(--line);
-  position: relative;
-  overflow: hidden;
+.album { flex: 1 0 auto; max-width: 66rem; margin: 2.5rem auto 1rem; padding: 0 1.5rem; }
+
+/* masthead – same voice as the Speisekarte */
+.album-mast { text-align: center; border-bottom: 2px solid var(--ink); padding-bottom: 1.3rem; }
+.album-mast h1 {
+  font-family: "Fraunces", Georgia, serif; font-weight: 900;
+  font-size: 2.7rem; letter-spacing: 0.01em; color: var(--ink); margin: 0; line-height: 1;
+}
+.album-mast .sub {
+  font-family: "Source Sans 3", sans-serif; text-transform: uppercase; letter-spacing: 0.22em;
+  font-size: 0.72rem; color: var(--ink-soft); margin: 0.7rem 0 0;
 }
 
-.galerie-hero .display-4,
-.galerie-hero .lead {
-  position: relative;
-  z-index: 1;
-  color: #fff;
+/* the lead photograph – the warm room, full width */
+.lead-photo {
+  margin: 1.8rem 0 0; background: #fff; padding: 0.55rem 0.55rem 0;
+  border: 1px solid var(--line); box-shadow: var(--shadow);
 }
-.galerie-hero .display-4 {
-  text-shadow: 0 0.3rem 1.2rem rgba(0, 0, 0, 0.6);
-  font-size: 3.1rem;
-  font-weight: 900;
-  letter-spacing: -0.01em;
+.lead-photo img { display: block; width: 100%; aspect-ratio: 16 / 7; object-fit: cover; }
+.lead-photo figcaption {
+  font-family: "Source Sans 3", sans-serif; font-style: italic;
+  font-size: 0.8rem; color: var(--ink-soft); text-align: center; padding: 0.6rem 0 0.7rem;
 }
 
-.shadow-text { text-shadow: 0 0.15rem 0.7rem rgba(0, 0, 0, 0.6); }
-
-/* let the photos breathe directly on the linen page */
-.gallery-shell {
-  padding: 0;
-  background: none;
-  border: none;
-  box-shadow: none;
-  min-width: 0;
+/* section heads – identical device to the menu */
+.g-sec { margin-top: 2.6rem; }
+.g-sec .sec-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.1rem; }
+.g-sec .sec-head h2 {
+  font-family: "Fraunces", Georgia, serif; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  font-size: 1.12rem; color: var(--blue); margin: 0; white-space: nowrap;
 }
+.g-sec .sec-head .rule { flex: 1; height: 0; border-top: 1.5px solid var(--blue); opacity: 0.22; }
 
-.gallery-masonry {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  width: 100%;
-  min-width: 0;
-}
-@media (min-width: 576px) { .gallery-masonry { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (min-width: 992px) { .gallery-masonry { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+/* photos flow in balanced columns – varied heights, like prints in an album */
+.photo-cols { column-count: 3; column-gap: 1.1rem; }
+@media (max-width: 900px) { .photo-cols { column-count: 2; } }
+@media (max-width: 560px) { .photo-cols { column-count: 1; } }
 
-/* each photo framed white like a print */
 .gallery-item {
-  width: 100%;
-  background: #fff;
-  padding: 0.5rem;
-  border: 1px solid var(--line);
-  border-radius: 0.6rem;
-  box-shadow: var(--shadow-sm);
-  content-visibility: auto;
-  contain-intrinsic-size: 260px 220px;
-  contain: layout paint style;
-  overflow: hidden;
-  min-width: 0;
+  break-inside: avoid; margin: 0 0 1.1rem;
+  background: #fff; padding: 0.45rem 0.45rem 0;
+  border: 1px solid var(--line); box-shadow: var(--shadow-sm);
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 .gallery-item:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
-
-.gallery-item img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: 0.35rem !important;
-  cursor: pointer;
+.gallery-item img { display: block; width: 100%; height: auto; cursor: pointer; }
+.gallery-item figcaption {
+  font-family: "Source Sans 3", sans-serif; font-size: 0.78rem;
+  color: var(--ink-soft); text-align: center; padding: 0.5rem 0.3rem 0.55rem;
 }
 
-.gallery-sentinel { height: 1px; }
 .gallery-noscript-note { margin-top: 1rem; color: var(--ink-soft); text-align: center; }
 
-/* reservation prompt */
-.reservation-cta {
-  background: var(--paper-card);
-  border: 1px solid var(--line);
-  width: 100%;
-  border-radius: 1rem !important;
-  box-shadow: var(--shadow-sm);
-  padding: 1.5rem;
-}
-.reservation-cta .lead { color: var(--ink-soft); font-size: 1rem; }
-.reservation-cta .btn-outline-light {
-  border: 2px solid var(--blue);
-  color: var(--blue);
-  font-weight: 700;
-  background: transparent;
-  border-radius: 7px;
-}
-.reservation-cta .btn-outline-light:hover {
-  background-color: var(--blue);
-  border-color: var(--blue);
-  color: var(--cream);
-}
+/* reservation prompt – same as the menu */
+.menu-reserve { text-align: center; max-width: 66rem; margin: 2.4rem auto 3.5rem; padding: 0 1.5rem; }
+.menu-reserve p { color: var(--ink-soft); margin: 0 0 0.9rem; }
 
-/* lightbox stays dark for viewing the photos */
+/* lightbox – stays dark for viewing the photos */
 .lightbox {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(4, 3, 2, 0.94);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  position: fixed; inset: 0; background-color: rgba(4, 3, 2, 0.94);
+  display: flex; align-items: center; justify-content: center; z-index: 2000;
+  opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;
   backdrop-filter: blur(7px);
 }
 .lightbox.active { opacity: 1; visibility: visible; }
-.lightbox-content {
-  position: relative;
-  max-width: 90%;
-  max-height: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+.lightbox-content { position: relative; max-width: 90%; max-height: 90%; display: flex; flex-direction: column; align-items: center; }
 .lightbox-image {
-  max-width: 100%;
-  max-height: 85vh;
-  object-fit: contain;
-  border-radius: 0.6rem;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 0 3rem rgba(0, 0, 0, 0.5);
+  max-width: 100%; max-height: 85vh; object-fit: contain;
+  border-radius: 2px; border: 1px solid rgba(255, 255, 255, 0.25); box-shadow: 0 0 3rem rgba(0, 0, 0, 0.5);
 }
 .lightbox-close {
-  position: absolute;
-  top: -40px;
-  right: 0;
-  color: #fff;
-  font-size: 2.5rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: color 0.2s ease;
-  line-height: 1;
+  position: absolute; top: -40px; right: 0; color: #fff; font-size: 2.5rem;
+  font-weight: bold; cursor: pointer; transition: color 0.2s ease; line-height: 1;
 }
 .lightbox-close:hover { color: var(--amber); }
 
-@media (max-width: 767px) {
-  .galerie-hero { min-height: 240px; }
-  .galerie-hero .display-4 { font-size: 2.2rem; }
-  .reservation-cta .btn-outline-light { padding-left: 1.5rem !important; padding-right: 1.5rem !important; max-width: 100%; }
+@media (max-width: 600px) {
+  .album { padding: 0 0.9rem; margin-top: 1.4rem; }
+  .album-mast h1 { font-size: 2rem; }
+  .lead-photo img { aspect-ratio: 4 / 3; }
 }
 
 @media (prefers-reduced-motion: reduce) {
