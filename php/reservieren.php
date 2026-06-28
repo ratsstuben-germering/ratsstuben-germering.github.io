@@ -30,7 +30,7 @@ $timestamp = time();
     <link href="../css/bootstrap.min.css?v=20260627d" rel="stylesheet">
 
     <!-- Common styles -->
-    <link href="../css/common.css?v=20260627d" rel="stylesheet">
+    <link href="../css/common.css?v=20260628a" rel="stylesheet">
 
     <!-- Page-specific styles -->
     <link href="../css/reservieren.css?v=20260627d" rel="stylesheet">

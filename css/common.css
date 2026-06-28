@@ -159,6 +159,7 @@ button:focus-visible {
 .btn-call {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   padding: 0.8rem 1.35rem;
   border-radius: 7px;
