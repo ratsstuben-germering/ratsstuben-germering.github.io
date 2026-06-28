@@ -19,8 +19,10 @@ document.addEventListener('DOMContentLoaded', function () {
       images: [
         { src: A + 'atmosphere_window_side.webp',  w: 1600, h: 1200, cap: 'Plätze am Fenster' },
         { src: G + 'maps_stube.webp',              w: 900,  h: 1200, cap: 'Gemütlich eingerichtet' },
+        { src: G + 'haus_gastraum.webp',           w: 1600, h: 1200, cap: 'Unser Gastraum' },
         { src: G + 'NisheTable.webp',              w: 1200, h: 900,  cap: 'Tisch in der Nische' },
-        { src: G + 'maps_kerze.webp',              w: 900,  h: 1200, cap: 'Kerzenschein am Tisch' }
+        { src: G + 'maps_kerze.webp',              w: 900,  h: 1200, cap: 'Kerzenschein am Tisch' },
+        { src: A + 'atmosphere_set_table.webp',    w: 1600, h: 1200, cap: 'Eingedeckt für Ihren Besuch' }
       ]
     },
     {
@@ -30,17 +32,17 @@ document.addEventListener('DOMContentLoaded', function () {
         { src: G + 'Chevapcici.webp',              w: 1200, h: 900, cap: 'Cevapcici mit Djuvecreis' },
         { src: G + 'PlateFullOfMeat.webp',         w: 1200, h: 900, cap: 'Fleischteller vom Rost' },
         { src: G + 'Gulash.webp',                  w: 1200, h: 900, cap: 'Gulasch mit Reis' },
-        { src: G + 'ShroomsChicken.webp',          w: 1200, h: 900, cap: 'Hähnchen in Champignonrahm' },
+        { src: G + 'ShroomsChicken.webp',          w: 1200, h: 900, cap: 'Hähnchenbrust in Champignonrahm' },
         { src: G + 'NiceFishPlate.webp',           w: 1200, h: 900, cap: 'Gegrillte Fischplatte' },
         { src: G + '20260110_23h50m19s_grim.webp', w: 735,  h: 726, cap: 'Schnitzel mit Spargel & Sauce Hollandaise' },
         { src: G + '20260110_23h54m23s_grim.webp', w: 1200, h: 622, cap: 'Forelle mit Petersilienkartoffeln' },
-        { src: G + '20260110_23h55m11s_grim.webp', w: 1200, h: 611, cap: 'Gemischte Grillplatte' },
+        { src: G + '20260110_23h55m11s_grim.webp', w: 1200, h: 611, cap: 'Grillteller mit Pommes und Djuvec-Reis' },
         { src: G + '20260111_00h02m11s_grim.webp', w: 547,  h: 837, cap: 'Vukovar-Platte für zwei' },
-        { src: G + '20260111_00h01m53s_grim.webp', w: 665,  h: 881, cap: 'Medaillons mit Spätzle' },
-        { src: G + '20260111_00h01m38s_grim.webp', w: 461,  h: 834, cap: 'Hausgemachte Spätzle' },
-        { src: G + '20260111_00h01m08s_grim.webp', w: 733,  h: 854, cap: 'Herzhaftes Pilzragout' },
+        { src: G + '20260111_00h01m53s_grim.webp', w: 665,  h: 881, cap: 'Schweinemedaillons in Pfefferrahm mit Spätzle' },
+        { src: G + '20260111_00h01m38s_grim.webp', w: 461,  h: 834, cap: 'Lachsnudeln in Dill-Sahnesauce' },
+        { src: G + '20260111_00h01m08s_grim.webp', w: 733,  h: 854, cap: 'Hausgemachte Suppe' },
         { src: G + '20260110_23h53m57s_grim.webp', w: 922,  h: 655, cap: 'Frischer gemischter Salat' },
-        { src: G + 'HawaiiToast.webp',             w: 1200, h: 900, cap: "Medaillons 'Hawaii'" },
+        { src: G + 'HawaiiToast.webp',             w: 1200, h: 900, cap: 'Toast Hawaii, überbacken' },
         { src: G + 'ApfelStrudl.webp',             w: 1200, h: 900, cap: 'Hausgemachter Apfelstrudel' }
       ]
     },
@@ -61,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
         { src: G + '20260110_23h46m28s_grim.webp', w: 885,  h: 859,  cap: 'Zu Gast bei uns' },
         { src: G + '20260110_23h56m11s_grim.webp', w: 731,  h: 880,  cap: 'Frisch am Tisch serviert' },
         { src: G + '20260110_23h57m00s_grim.webp', w: 731,  h: 812,  cap: 'Anstoßen mit Paulaner' },
-        { src: G + 'maps_paulaner_karte.webp',     w: 900,  h: 1200, cap: 'Bei uns gehört Paulaner dazu' },
+        { src: G + 'maps_paulaner_karte.webp',     w: 900,  h: 1200, cap: 'Gedeckt und bereit für Sie' },
         { src: G + '20260111_00h02m52s_grim.webp', w: 499,  h: 888,  cap: 'Süßes zum Schluss' }
       ]
     }
