@@ -1,5 +1,8 @@
 /* ============================================
-   Ratsstuben Germering - Legal Pages Styles (Impressum & Datenschutz)
+   Ratsstuben Germering – Legal Pages (Impressum & Datenschutz)
+   Harmonised with the warm Bavarian-blue identity:
+   linen surfaces, warm hairlines, blue headings/links,
+   sign-like 7px radius, warm shadows.
    ============================================ */
 
 /* ============================================
@@ -12,28 +15,28 @@
   background-position: center;
   min-height: 250px;
   width: 100%;
-  border-radius: 1.25rem !important;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-sm) !important;
+  border: 1px solid var(--line);
 }
 
 .legal-hero .display-4 {
-  text-shadow: 0 2px 10px rgba(0,0,0,0.55);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
   font-size: 3rem;
   font-weight: 300;
-  color: var(--color-white);
+  color: var(--cream);
   letter-spacing: -0.02em;
 }
 
 .shadow-text {
-  text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 767px) {
   .legal-hero {
     min-height: 200px;
   }
-  
+
   .legal-hero .display-4 {
     font-size: 2.2rem;
   }
@@ -46,28 +49,30 @@
 .legal-card {
   position: relative;
   z-index: 10;
-  border: 1px solid rgba(0, 0, 0, 0.05) !important;
-  border-radius: 1.25rem !important;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06) !important;
+  background: var(--paper-card);
+  border: 1px solid var(--line) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow) !important;
 }
 
 .legal-content h2 {
   font-size: 1.15rem;
   letter-spacing: 0.02em;
-  color: var(--color-dark);
-  border-bottom-color: #eee !important;
+  color: var(--blue);
+  border-bottom-color: var(--line) !important;
 }
 
 .legal-content p {
   line-height: 1.8;
-  color: var(--color-text-muted);
+  color: var(--ink-soft);
 }
 
 .legal-content strong {
-  color: var(--color-dark);
+  color: var(--blue);
 }
 
 .legal-content a {
+  color: var(--blue);
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease;
@@ -77,55 +82,19 @@
   border-bottom-color: currentColor;
 }
 
+/* Note/disclaimer box – warm tint matching the booking flow */
+.legal-content .alert-light {
+  background-color: rgba(40, 74, 114, 0.06);
+  border-color: var(--line) !important;
+  border-radius: var(--radius-md);
+}
+
+.legal-content .alert-light .text-muted {
+  color: var(--ink-soft) !important;
+}
+
 @media (max-width: 767px) {
   .legal-card {
     padding: 2rem 1.5rem !important;
   }
-}
-
-/* ============================================
-   Alert Boxes on Dark Theme
-   ============================================ */
-
-.bg-dark .alert-light {
-  background-color: #3d3d3d !important;
-  border-color: rgba(255, 255, 255, 0.15) !important;
-  color: rgba(255, 255, 255, 0.85) !important;
-}
-
-.bg-dark .alert-light .text-muted,
-.bg-dark .alert-light small {
-  color: rgba(255, 255, 255, 0.7) !important;
-}
-
-.bg-dark .alert-light strong {
-  color: var(--color-white) !important;
-}
-
-/* ============================================
-   Legal Content on Dark Theme
-   ============================================ */
-
-.bg-dark .legal-content h2 {
-  color: var(--color-white) !important;
-  border-bottom-color: rgba(255, 255, 255, 0.15) !important;
-}
-
-.bg-dark .legal-content p,
-.bg-dark .legal-content li {
-  color: rgba(255, 255, 255, 0.85) !important;
-}
-
-.bg-dark .legal-content strong {
-  color: var(--color-white) !important;
-}
-
-.bg-dark .legal-content a {
-  color: rgba(255, 255, 255, 0.9) !important;
-  border-bottom-color: rgba(255, 255, 255, 0.3);
-}
-
-.bg-dark .legal-content a:hover {
-  color: var(--color-white) !important;
-  border-bottom-color: var(--color-white);
 }

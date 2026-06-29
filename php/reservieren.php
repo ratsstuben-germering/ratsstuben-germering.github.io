@@ -18,7 +18,7 @@ $timestamp = time();
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
+    <meta name="description" content="Reservieren Sie Ihren Tisch im Restaurant Ratsstuben Germering – schnell und unverbindlich online anfragen.">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
@@ -30,28 +30,10 @@ $timestamp = time();
     <link href="../css/bootstrap.min.css?v=20260627d" rel="stylesheet">
 
     <!-- Common styles -->
-    <link href="../css/common.css?v=20260628a" rel="stylesheet">
+    <link href="../css/common.css?v=20260629a" rel="stylesheet">
 
     <!-- Page-specific styles -->
-    <link href="../css/reservieren.css?v=20260627d" rel="stylesheet">
-
-    <style>
-      /* Force reset to debug spacing issue */
-      body { padding-bottom: 0 !important; }
-      footer { margin-bottom: 0 !important; }
-
-      /* Enhanced honeypot styles */
-      .website-url-field {
-        position: absolute;
-        left: -9999px;
-        width: 1px;
-        height: 1px;
-        opacity: 0;
-        overflow: hidden;
-        z-index: -1;
-      }
-    </style>
-
+    <link href="../css/reservieren.css?v=20260629a" rel="stylesheet">
   </head>
 
   <body class="d-flex flex-column min-vh-100">
@@ -86,7 +68,7 @@ $timestamp = time();
 
           <div class="row justify-content-center">
             <div class="col-lg-10">
-              <div class="reservation-card shadow-lg bg-white p-4 p-md-5">
+              <div class="reservation-card p-4 p-md-5">
                 <div class="text-center mb-5">
                   <p class="text-muted">Bitte füllen Sie das Formular aus, um Ihre Anfrage zu senden.<br>
                   Bei kurzfristigen Stornierungen werden wir Sie telefonisch kontaktieren.</p>
@@ -190,7 +172,7 @@ $timestamp = time();
                   </div>
 
                   <div class="pt-3">
-                    <button class="btn btn-dark btn-lg btn-block py-3 shadow" type="submit">Jetzt verbindlich reservieren</button>
+                    <button class="btn-primary btn-block py-3" type="submit">Jetzt verbindlich reservieren</button>
                     <p class="text-center small text-muted mt-3">* Mit dem Absenden akzeptieren Sie, dass wir Sie zwecks Reservierung kontaktieren dürfen.</p>
                   </div>
                 </form>
@@ -208,7 +190,8 @@ $timestamp = time();
             <h4 class="footer-section-title">Kontakt</h4>
             <address>
               <p class="footer-copyright">&copy; Ratsstuben Germering</p>
-              <p><a href="tel:089847989" class="footer-phone">tel: 089 847989</a></p>
+              <p>Rathausplatz 1, 82110 Germering</p>
+              <p><a href="tel:+4989847989" class="footer-phone">tel: +49 89 847989</a></p>
             </address>
           </div>
           <div class="footer-section">

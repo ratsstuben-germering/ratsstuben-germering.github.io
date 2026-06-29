@@ -17,7 +17,8 @@ if ($hasReservation) {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
+    <meta name="description" content="Bestätigung Ihrer Reservierungsanfrage bei den Ratsstuben Germering.">
+    <meta name="robots" content="noindex">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
@@ -26,7 +27,7 @@ if ($hasReservation) {
     <title>Reservierungsbestätigung - Ratsstuben Germering</title>
 
     <link href="../css/bootstrap.min.css?v=20260627d" rel="stylesheet">
-    <link href="../css/common.css?v=20260628a" rel="stylesheet">
+    <link href="../css/common.css?v=20260629a" rel="stylesheet">
 
     <style>
       .success-container {
@@ -39,8 +40,8 @@ if ($hasReservation) {
         width: 80px;
         height: 80px;
         margin: 0 auto 1.5rem;
-        background: #28a745;
-        border-radius: var(--radius-full);
+        background: #1f8f3b;
+        border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -56,7 +57,7 @@ if ($hasReservation) {
       .success-card {
         background: var(--paper-card);
         border: 1px solid var(--line);
-        border-radius: var(--radius-lg);
+        border-radius: var(--radius-md);
         box-shadow: var(--shadow);
         padding: 2rem;
         margin-top: 2rem;
@@ -75,7 +76,7 @@ if ($hasReservation) {
       }
 
       .reservation-details {
-        background: rgba(44, 82, 133, 0.06);
+        background: rgba(40, 74, 114, 0.06);
         border: 1px solid var(--line);
         border-radius: var(--radius-md);
         padding: 1.5rem;
@@ -130,7 +131,7 @@ if ($hasReservation) {
         background: var(--paper-card);
         border: 1px solid var(--line);
         border-left: 4px solid #dc3545;
-        border-radius: var(--radius-lg);
+        border-radius: var(--radius-md);
         box-shadow: var(--shadow);
         padding: 2rem;
         margin-top: 2rem;
@@ -141,7 +142,7 @@ if ($hasReservation) {
         height: 60px;
         margin: 0 auto 1rem;
         background: #dc3545;
-        border-radius: var(--radius-full);
+        border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -166,26 +167,8 @@ if ($hasReservation) {
         line-height: 1.6;
       }
 
-      .btn-home {
-        display: inline-block;
-        padding: 0.75rem 1.5rem;
-        background: var(--blue);
-        color: var(--cream);
-        text-decoration: none;
-        border-radius: 7px;
-        font-weight: 700;
-        margin-top: 1rem;
-        transition: background 0.2s;
-      }
-
-      .btn-home:hover {
-        background: var(--blue-deep);
-        color: var(--cream);
-        text-decoration: none;
-      }
-
       .contact-box {
-        background: rgba(44, 82, 133, 0.06);
+        background: rgba(40, 74, 114, 0.06);
         border: 1px solid var(--line);
         border-radius: var(--radius-md);
         padding: 1rem;
@@ -314,7 +297,7 @@ if ($hasReservation) {
         </div>
 
         <div class="text-center mt-4">
-          <a href="../index.html" class="btn-home">Zurück zur Startseite</a>
+          <a href="../index.html" class="btn-primary mt-3">Zurück zur Startseite</a>
         </div>
       </div>
     </div>
@@ -336,7 +319,7 @@ if ($hasReservation) {
         </div>
 
         <div class="text-center">
-          <a href="../index.html" class="btn-home">Zurück zur Startseite</a>
+          <a href="../index.html" class="btn-primary mt-3">Zurück zur Startseite</a>
         </div>
       </div>
     </div>
@@ -351,7 +334,8 @@ if ($hasReservation) {
             <h4 class="footer-section-title">Kontakt</h4>
             <address>
               <p class="footer-copyright">&copy; Ratsstuben Germering</p>
-              <p><a href="tel:089847989" class="footer-phone">tel: 089 847989</a></p>
+              <p>Rathausplatz 1, 82110 Germering</p>
+              <p><a href="tel:+4989847989" class="footer-phone">tel: +49 89 847989</a></p>
             </address>
           </div>
           <div class="footer-section">
@@ -364,8 +348,8 @@ if ($hasReservation) {
           <div class="footer-section">
             <h4 class="footer-section-title">Rechtliches</h4>
             <nav aria-label="Footer navigation">
-              <a href="../html/datenschutz.html" class="footer-link">Datenschutz</a><br>
-              <a href="../html/impressum.html" class="footer-link">Impressum</a>
+              <a href="/html/datenschutz.html" class="footer-link">Datenschutz</a><br>
+              <a href="/html/impressum.html" class="footer-link">Impressum</a>
             </nav>
           </div>
         </div>

@@ -1,5 +1,8 @@
 /* ============================================
-   Ratsstuben Germering - Reservation Page Styles
+   Ratsstuben Germering – Reservation Page Styles
+   Harmonised with the warm Bavarian-blue identity:
+   linen surfaces, warm hairlines, amber accents,
+   sign-like 7px radius, warm shadows.
    ============================================ */
 
 body {
@@ -17,18 +20,18 @@ body {
   background-position: center;
   min-height: 280px;
   width: 100%;
-  border-radius: 1.25rem !important;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-sm) !important;
+  border: 1px solid var(--line);
 }
 
 .reservation-hero .display-4 {
-  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
   font-size: 3rem;
 }
 
 .shadow-text {
-  text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
 }
 
 /* ============================================
@@ -38,224 +41,127 @@ body {
 .reservation-card {
   position: relative;
   z-index: 10;
-  border: 1px solid rgba(0, 0, 0, 0.05) !important;
-  border-radius: 1.25rem !important;
-  margin-top: 2rem; /* Consistent spacing for all screens */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06) !important;
+  background: var(--paper-card);
+  border: 1px solid var(--line) !important;
+  border-radius: var(--radius-md) !important;
+  margin-top: 2rem; /* consistent spacing on all screens */
+  box-shadow: var(--shadow) !important;
 }
 
 .form-section h2 {
-
   font-size: 1.15rem;
-
   letter-spacing: 0.02em;
-
-  color: var(--color-dark);
-
-  border-bottom-color: #eee !important;
-
+  color: var(--blue);
+  border-bottom-color: var(--line) !important;
 }
-
-
 
 .section-icon {
-
   display: inline-flex;
-
   align-items: center;
-
   justify-content: center;
-
   width: 36px;
-
   height: 36px;
-
-  background-color: #f8f9fa;
-
-  border-radius: 8px;
-
-  color: var(--color-dark);
-
+  background-color: rgba(192, 125, 29, 0.12);
+  border-radius: var(--radius-md);
+  color: var(--amber-deep);
 }
-
-
 
 /* Input Styling */
 
 .custom-input {
-
-  background-color: #fcfcfc;
-
-  border: 1px solid #e2e8f0;
-
+  background-color: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
   padding: 0.75rem 1rem;
-
   height: auto;
-
 }
-
-
 
 .custom-input:focus {
-
   background-color: #fff;
-
-  border-color: var(--color-dark);
-
-  box-shadow: 0 0 0 4px rgba(51, 51, 51, 0.05);
-
+  border-color: var(--blue);
+  box-shadow: 0 0 0 4px rgba(40, 74, 114, 0.12);
 }
 
+textarea.form-control {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
 
+textarea.form-control:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 4px rgba(40, 74, 114, 0.12);
+}
 
 /* Selection Pill Styling */
 
 .selection-pill {
-
-  background-color: #f8f9fa;
-
-  border: 1px solid #e2e8f0;
-
+  background-color: #fff;
+  border: 1px solid var(--line);
   border-radius: var(--radius-md);
-
   transition: all 0.2s ease;
-
   margin-left: 0;
-
 }
-
-
 
 .selection-pill:hover {
-
-  background-color: #fff;
-
-  border-color: var(--color-dark);
-
-  box-shadow: var(--shadow-subtle);
-
+  background-color: var(--paper);
+  border-color: var(--blue);
+  box-shadow: var(--shadow-sm);
 }
-
-
 
 .selection-pill .custom-control-input:checked ~ .custom-control-label::before {
-
-  background-color: var(--color-dark);
-
-  border-color: var(--color-dark);
-
+  background-color: var(--blue);
+  border-color: var(--blue);
 }
-
-
 
 .selection-pill .custom-control-label {
-
   padding-left: 5px;
-
-  color: var(--color-text-muted);
-
+  color: var(--ink-soft);
 }
-
-
 
 .selection-pill .custom-control-input:checked ~ .custom-control-label {
-
-  color: var(--color-dark);
-
+  color: var(--blue);
 }
 
-
-
-/* Submit Button */
-
-.btn-dark {
-
-  background-color: var(--color-dark);
-
-  border: none;
-
-  font-weight: 700;
-
-  letter-spacing: 0.5px;
-
-  padding: 1rem;
-
-  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-
+/* Honeypot anti-spam field (second, hidden from users) */
+.website-url-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  overflow: hidden;
+  z-index: -1;
 }
-
-
-
-.btn-dark:hover {
-
-  background-color: var(--blue-deep);
-
-  transform: translateY(-2px);
-
-  box-shadow: 0 8px 15px rgba(0,0,0,0.2) !important;
-
-}
-
-
 
 /* ============================================
-
    Responsive Adjustments
-
    ============================================ */
 
-
-
 @media (max-width: 767px) {
-
   .reservation-hero {
-
     height: 220px;
-
   }
-
-  
 
   .reservation-hero .display-4 {
-
     font-size: 1.8rem;
-
     font-weight: 400;
-
   }
 
-  
-
-    .reservation-card {
-
-  
-
-      padding: 1.25rem !important;
-
-  
-
-    }
-
-  
+  .reservation-card {
+    padding: 1.25rem !important;
+  }
 
   .selection-pill {
-
     padding: 0.75rem 1rem !important;
-
   }
-
-  
 
   .form-section {
-
     margin-bottom: 2.5rem !important;
-
   }
 
-  .btn-dark[type="submit"] {
+  #reservationForm button[type="submit"] {
     white-space: normal;
     word-break: break-word;
     hyphens: auto;
   }
-
 }

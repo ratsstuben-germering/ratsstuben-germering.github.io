@@ -276,6 +276,11 @@ button:focus-visible {
   margin-top: 3rem;
 }
 
+/* The footer's inner wrapper used Bootstrap utilities (mx-auto/px-3/w-100)
+   to centre itself, but the homepage doesn't load Bootstrap. Collapse the
+   wrapper so the grid alone governs layout — identical on every page. */
+.site-footer > .site-container { display: contents; }
+
 .site-foot-grid,
 .site-footer .footer-grid {
   display: grid;
