@@ -5,6 +5,10 @@
  * Compatible with PHP 7.0+
  */
 
+// All date/time logic (form min dates, Ruhetag & opening-hours checks)
+// must run in restaurant-local time, not the server's UTC
+date_default_timezone_set('Europe/Berlin');
+
 // Enable output buffering for faster TTFB
 if (!ob_get_level()) {
     ob_start();
