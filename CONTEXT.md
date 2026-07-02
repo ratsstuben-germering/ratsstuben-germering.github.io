@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Restaurant website for "Ratsstuben Germering" - a traditional German restaurant in Germering, Germany. The site provides menu viewing, a dynamic photo gallery, secure table reservations, and legal information.
+Restaurant website for "Ratsstuben Germering" - a traditional Croatian/Bavarian Wirtshaus with beer garden at the Rathausplatz in Germering, Germany. The site provides menu viewing, a photo gallery, secure table reservations, and legal information.
 
 **Deployment:** Hybrid - GitHub Pages (static hosting) + External PHP Server (reservations at ratsstuben-germering.de)
 
@@ -11,303 +11,161 @@ Restaurant website for "Ratsstuben Germering" - a traditional German restaurant 
 | Technology | Version | Purpose |
 |------------|---------|---------|
 | HTML5 | - | Semantic markup, SEO-friendly structure |
-| CSS3 | - | Custom properties, Flexbox, Masonry Grids, Dark Theme |
-| Bootstrap | 4.0 | Responsive grid and component base |
+| CSS3 | - | Custom properties, Grid/Flexbox, light "Wirtshaus" theme |
+| Bootstrap | 4.0 | Only on content/PHP pages (NOT loaded on index.html) |
 | PHP | 7.4+ | Reservation processing with security |
 | WebP | - | High-performance image optimization |
-| JavaScript | Vanilla | Interactive components (Lightbox, Cookie banner) |
+| JavaScript | Vanilla | Menu renderer, lightbox, banners (no frameworks) |
+| Fonts | self-hosted | Fraunces (display) + Source Sans 3 (body), GDPR-safe, no CDN |
 
 ## File Structure
 
 ```
 ratsstuben-germering.github.io/
-├── index.html              # Landing page (Hero background, location link)
+├── index.html              # Landing page (hero, menu teaser, reviews, rooms, story, visit)
 ├── README.md               # Project documentation
 ├── CONTEXT.md              # This file - Technical context
 ├── css/
-│   ├── bootstrap.min.css   # Bootstrap framework
-│   ├── common.css          # Global variables, dark theme, utility classes
-│   ├── index.css           # Homepage-specific styles
-│   ├── speisekarte.css     # Hero header, PDF viewer styling
-│   ├── galerie.css         # Masonry collage, Lightbox styles, parallax CTA
-│   ├── reservieren.css     # Premium form card, icons, interactive pills
-│   └── legal.css           # Legal document layout, dark theme overrides
-├── html/                   # Static pages (ALL DARK THEME)
-│   ├── galerie.html        # Photo gallery (36 images, lazy loaded)
-│   ├── speisekarte.html    # Menu with PDF viewer & CTA
+│   ├── bootstrap.min.css   # Bootstrap framework (subpages only)
+│   ├── common.css          # Palette tokens, fonts, buttons, header/footer (site-wide)
+│   ├── index.css           # Homepage sections
+│   ├── speisekarte.css     # Printed-menu sheet styling + guest quote
+│   ├── galerie.css         # Gallery grid + lightbox
+│   ├── reservieren.css     # Form card, pills, trust line
+│   └── legal.css           # Legal document layout
+├── html/                   # Static pages
+│   ├── galerie.html        # Photo gallery (lazy loaded)
+│   ├── speisekarte.html    # Menu (JSON-driven) with PDF fallback
 │   ├── impressum.html      # Legal notice
 │   └── datenschutz.html    # Privacy policy
-├── php/                    # Server-side processing (ALL DARK THEME)
-│   ├── security.php        # Security utilities (CSRF, Rate Limiting, sanitization)
-│   ├── reservieren.php     # Secure reservation form with CSRF
-│   ├── Tischreservierung.php  # Form handler (security improvements)
-│   ├── Die_Reservierung_ist_bestatigt.php  # Success page (dark theme)
+├── php/                    # Server-side processing
+│   ├── security.php        # Security utilities (CSRF, rate limiting, sanitization)
+│   ├── reservieren.php     # Reservation form (CSRF, client-side validation)
+│   ├── Tischreservierung.php  # Form handler (full server-side validation)
+│   ├── Die_Reservierung_ist_bestatigt.php  # Success page
 │   └── temp/               # Protected rate limiting storage
 ├── js/
-│   ├── cookie-banner.js    # Cookie consent (deferred loading)
+│   ├── speisekarte.js      # Menu renderer (reads Speisekarte_v2.json)
+│   ├── gallery-loader.js   # Gallery loader
 │   ├── lightbox.js         # Lightweight gallery lightbox
-│   └── speisekarte.js      # Dynamic menu renderer (JSON-driven)
+│   ├── holiday-banner.js   # Holiday notice modal
+│   └── cookie-banner.js    # Cookie consent (deferred)
 ├── media/
-│   ├── Speisekarte_RatsstubenGermering.pdf  # PDF source
-│   ├── Speisekarte.json    # Original menu data
-│   └── Speisekarte_v2.json # Enhanced menu data (folded flags, badges)
-├── imgs/
-│   ├── T_hero.webp         # Main hero image (used site-wide)
-│   ├── *_hero.webp         # Page-specific banner images
-│   └── gallery/            # 38 optimized WebP gallery images
+│   ├── Speisekarte_RatsstubenGermering.pdf  # PDF menu source
+│   ├── Speisekarte_v2.json # Menu data (categories, badges, footer note)
+│   └── google_reviews.json # 20 verbatim positive Google reviews (raw material,
+│                           #   scraped 2026-07-02 via restaurantguru mirror;
+│                           #   VERIFY against live Google Business Profile before publishing)
+├── fonts/                  # Self-hosted woff2 (Fraunces, Source Sans 3)
+├── imgs/                   # WebP photos (hero, atmosphere, gallery/)
 ├── favicons/               # Complete favicon set
 └── .deployment_scripts/
     ├── deployWebApp.sh     # Production deployment script
     └── nginx-cache.conf    # Caching & compression config
 ```
 
-## UI Design System
+## UI Design System (light "Wirtshaus" theme, 2026-06 redesign)
 
-### Visual Identity
-- **Dark Theme:** Site-wide dark theme with fixed background image
-- **Card-Based Layout:** Elevated dark cards (#2d2d2d) with `1.25rem` rounded corners
-- **Hero Sections:** Page-specific atmospheric banners with 0.45 dark overlay
-- **Typography:** Lightweight headings (`font-weight: 300`)
-- **Spacing:** Consistent `1.5rem` gaps throughout
+The former site-wide dark theme was replaced in June 2026 by a bright
+Bavarian-Wirtshaus look. All tokens live in `css/common.css`:
 
-### Background Image
-- **Image:** `T_hero.webp` used site-wide with parallax effect
-- **Overlay:** `rgba(0, 0, 0, 0.5)` gradient
-- **Attachment:** Fixed (parallax scrolling effect)
-- **Position:** Center
-
-### Brand/Logo
-- **Structure:** `<h3 class="masthead-brand"><a>Ratsstuben <span class="brand-subtitle">aus Germering</span></a></h3>`
-- **Subtitle:** 0.7em font size, inline display, white-space nowrap (stays on one line)
-- **Phone:** International format `+49 89 847989`
-
-### Responsive Design
-- Mobile-first approach
-- 3-column gallery grid → 1-column on mobile
-- Centered navigation on mobile (< 768px)
-- Float-right navigation on desktop (≥ 768px)
-
-## Dark Theme Implementation (2026-01)
-
-### All Pages Now Use Dark Theme
-- **Body class:** `bg-dark` (all pages)
-- **Header:** `dark-header` (all pages)
-- **Footer:** `dark-footer` (all pages)
-
-### Dark Theme CSS (`css/common.css`)
 ```css
-.bg-dark {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../imgs/T_hero.webp');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  background-color: #1d1d1d;
-}
-
-/* Card backgrounds */
-.bg-dark .card,
-.bg-dark .reservation-card,
-.bg-dark .legal-card,
-.bg-dark .pdf-viewer-wrapper {
-  background-color: #2d2d2d !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-}
-
-/* Text colors */
-.bg-dark h1, .bg-dark h2, .bg-dark h3, .bg-dark h4, .bg-dark h5, .bg-dark h6 {
-  color: var(--color-white) !important;
-}
-
-.bg-dark p, .bg-dark li, .bg-dark span, .bg-dark div {
-  color: rgba(255, 255, 255, 0.85);
-}
+--paper:      #f6efe1;  /* warm linen background            */
+--paper-card: #fffaf0;  /* lighter card surface             */
+--ink:        #2b2419;  /* warm near-black text             */
+--ink-soft:   #5f5645;  /* muted body text                  */
+--blue:       #284a72;  /* navy from the painted sign (lead)*/
+--blue-deep:  #1d3a5c;  /* hover/darker                     */
+--amber:      #c07d1d;  /* beer & schnitzel accent          */
+--amber-deep: #a1640d;
+--line:       #e2d4ba;  /* warm hairline border             */
+--cream:      #fdf6e6;  /* text on blue                     */
 ```
 
-### Legal Pages Dark Theme (`css/legal.css`)
-```css
-/* Alert boxes */
-.bg-dark .alert-light {
-  background-color: #3d3d3d !important;
-  border-color: rgba(255, 255, 255, 0.15) !important;
-  color: rgba(255, 255, 255, 0.85) !important;
-}
+- **Typography:** Fraunces 900 for display/headings, Source Sans 3 for body,
+  both self-hosted (GDPR - no Google Fonts CDN).
+- **Header:** light band with traced navy sign logo, 4px amber rule.
+- **Footer:** blue band mirroring the sign, 4px amber rule.
+- **Physical metaphor:** hero photo, homepage menu-teaser card and story photo
+  are slightly rotated - printed things laid on the tablecloth.
+- Legacy CSS var aliases in common.css keep old class names working.
 
-/* Legal content */
-.bg-dark .legal-content h2 {
-  color: var(--color-white) !important;
-  border-bottom-color: rgba(255, 255, 255, 0.15) !important;
-}
+## Homepage Sections (index.html, top to bottom)
 
-.bg-dark .legal-content p,
-.bg-dark .legal-content li {
-  color: rgba(255, 255, 255, 0.85) !important;
-}
-```
+1. **Hero** - headline, lead, 3 actions (Speisekarte / Reservieren / Anruf), facts, rotated photo
+2. **Menu teaser** - "Empfehlungen des Hauses" card with 3 dishes + prices, link to full menu
+3. **Reviews band** - blue full-bleed strip: 4,5/5 stars, "über 350 Bewertungen bei Google",
+   3 verbatim guest quotes (source: media/google_reviews.json)
+4. **Rooms** - Biergarten + Stube photos, link to gallery
+5. **Story** - "Seit über 35 Jahren am Rathausplatz" + set-table photo
+6. **Visit** - address, hours, reserve/route/call buttons, S-Bahn (~10 min walk) and
+   payment note (Bar- und Kartenzahlung)
 
-## Hero Section Overlays
-
-All hero images now use consistent `0.45` dark overlay for text readability:
-
-| Page | Overlay | Image |
-|------|---------|-------|
-| index.html | 0.4 (in body bg) | T_hero.webp |
-| galerie.html | 0.45 | Galerie_hero.webp |
-| speisekarte.html | 0.45 | Speisekarte_hero.webp |
-| datenschutz.html | 0.45 | Legal_hero.webp |
-| impressum.html | 0.45 | Legal_hero.webp |
-| reservieren (PHP) | 0.15 | TitelSite_hero.webp |
-
-## CTA Sections (Call to Action)
-
-### Both CTAs Now Have Identical Styling
-```css
-.reservation-cta {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../imgs/T_hero.webp');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;  /* Parallax effect */
-  border: none;
-  width: 100%;
-  border-radius: 1.25rem !important;
-}
-```
-
-**Locations:**
-- galerie.html: "Hunger bekommen?" CTA
-- speisekarte.html: "Lust bekommen?" CTA
-
-## Security Implementation
-
-### Security Module (`php/security.php`)
-
-```php
-// Rate Limiting
-checkRateLimit($limit, $period) // IP-based DoS protection (30/10min)
-
-// CSRF Protection
-generateCsrfToken()    // Generate 32-byte token
-validateCsrfToken()    // Validate with 2-hour expiry
-
-// Input Sanitization
-sanitizeString($input, $maxLength)  // Clean text input
-sanitizeEmail($input)               // Validate email
-sanitizeInt($input)                 // Clean integers
-validateDate($date)                 // YYYY-MM-DD format
-validateTime($time)                 // HH:MM format
-
-// Security Headers
-setSecurityHeaders()    // CSP, X-Frame-Options, etc.
-
-// Utilities
-getSafeErrorMessage()   // User-friendly errors
-logError()              // Secure error logging
-validateHoneypot()      // Advanced bot detection
-```
-
-### Security Features
-
-| Feature | Implementation |
-|---------|---------------|
-| Rate Limiting | IP-based (30 req / 10 min), local temp storage |
-| CSRF Protection | Token-based, 2-hour expiration |
-| Input Sanitization | `htmlspecialchars()`, `filter_var()` |
-| Honeypot | Multiple fields + timing validation (< 2s = bot) |
-| Security Headers | CSP, X-Frame-Options, X-XSS-Protection, etc. |
-| Error Handling | Safe messages, secure logging, HTTP status codes |
-| Validation | Date/time format, required fields, range checks |
-
-### Security Headers Applied
-
-```php
-X-Frame-Options: SAMEORIGIN
-X-Content-Type-Options: nosniff
-X-XSS-Protection: 1; mode=block
-Content-Security-Policy: default-src 'self'; ...
-Referrer-Policy: strict-origin-when-cross-origin
-Permissions-Policy: geolocation=(), microphone=(), camera=()
-```
-
-## Performance Optimization
-
-### Image Optimization
-- **Format:** WebP (optimized via `cwebp` and `magick`)
-- **Processing:** New gallery images surgically cropped to content and flattened against card background (`#2d2d2d`) for consistent rounded corners.
-- **Lazy Loading:** All 38 gallery images use `loading="lazy"`
-- **Metadata:** Stripped EXIF data
-
-### JavaScript Loading
-- **Deferred Loading:** All script tags use `defer` attribute
-- **Non-blocking:** Scripts load after HTML parsing
-
-### Caching Strategy (`.deployment_scripts/nginx-cache.conf`)
-
-| Asset Type | Cache Duration | Headers |
-|------------|---------------|---------|
-| Images/Fonts | 1 year | `public, immutable` |
-| CSS/JS | 1 month | `public, must-revalidate` |
-| PDFs | 1 week | `public` |
-| HTML/PHP | 1 hour | `public, must-revalidate` |
-
-### Performance Estimate
-- **Lighthouse Performance:** 75-85/100
-- **Load time (3G):** 3-5 seconds
-- **Load time (WiFi):** 1-2 seconds
-
-## Mobile Responsiveness
-
-### Navigation
-- **Mobile (< 768px):** Centered with `justify-content: center`
-- **Desktop (≥ 768px):** Float right
-- **Brand subtitle:** `white-space: nowrap` to prevent wrapping
-
-### Button Adjustments
-- **"Jetzt verbindlich reservieren":** Text wraps naturally on mobile
-- **"Jetzt Tisch reservieren":** Reduced padding on mobile (`px-5` → `1.5rem`)
+Structured data: schema.org Restaurant JSON-LD incl. `paymentAccepted`.
+Deliberately NO `aggregateRating` markup (Google penalizes self-served
+third-party ratings) and NO embedded Google Map (GDPR - cookie banner
+promises no marketing data; route button links out instead).
 
 ## Key Features
 
 ### 1. Secure Reservation System
 
 **Flow:**
-1. User visits `/php/reservieren.php`
+1. User visits `/php/reservieren.php` (trust line: 4,5 Sterne bei Google)
 2. Server generates CSRF token
 3. Form submits to `Tischreservierung.php`
-4. Server validates CSRF, sanitizes inputs, checks honeypot
+4. Server validates CSRF, sanitizes inputs, checks honeypot + plausibility
 5. On success: Telegram notification → redirect to confirmation
-6. On error: Safe message with phone/email contact
+6. On error: safe message with phone/email contact
 
-### 2. Masonry Gallery with Lightbox (`html/galerie.html`)
-- 3-column desktop grid, 1-column mobile
-- WebP images with lazy loading
-- **Lightbox Feature:** Interactive full-screen view for all images (`js/lightbox.js`)
-- **Surgical Cropping:** New images fill the frame for a professional "full-frame" look
+**Validation (client + server, added 2026-07):**
+- Date: today … +1 year (`min`/`max` on input, re-checked server-side)
+- Monday = Ruhetag → rejected (inline JS `setCustomValidity` + server check)
+- Time: 11:30-21:30 (assumed last seating 30 min before close - confirm with owner)
+- Wording: button says "Reservierungsanfrage senden" (request, confirmed by phone),
+  NOT "verbindlich" - the site promises a phone confirmation
 
-### 3. Interactive HTML Menu (`html/speisekarte.html`)
-- **JSON-Driven:** Built dynamically from `media/Speisekarte_v2.json` via `js/speisekarte.js`.
-- **Collapsible Categories:** Accordion-style layout to reduce vertical scroll on mobile.
-- **Featured Section:** "Empfehlungen des Hauses" section always open for signature dishes.
-- **Visual Badges:** Color-coded annotations (Gold for classics, Blue for origin, Orange for specials).
-- **Mobile Optimized:** Prevents horizontal overflow and handles long names gracefully.
+### 2. JSON-Driven Menu (`html/speisekarte.html`)
+- `js/speisekarte.js` renders `media/Speisekarte_v2.json` as a printed menu sheet
+- First category = "Empfehlungen des Hauses" band, with a verbatim guest quote below the dishes
+- Badges: Klassiker (blue) / Kroatisch (amber) / Spezialität (orange)
+- Footer note from JSON: prices incl. VAT + "Bar- und Kartenzahlung möglich"
+- PDF download fallback
 
-### 4. Legal Pages
-- Dark theme with proper contrast
-- Alert boxes with dark backgrounds
-- Readable text on dark cards
+### 3. Gallery with Lightbox (`html/galerie.html`)
+- WebP images, lazy loading, lightweight lightbox (`js/lightbox.js`)
 
-## Development
+### 4. Reviews raw material (`media/google_reviews.json`)
+- 20 positive (≥4★) German-language Google reviews, verbatim, with author/date
+- Collected 2026-07-02 from the restaurantguru.com mirror (Google itself blocks scraping)
+- Aggregate figures: Google panel 4,5★ / ~357 reviews (restaurantguru's own aggregate 3,9)
+- Used for: homepage quotes, speisekarte quote, reservation trust line
+- Before publishing more of them: verify wording on the live Google Business Profile
 
-### Local Development
+## Security Implementation
 
-**Docker (Recommended):**
-```bash
-docker run -d --name ratsstuben-php -p 8080:80 \
-  -v "$(pwd):/var/www/html" php:apache
+### Security Module (`php/security.php`)
+
+```php
+checkRateLimit($limit, $period) // IP-based DoS protection (30/10min)
+generateCsrfToken()             // 32-byte token
+validateCsrfToken()             // 2-hour expiry
+sanitizeString/Email/Int()      // Input sanitization
+validateDate($date)             // YYYY-MM-DD format
+validateTime($time)             // HH:MM format
+setSecurityHeaders()            // CSP, X-Frame-Options, etc.
+validateHoneypot()              // Honeypot fields + timing (< 2s = bot)
 ```
 
-### Environment Variables
-- `TELEGRAM_BOT_TOKEN` - Bot API token
-- `CHAT_ID` - Target chat for notifications
+Additional plausibility checks live in `Tischreservierung.php` (past date,
++1 year cap, Monday, opening hours).
+
+## Performance
+
+- WebP everywhere, lazy loading, stripped EXIF
+- `defer` on all scripts; fonts preloaded on index
+- Cache-busting via `?v=YYYYMMDDx` query strings - bump on every asset change
+- nginx caching config in `.deployment_scripts/nginx-cache.conf`
 
 ## Restaurant Info
 
@@ -315,33 +173,52 @@ docker run -d --name ratsstuben-php -p 8080:80 \
 |-------|-------|
 | **Name** | Ratsstuben Germering |
 | **Address** | Rathausplatz 1, 82110 Germering |
-| **History** | 35+ Years of Tradition |
-| **Hours** | Tue - Sun: 11:30 - 22:00 (Mon: Closed) |
+| **History** | 35+ years of tradition |
+| **Cuisine** | Croatian, Bavarian, international |
+| **Hours** | Tue - Sun: 11:30 - 22:00 (Mon: closed) |
 | **Phone** | +49 89 847989 |
 | **Email** | ratsstuben.germering@gmail.com |
+| **Payment** | Cash and card (card accepted since 2026 - also update Google Business Profile attribute) |
+| **Nearby** | S8 Germering-Unterpfaffenhofen, ~700 m / 10 min walk |
 
-## Recent Updates (2026-01-25)
+## Development
 
-### Dynamic Menu Implementation ✅
-- **Data Conversion:** Transcribed entire PDF menu into structured JSON.
-- **Interactive Engine:** Built `speisekarte.js` renderer with category folding and smooth animations.
-- **Visual Improvements:** Added "Empfehlungen" section with gold styling and color-coded badges (Klassiker, Kroatisch, Beliebt).
-- **UX Fixes:** Resolved horizontal scrolling on mobile and removed jittery parallax from CTA.
+### Local Development
 
-### Security Hardening ✅
-- Implemented IP-based **Rate Limiting** (30 requests per 10 minutes).
-- Created secure `php/temp/` storage for rate limit data with 2% garbage collection.
-- Verified 403 Forbidden access to sensitive security data.
+```bash
+# simplest (matches production PHP behavior well enough for pages/forms)
+php -S 127.0.0.1:8080 -t .
+
+# or Docker
+docker run -d --name ratsstuben-php -p 8080:80 \
+  -v "$(pwd):/var/www/html" php:apache
+```
+
+Mail/Telegram won't fire locally; forms render and validate.
+
+### Environment Variables
+- `TELEGRAM_BOT_TOKEN` - Bot API token
+- `CHAT_ID` - Target chat for notifications
+
+## Recent Updates (2026-07-02/03)
+
+- **Homepage conversion pass:** menu teaser, Google reviews band (3 quotes),
+  story section, visit/CTA section
+- **Reservation UX+validation:** honest "Anfrage" wording, date/time/Monday
+  validation client- and server-side
+- **Card payments:** now accepted - noted on homepage, menu footer, schema.org
+- **google_reviews.json:** 20 verbatim positive reviews collected as raw material
 
 ## Known Issues & TODO
 
-### Potential Improvements
-- [ ] Add reCAPTCHA v3 for additional spam protection
-- [ ] Purge unused Bootstrap CSS (~100KB savings)
-- [ ] Combine CSS files for production
-- [ ] Add service worker for offline support
-- [ ] Disable parallax on mobile for performance
+- [ ] Verify 4,5★ / "über 350 Bewertungen" against live Google Business Profile
+- [ ] Confirm last-seating time (currently assumed 21:30)
+- [ ] Owner: update Google Business Profile payment attribute (card accepted)
+- [ ] Professional food photo shoot (highest-ROI improvement; hero photo is a phone shot)
+- [ ] Cookie banner button wording "Ich erkenne an" → "Verstanden"
+- [ ] Purge unused Bootstrap CSS on subpages (~100KB savings)
+- [ ] Add Instagram/Facebook links if/when profiles exist
 
 ### Migration Notes
 - Static `html/reservieren.html` is deprecated; use `/php/reservieren.php`
-- All navigation links now point to secure PHP version
+- All navigation links point to the PHP version

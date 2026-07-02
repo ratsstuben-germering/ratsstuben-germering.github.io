@@ -33,7 +33,7 @@ $timestamp = time();
     <link href="../css/common.css?v=20260629a" rel="stylesheet">
 
     <!-- Page-specific styles -->
-    <link href="../css/reservieren.css?v=20260629a" rel="stylesheet">
+    <link href="../css/reservieren.css?v=20260703a" rel="stylesheet">
   </head>
 
   <body class="d-flex flex-column min-vh-100">
@@ -70,8 +70,9 @@ $timestamp = time();
             <div class="col-lg-10">
               <div class="reservation-card p-4 p-md-5">
                 <div class="text-center mb-5">
-                  <p class="text-muted">Bitte füllen Sie das Formular aus, um Ihre Anfrage zu senden.<br>
-                  Bei kurzfristigen Stornierungen werden wir Sie telefonisch kontaktieren.</p>
+                  <p class="trust-line"><span class="trust-stars" aria-hidden="true">★</span> 4,5 von 5 bei Google &middot; über 350 Bewertungen</p>
+                  <p class="text-muted">Senden Sie uns Ihre Anfrage &ndash; wir melden uns telefonisch zur Bestätigung.<br>
+                  Geöffnet Di&ndash;So 11:30&ndash;22:00 Uhr &middot; Montag Ruhetag.</p>
                 </div>
 
                 <form method="POST" action="Tischreservierung.php" id="reservationForm">
@@ -94,11 +95,13 @@ $timestamp = time();
                     <div class="row">
                       <div class="col-md-4 mb-3">
                         <label for="date" class="small font-weight-bold text-uppercase text-muted mb-2 d-block">Datum</label>
-                        <input type="date" name="date" class="form-control form-control-lg custom-input" id="date" required>
+                        <input type="date" name="date" class="form-control form-control-lg custom-input" id="date" required
+                               min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+1 year')); ?>">
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="time" class="small font-weight-bold text-uppercase text-muted mb-2 d-block">Uhrzeit</label>
-                        <input type="time" name="time" class="form-control form-control-lg custom-input" id="time" required>
+                        <input type="time" name="time" class="form-control form-control-lg custom-input" id="time" required
+                               min="11:30" max="21:30">
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="n_guests" class="small font-weight-bold text-uppercase text-muted mb-2 d-block">Gästeanzahl</label>
@@ -172,7 +175,7 @@ $timestamp = time();
                   </div>
 
                   <div class="pt-3">
-                    <button class="btn-primary btn-block py-3" type="submit">Jetzt verbindlich reservieren</button>
+                    <button class="btn-primary btn-block py-3" type="submit">Reservierungsanfrage senden</button>
                     <p class="text-center small text-muted mt-3">* Mit dem Absenden akzeptieren Sie, dass wir Sie zwecks Reservierung kontaktieren dürfen.</p>
                   </div>
                 </form>
@@ -214,6 +217,22 @@ $timestamp = time();
 
     <script src="../js/holiday-banner.js?v=20260503"></script>
     <script src="../js/cookie-banner.js?v=20260503" defer></script>
+    <script>
+      // Montag ist Ruhetag – direkt am Feld melden statt erst beim Absenden
+      (function () {
+        var dateInput = document.getElementById('date');
+        if (!dateInput) return;
+        dateInput.addEventListener('change', function () {
+          var d = new Date(this.value + 'T12:00:00');
+          if (!isNaN(d) && d.getDay() === 1) {
+            this.setCustomValidity('Montag ist Ruhetag – bitte wählen Sie einen anderen Tag.');
+            this.reportValidity();
+          } else {
+            this.setCustomValidity('');
+          }
+        });
+      })();
+    </script>
 
   </body>
 </html>

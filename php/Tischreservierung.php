@@ -66,6 +66,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die('Ungültiges Zeitformat.');
     }
 
+    // Plausibility checks: no past dates, no Mondays (Ruhetag), within opening hours
+    $resDate = DateTime::createFromFormat('Y-m-d', $date);
+    if ($resDate < new DateTime('today')) {
+        http_response_code(400);
+        die('Das gewählte Datum liegt in der Vergangenheit.');
+    }
+    if ($resDate > (new DateTime('today'))->modify('+1 year')) {
+        http_response_code(400);
+        die('Reservierungen sind maximal ein Jahr im Voraus möglich.');
+    }
+    if ($resDate->format('N') === '1') {
+        http_response_code(400);
+        die('Montag ist Ruhetag – bitte wählen Sie einen anderen Tag.');
+    }
+    if ($time < '11:30' || $time > '21:30') {
+        http_response_code(400);
+        die('Bitte wählen Sie eine Uhrzeit zwischen 11:30 und 21:30 Uhr.');
+    }
+
     $_SESSION['reservation'] = [
         'timestamp' => date('H:i d-m-Y'),
         'name' => $name,

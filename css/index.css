@@ -128,6 +128,185 @@
 .room figcaption { margin-top: 0.7rem; font-weight: 600; font-size: 1.02rem; }
 
 /* ============================================
+   Menu teaser – a small printed card laid on the
+   tablecloth, echoing the rotated hero photo
+   ============================================ */
+.menu-teaser { padding: 3rem 0 1rem; }
+.teaser-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.teaser-intro h2 {
+  font-weight: 900;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  color: var(--ink);
+  margin: 0 0 1rem;
+}
+.teaser-intro p {
+  color: var(--ink-soft);
+  line-height: 1.65;
+  margin: 0 0 1.5rem;
+  max-width: 28rem;
+}
+
+.teaser-card {
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 1.8rem 2rem;
+  box-shadow: var(--shadow);
+  transform: rotate(0.8deg);
+}
+.teaser-dishes { list-style: none; margin: 0; padding: 0; }
+.teaser-dish {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(226, 212, 186, 0.55);
+}
+.teaser-dish:first-child { padding-top: 0; }
+.teaser-dish:last-child { border-bottom: none; padding-bottom: 0; }
+.t-line { display: flex; align-items: baseline; margin: 0; }
+.t-nm { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 1.06rem; color: var(--ink); }
+.t-badge {
+  font-size: 0.6rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  margin-left: 0.55rem; white-space: nowrap;
+}
+.t-special { color: #b6541d; }
+.t-origin  { color: var(--amber-deep); }
+.t-dots {
+  flex: 1 1 auto; min-width: 1.5rem; margin: 0 0.5rem;
+  border-bottom: 1px dotted #cbb892; position: relative; top: -0.28em;
+}
+.t-pr {
+  font-weight: 700; color: var(--amber-deep);
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.t-desc { margin: 0.15rem 0 0; font-size: 0.9rem; color: var(--ink-soft); line-height: 1.45; }
+
+/* ============================================
+   Reviews – a painted blue band, like the sign
+   ============================================ */
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.reviews {
+  margin-top: 3rem;
+  background: var(--blue);
+  border-top: 4px solid var(--amber);
+  border-bottom: 4px solid var(--amber);
+  padding: 2.75rem 0;
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem 4rem;
+  align-items: center;
+}
+.reviews-score { text-align: center; }
+.score-num {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 900;
+  font-size: 3.4rem;
+  line-height: 1;
+  color: var(--cream);
+  margin: 0;
+}
+.score-of { font-size: 1.4rem; font-weight: 600; color: var(--cream-soft); }
+.score-stars {
+  font-size: 1.35rem;
+  letter-spacing: 0.18em;
+  color: var(--amber);
+  margin: 0.25rem 0 0.35rem;
+}
+.star-half {
+  background: linear-gradient(90deg, var(--amber) 50%, rgba(217, 226, 239, 0.35) 50%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.score-src { color: var(--cream-soft); font-size: 0.92rem; margin: 0; }
+
+.reviews-quotes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.25rem;
+}
+.quote { margin: 0; }
+.quote blockquote {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.04rem;
+  line-height: 1.5;
+  color: var(--cream);
+  margin: 0 0 0.6rem;
+}
+.quote figcaption {
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--cream-soft);
+}
+
+/* ============================================
+   Story – seit über 35 Jahren
+   ============================================ */
+.story { padding: 3rem 0 1rem; }
+.story-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 3rem;
+  align-items: center;
+}
+.story-photo { margin: 0; transform: rotate(-1deg); }
+.story-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #fff;
+  padding: 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  box-shadow: var(--shadow-sm);
+}
+.story-copy h2 {
+  font-weight: 900;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  color: var(--ink);
+  margin: 0 0 1rem;
+}
+.story-copy p {
+  color: var(--ink-soft);
+  line-height: 1.65;
+  margin: 0 0 1rem;
+  max-width: 34rem;
+}
+
+/* ============================================
+   Visit – the closing invitation
+   ============================================ */
+.visit { padding: 3.5rem 0 1.5rem; }
+.visit-inner {
+  text-align: center;
+  border-top: 1px solid var(--line);
+  padding-top: 3rem;
+}
+.visit-inner h2 {
+  font-weight: 900;
+  font-size: clamp(1.7rem, 3.2vw, 2.3rem);
+  color: var(--ink);
+  margin: 0 0 0.6rem;
+}
+.visit-sub { color: var(--ink); font-weight: 600; margin: 0 0 1.6rem; }
+.visit-actions { justify-content: center; margin-bottom: 1.4rem; }
+.visit-note { color: var(--ink-soft); font-size: 0.92rem; margin: 0; }
+
+/* ============================================
    Responsive
    ============================================ */
 @media (max-width: 860px) {
@@ -136,6 +315,12 @@
   .hero-photo { order: -1; transform: rotate(-1deg); max-width: 30rem; }
   .rooms-grid { grid-template-columns: 1fr; }
   .room img { height: 15rem; }
+  .teaser-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .teaser-card { transform: rotate(0.5deg); }
+  .reviews-grid { grid-template-columns: 1fr; text-align: center; }
+  .reviews-quotes { grid-template-columns: 1fr; gap: 1.5rem; }
+  .story-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .story-photo { max-width: 30rem; }
 }
 
 @media (max-width: 560px) {
@@ -149,4 +334,6 @@
   .hero-photo { transform: none; }
   .room img { transition: none; }
   .room a:hover img { transform: none; }
+  .teaser-card { transform: none; }
+  .story-photo { transform: none; }
 }

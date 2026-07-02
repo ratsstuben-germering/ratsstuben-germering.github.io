@@ -110,6 +110,23 @@ body { background: var(--paper); }
 .d-nm { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 0.96rem; color: var(--ink); }
 .drink-row .pr { font-size: 0.96rem; }
 
+/* guest quote inside the recommendations band */
+.guest-quote {
+  margin: 0.9rem 0 0;
+  padding-top: 0.7rem;
+  border-top: 1px dotted rgba(192, 125, 29, 0.4);
+  font-family: "Fraunces", Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+.guest-quote-src {
+  font-family: "Source Sans 3", sans-serif;
+  font-style: normal;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+}
+
 /* footer note + reservation prompt */
 .menu-note {
   text-align: center; font-style: italic; color: var(--ink-soft);

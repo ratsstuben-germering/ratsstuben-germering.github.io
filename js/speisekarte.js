@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const noteEl = document.getElementById('menu-note');
   if (!container) return;
 
-  fetch('../media/Speisekarte_v2.json?v=20260627e')
+  fetch('../media/Speisekarte_v2.json?v=20260703a')
     .then(function (r) { if (!r.ok) throw new Error('Network response was not ok'); return r.json(); })
     .then(function (data) { render(data, container, noteEl); })
     .catch(function (err) {
@@ -67,7 +67,11 @@ function render(data, container, noteEl) {
           ${it.description ? `<p class="desc">${esc(it.description)}</p>` : ''}
         </div></li>`;
     });
-    html += `</ul></section>`;
+    html += `</ul>`;
+    if (feat) {
+      html += `<p class="guest-quote">„Sensationell guter Grillteller &ndash; die Portion war so groß, dass ich es nicht geschafft habe.“<span class="guest-quote-src"> &ndash; Gast&shy;rezension bei Google</span></p>`;
+    }
+    html += `</section>`;
   });
 
   container.innerHTML = html;
