@@ -9,6 +9,9 @@ require_once __DIR__ . '/security.php';
 // Set security headers
 setSecurityHeaders();
 
+// Never cache this page: it embeds a per-session CSRF token
+header('Cache-Control: private, no-store, max-age=0');
+
 // Generate CSRF token for this form
 $csrfToken = generateCsrfToken();
 $timestamp = time();
