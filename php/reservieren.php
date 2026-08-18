@@ -218,7 +218,7 @@ $timestamp = time();
       </div>
     </footer>
 
-    <script src="../js/holiday-banner.js?v=20260503"></script>
+    <script src="../js/holiday-banner.js?v=20260818"></script>
     <script src="../js/cookie-banner.js?v=20260503" defer></script>
     <script>
       // Montag ist Ruhetag – direkt am Feld melden statt erst beim Absenden

@@ -1,5 +1,5 @@
 (function() {
-  var reopenDate = new Date('2026-03-31T00:00:00');
+  var reopenDate = new Date('2026-09-01T00:00:00');
   var now = new Date();
 
   if (now < reopenDate) {
@@ -13,7 +13,7 @@
         <h3 class="holiday-modal-title">Urlaubszeit!</h3>\
         <p class="holiday-modal-text">\
           Wir haben Urlaub!<br>\
-          Wieder offen ab <span class="holiday-modal-highlight">31.03.2026</span>\
+          Wieder offen ab <span class="holiday-modal-highlight">01.09.2026</span>\
         </p>\
         <p class="holiday-modal-note">Reservierungen für spätere Termine nehmen wir gerne entgegen.</p>\
         <button class="holiday-modal-btn" onclick="document.getElementById(\'holiday-modal\').style.display=\'none\'">Verstanden</button>\
