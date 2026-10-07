@@ -10,7 +10,7 @@
           "id": 170,
           "name": "Grillteller für 1 Person",
           "description": "Mageres Kotelett und Halsgrat, geräuchertes Wammerl, Cevapcici, kl. Hacksteak, Rinderleber dazu Djuvecreis und Pommes",
-          "price": 17.8,
+          "price": 19.2,
           "badge": "Beliebt",
           "badge_type": "special"
         },
@@ -26,7 +26,7 @@
           "id": 161,
           "name": "Cevapcici",
           "description": "8 Hackfleischröllchen, mit Djuvecreis und Pommes, Ajvar, gehackten Zwiebeln und Peperoni",
-          "price": 14.9,
+          "price": 16.1,
           "badge": "Kroatisch",
           "badge_type": "origin"
         },
@@ -34,7 +34,7 @@
           "id": 178,
           "name": "Lustiger Bosnjak",
           "description": "Rinderlende gefüllt mit Schafskäse und Schinken, dazu Bratkartoffeln",
-          "price": 24.0,
+          "price": 26.0,
           "badge": "Spezialität",
           "badge_type": "special"
         }
@@ -48,13 +48,13 @@
           "id": 160,
           "name": "Bosnischer Spieß",
           "description": "mageres Halsgrat, Deberciner, kl. Hacksteak, geräuchertes Wammerl, Cevapcici, mit Pommes Frites und Djuvecreis",
-          "price": 15.8
+          "price": 17.1
         },
         {
           "id": 161,
           "name": "Cevapcici",
           "description": "8 Hackfleischröllchen, mit Djuvecreis und Pommes, Ajvar, gehackten Zwiebeln und Peperoni",
-          "price": 14.9,
+          "price": 16.1,
           "badge": "Kroatisch",
           "badge_type": "origin"
         },
@@ -62,7 +62,7 @@
           "id": 162,
           "name": "Rasnjici",
           "description": "2 Spieße mageres, mit Djuvecreis und Pommes, Ajvar, gehackten Zwiebeln und Peperoni",
-          "price": 14.9,
+          "price": 16.1,
           "badge": "Kroatisch",
           "badge_type": "origin"
         },
@@ -70,7 +70,7 @@
           "id": 163,
           "name": "Pljeskavica",
           "description": "1 Hacksteak, mit Djuvecreis und Pommes, Ajvar, gehackten Zwiebeln und Peperoni",
-          "price": 14.9,
+          "price": 16.1,
           "badge": "Kroatisch",
           "badge_type": "origin"
         },
@@ -78,7 +78,7 @@
           "id": 164,
           "name": "Pljeskavica 'Split'",
           "description": "1 Hacksteak, gefüllt mit bulgarischen Schafskäse, dazu Djuvecreis, Ajvar, gehackten Zwiebeln und Peperoni",
-          "price": 18.0,
+          "price": 19.4,
           "badge": "Kroatisch",
           "badge_type": "origin"
         },
@@ -86,7 +86,7 @@
           "id": 165,
           "name": "Pljeskavica 'Opatija'",
           "description": "1 Hacksteak, m. weißen Bohnen",
-          "price": 14.9,
+          "price": 16.1,
           "badge": "Kroatisch",
           "badge_type": "origin"
         },
@@ -94,13 +94,13 @@
           "id": 166,
           "name": "Kotelett vom Rost",
           "description": "mageres Schweinekotelett, mit Djuvecreis und Pommes Frites",
-          "price": 14.5
+          "price": 15.7
         },
         {
           "id": 167,
           "name": "Kotelett 'Opatija'",
           "description": "mageres Schweinekotelett, mit weißen Bohnen",
-          "price": 14.9,
+          "price": 16.1,
           "badge": "Kroatisch",
           "badge_type": "origin"
         },
@@ -108,13 +108,13 @@
           "id": 168,
           "name": "Leber vom Rost",
           "description": "Junge Rinderleber, mit djuvecreis und Pommes Frites",
-          "price": 14.8
+          "price": 16.0
         },
         {
           "id": 170,
           "name": "Grillteller für 1 Person",
           "description": "Mageres Kotelett und Halsgrat, geräuchertes Wammerl, Cevapcici, kl. Hacksteak, Rinderleber dazu Djuvecreis und Pommes",
-          "price": 17.8,
+          "price": 19.2,
           "badge": "Beliebt",
           "badge_type": "special"
         },
@@ -122,7 +122,7 @@
           "id": 171,
           "name": "Vukovar - Platte für 2 Personen",
           "description": "eine Spezialität unseres Hauses",
-          "price": 35.6,
+          "price": 38.4,
           "badge": "Kroatisch",
           "badge_type": "origin"
         },
@@ -130,31 +130,31 @@
           "id": 172,
           "name": "Djingis Khan - Spieß",
           "description": "verschiedenes Fleisch, am Tisch flambiert, mit Gemüse und Röstkartoffeln",
-          "price": 38.0
+          "price": 41.0
         },
         {
           "id": 175,
           "name": "Gefüllte Paprikaschoten",
           "description": "mit Salzkartoffeln",
-          "price": 15.8
+          "price": 17.1
         },
         {
           "id": 176,
           "name": "Putenschnitzel",
           "description": "paniert, mit Kartoffelsalat",
-          "price": 15.8
+          "price": 17.1
         },
         {
           "id": 177,
           "name": "Putengeschnetzeltes",
           "description": "mit Rahm-Champignonsoße und Curryreis",
-          "price": 17.5
+          "price": 18.9
         },
         {
           "id": 178,
           "name": "Lustiger Bosnjak",
           "description": "Rinderlende gefüllt mit Schafskäse und Schinken, dazu Bratkartoffeln",
-          "price": 24.0
+          "price": 26.0
         }
       ]
     },
@@ -360,37 +360,37 @@
           "id": 180,
           "name": "Forelle blau",
           "description": "mit Salzkartoffeln",
-          "price": 17.0
+          "price": 18.4
         },
         {
           "id": 181,
           "name": "Forelle Müllerin",
           "description": "gebacken, mit Salzkartoffeln in Butter geschwenkt",
-          "price": 17.0
+          "price": 18.4
         },
         {
           "id": 182,
           "name": "Forelle auf mazedonische Art",
           "description": "gefüllt mit Djuvecgemüse, dazu Salzkartoffeln",
-          "price": 18.5
+          "price": 19.9
         },
         {
           "id": 183,
           "name": "Scampi vom Grill",
           "description": "mit Curryreis und hausgemachter amerikanischer Soße",
-          "price": 25.5
+          "price": 27.5
         },
         {
           "id": 184,
           "name": "Calamare",
           "description": "gebacken, mit Pommes und hausgemachter amerikanischer Soße",
-          "price": 16.0
+          "price": 17.3
         },
         {
           "id": 185,
           "name": "Zanderfilet paniert",
           "description": "mit Knoblauchkartoffelpüree",
-          "price": 20.8
+          "price": 22.5
         }
       ]
     },
