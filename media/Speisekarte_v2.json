@@ -689,32 +689,32 @@
             {
               "name": "Hell – vom Fass",
               "size": "0.5 l",
-              "price": 4.3
+              "price": 4.6
             },
             {
               "name": "Hell – vom Fass",
               "size": "0.25 l",
-              "price": 2.9
+              "price": 3.2
             },
             {
               "name": "Pils – vom Fass",
               "size": "0.4 l",
-              "price": 4.6
+              "price": 4.9
             },
             {
               "name": "Salvator Dunkel",
               "size": "0.5 l",
-              "price": 4.6
+              "price": 4.9
             },
             {
               "name": "Hefe Weißbier",
               "size": "0.5 l",
-              "price": 4.6
+              "price": 4.9
             },
             {
               "name": "Hefe Weißbier Dunkel",
               "size": "0.5 l",
-              "price": 4.6
+              "price": 4.9
             }
           ]
         },
@@ -789,31 +789,31 @@
           "items": [
             {
               "name": "Campari-Soda / Orange",
-              "price": 5.9
-            },
-            {
-              "name": "Campari, Martini",
-              "price": 4.8
-            },
-            {
-              "name": "Sljivovic",
-              "price": 2.9
-            },
-            {
-              "name": "Aperol Spritz",
               "price": 6.5
             },
             {
+              "name": "Campari, Martini",
+              "price": 5.2
+            },
+            {
+              "name": "Sljivovic",
+              "price": 3.1
+            },
+            {
+              "name": "Aperol Spritz",
+              "price": 7.2
+            },
+            {
               "name": "Hugo",
-              "price": 6.0
+              "price": 7.0
             },
             {
               "name": "Barack Palinka",
-              "price": 2.9
+              "price": 3.1
             },
             {
               "name": "Pelinkovac",
-              "price": 2.9
+              "price": 3.1
             }
           ]
         },
@@ -823,47 +823,47 @@
           "items": [
             {
               "name": "Jägermeister",
-              "price": 2.9
-            },
-            {
-              "name": "Obstler",
-              "price": 2.9
-            },
-            {
-              "name": "Fernet Branca",
-              "price": 3.2
-            },
-            {
-              "name": "Williamsbirne",
               "price": 3.1
             },
             {
-              "name": "Metaxa",
+              "name": "Obstler",
+              "price": 3.1
+            },
+            {
+              "name": "Fernet Branca",
               "price": 3.4
             },
             {
+              "name": "Williamsbirne",
+              "price": 3.4
+            },
+            {
+              "name": "Metaxa",
+              "price": 3.6
+            },
+            {
               "name": "Ouzo",
-              "price": 2.9
+              "price": 3.1
             },
             {
               "name": "Hennessy",
-              "price": 3.8
+              "price": 4.1
             },
             {
               "name": "Jack Daniel's",
-              "price": 3.8
+              "price": 4.1
             },
             {
               "name": "Wodka",
-              "price": 2.9
+              "price": 3.1
             },
             {
               "name": "Kruskovac",
-              "price": 2.9
+              "price": 3.1
             },
             {
               "name": "Julischka",
-              "price": 2.9
+              "price": 3.1
             }
           ]
         },
@@ -871,12 +871,12 @@
           "label": "Sekt",
           "items": [
             {
-              "name": "Fürst Metternich (Flasche)",
-              "price": 30.0
+              "name": "Fürst Metternich (0.75 l)",
+              "price": 35.0
             },
             {
-              "name": "Fürst Metternich (Glas)",
-              "price": 9.5
+              "name": "Fürst Metternich (0.25 l)",
+              "price": 11.5
             }
           ]
         },
@@ -886,15 +886,15 @@
           "items": [
             {
               "name": "Laski Rizling",
-              "price": 5.9
+              "price": 6.3
             },
             {
               "name": "Traminer",
-              "price": 5.9
+              "price": 6.3
             },
             {
               "name": "Zilavka – Mostar",
-              "price": 5.9
+              "price": 6.3
             }
           ]
         },
@@ -904,15 +904,15 @@
           "items": [
             {
               "name": "Merlot",
-              "price": 5.9
+              "price": 6.3
             },
             {
               "name": "Plavac",
-              "price": 5.9
+              "price": 6.3
             },
             {
               "name": "Peljesac",
-              "price": 5.9
+              "price": 6.3
             }
           ]
         },
@@ -922,17 +922,17 @@
             {
               "name": "Weinschorle",
               "size": "0.25 l",
-              "price": 3.9
+              "price": 4.3
             },
             {
               "name": "Weinschorle",
               "size": "0.5 l",
-              "price": 6.8
+              "price": 7.2
             },
             {
               "name": "Weinschorle aus Zilavka",
               "size": "0.5 l",
-              "price": 8.5
+              "price": 9.1
             }
           ]
         }
